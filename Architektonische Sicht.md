@@ -170,11 +170,11 @@ Die konkrete Umsetzung erfolgt durch die Geschäftsobjekte in Kapitel 3 und die 
 
 *Tabelle: Empfehlung Geschäftsobjekte (Konsolidiert)*
 
-![Vereinfachte Darstellung Geschäftsobjekte](assets/architektonische-sicht_vereinfachte-darstellung.png)
+![Vereinfachte Darstellung Geschäftsobjekte](assets/Architektonische%20Sicht/architektonische-sicht_02_vereinfachte-darstellung.jpg)
 
 *Bild: Vereinfachte Darstellung*
 
-![Flowchart Darstellung von Geschäftsobjekten](assets/architektonische-sicht_flowchart-geschaeftsobjekte.png)
+![Flowchart Darstellung von Geschäftsobjekten](assets/Architektonische%20Sicht/architektonische-sicht_03_flowchart-geschaeftsobjekte.png)
 
 *Bild: Flowchart Darstellung von Geschäftsobjekten (konsolidiert)*
 
@@ -485,7 +485,7 @@ Zur einheitlichen Klassifizierung der Begriffe und Standards werden folgende Kat
 
 <!-- TODO: Vollständige Tabelle der IFC Begriffe hier einfügen -->
 
-![IFC Räumliche Hierarchie](assets/architektonische-sicht_ifc-hierarchie.png)
+![IFC Räumliche Hierarchie](assets/Architektonische%20Sicht/architektonische-sicht_01_ifc-hierarchie.png)
 
 *Bild: IFC Räumliche Hierarchie (vereinfacht)*
 

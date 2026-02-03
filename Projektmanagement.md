@@ -377,8 +377,7 @@ Zur einheitlichen Klassifizierung der Standards werden folgende Kategorien verwe
 | 28 | **Systemtechnisch** | | | | |
 | 29 | Objektverknüpfung | Geschäftsobjekt | Generische Verknüpfungstabelle für flexible Objekt-Beziehungen | Sehr hoch | Ermöglicht n:m Beziehungen zwischen verschiedenen Objekttypen wie SAP PS, RE-FX, etc. |
 
-<!-- TODO: Bild einfügen - Konzeptuelles Datenmodell SAP EPPM -->
-<!-- ![Konzeptuelles Datenmodell SAP EPPM](assets/projektmanagement_sap_eppm_datenmodell.png) -->
+![Konzeptuelles Datenmodell SAP EPPM](assets/Projektmanagement/projektmanagement_01_sap_eppm_datenmodell.png)
 
 ### 5.X SIMAP (Beschaffungsplattform von Bund und bundesnahen Organisationen)
 
@@ -514,8 +513,6 @@ Zur einheitlichen Klassifizierung der Standards werden folgende Kategorien verwe
 
 | Datei | Geändert |
 |-------|----------|
-| PNG-Datei image-2025-11-6_13-34-34.png | 06.11.2025 by Rasner David BBL |
-| PNG-Datei image-2025-11-6_13-34-34-1.png | 06.11.2025 by Rasner David BBL |
-| PNG-Datei image-2025-11-6_13-34-34-2.png | 06.11.2025 by Rasner David BBL |
-
-<!-- TODO: Anhang-Dateien bei Verfügbarkeit hier verlinken -->
+| ![SAP EPPM Datenmodell](assets/Projektmanagement/projektmanagement_01_sap_eppm_datenmodell.png) | 06.11.2025 by Rasner David BBL |
+| ![SAP EPPM Detail](assets/Projektmanagement/projektmanagement_02_sap_eppm_detail.png) | 06.11.2025 by Rasner David BBL |
+| ![SAP EPPM Overview](assets/Projektmanagement/projektmanagement_03_sap_eppm_overview.png) | 06.11.2025 by Rasner David BBL |

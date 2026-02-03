@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(ren:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(powershell -Command \"Rename-Item -Path ''c:\\\\Users\\\\DavidRasner\\\\Documents\\\\GitHub\\\\ea-immo\\\\assets\\\\Dokumentenmanagement\\\\Dokumentenmanagement \\(Vereinfachte Darst _ Mermaid Chart-2025-07-24-165853.png'' -NewName ''01-dokumentenmanagement-geschaeftsobjekte.png''\")",
+      "Bash(powershell:*)"
     ]
   }
 }

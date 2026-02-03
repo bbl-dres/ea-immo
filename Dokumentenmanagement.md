@@ -114,7 +114,7 @@ Die Verbindung zur Architektonischen Sicht erfolgt durch die systematische Verkn
 
 ### Diagramm Geschäftsobjekte
 
-![Dokumentenmanagement Geschäftsobjekte](assets/01-dokumentenmanagement-geschaeftsobjekte.png)
+![Dokumentenmanagement Geschäftsobjekte](assets/Dokumentenmanagement/dokumentenmanagement_01_geschaeftsobjekte.png)
 
 *Bild: Empfehlung Geschäftsobjekte (Konsolidiert) - Vereinfachte Darstellung*
 
@@ -290,11 +290,11 @@ Zur einheitlichen Klassifizierung der Begriffe und Standards werden folgende Kat
 
 *Tabelle: Begriffe KBOB Bauwerksdokumentation im Hochbau*
 
-![Begriff Bauwerksdokumentation](assets/01-bauwerksdokumentation-begriff.png)
+![Begriff Bauwerksdokumentation](assets/Dokumentenmanagement/dokumentenmanagement_02_bauwerksdokumentation_begriff.png)
 
 *Bild Links: Begriff Bauwerksdokumentation*
 
-![Bauwerksdokumentation Übersicht](assets/01-bauwerksdokumentation-uebersicht.png)
+![Bauwerksdokumentation Übersicht](assets/Dokumentenmanagement/dokumentenmanagement_03_bauwerksdokumentation_uebersicht.png)
 
 *Bild Rechts: Bauwerksdokumentation*
 
@@ -320,7 +320,7 @@ Zur einheitlichen Klassifizierung der Begriffe und Standards werden folgende Kat
 
 *Tabelle: Begriffe SIA 112 Modell Bauplanung*
 
-![Phasen, Teilphasen und Teilphasenziele nach SIA 112](assets/01-sia-112-phasen.png)
+![Phasen, Teilphasen und Teilphasenziele nach SIA 112](assets/Dokumentenmanagement/dokumentenmanagement_04_sia112_phasen.png)
 
 *Bild: Phasen, Teilphasen und Teilphasenziele nach SIA 112*
 
@@ -336,10 +336,10 @@ Zur einheitlichen Klassifizierung der Begriffe und Standards werden folgende Kat
 
 | Datei | Beschreibung | Geändert |
 |-------|--------------|----------|
-| 01-dokumentenmanagement-geschaeftsobjekte.png | Vereinfachte Darstellung der Geschäftsobjekte | [Platzhalter für Hochauflösende Version] |
-| 01-bauwerksdokumentation-begriff.png | Begriff Bauwerksdokumentation | [Platzhalter für Hochauflösende Version] |
-| 01-bauwerksdokumentation-uebersicht.png | Bauwerksdokumentation Übersicht | [Platzhalter für Hochauflösende Version] |
-| 01-sia-112-phasen.png | SIA 112 Phasen Übersicht | [Platzhalter für Hochauflösende Version] |
+| dokumentenmanagement_01_geschaeftsobjekte.png | Vereinfachte Darstellung der Geschäftsobjekte | 24.07.2025 |
+| dokumentenmanagement_02_bauwerksdokumentation_begriff.png | Begriff Bauwerksdokumentation | 25.06.2023 |
+| dokumentenmanagement_03_bauwerksdokumentation_uebersicht.png | Bauwerksdokumentation Übersicht | 22.05.2025 |
+| dokumentenmanagement_04_sia112_phasen.png | SIA 112 Phasen Übersicht | 23.07.2025 |
 
 ---
 

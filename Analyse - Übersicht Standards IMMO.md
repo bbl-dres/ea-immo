@@ -21,7 +21,7 @@
 Das Bundesamt für Bauten und Logistik (BBL) strebt im Rahmen seiner Unternehmensarchitektur die Etablierung eines ganzheitlichen fachlichen Datenmodells (eine fachliche Sicht) für das Immobilienmanagement an. Diese fachliche Sicht (Common Data Model) soll ein einheitliches Verständnis der Immobiliendaten über alle Fachbereiche und IT-Systeme hinweg sicherstellen (lösungsneutral, langlebig und stabil). Um dies zu erreichen, ist eine fundierte Kenntnis und Bewertung vorhandener "Best Practice"-Standards im Bereich des Immobilien-Datenmanagements unerlässlich. Der Fokus liegt dabei auf der "fachlichen Sicht" der Daten, die das "WAS" der Geschäftsanforderungen abbildet und langlebig sowie systemunabhängig sein soll.
 
 <!-- TODO: Bild einfügen - Dreistufiges Metadatenmodell -->
-![Dreistufiges Metadatenmodell](assets/analyse-standards_dreistufiges-metadatenmodell.png)
+![Dreistufiges Metadatenmodell](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_01_dreistufiges-metadatenmodell.png)
 
 *Bild: Dreistufiges Metadatenmodell. [Quelle]()*
 
@@ -67,7 +67,7 @@ Die Standards werden basierend auf einer kombinierten Bewertung aus Prioritätss
 - **Priorität D (Niedrig/Optional):** Standards mit geringer direkter Relevanz für die BBL-Kernprozesse. Sie können in speziellen Nischenbereichen relevant sein oder als Referenz dienen.
 
 <!-- TODO: Bild einfügen - Standards Priorisierung vs. Relevanz BBL (Scatterplot) -->
-![Standards - Priorisierung vs. Relevanz BBL](assets/analyse-standards_priorisierung-relevanz.png)
+![Standards - Priorisierung vs. Relevanz BBL](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_02_priorisierung-relevanz.png)
 
 *Bild: Standards - Priorisierung vs. Relevanz BBL*
 
@@ -118,13 +118,13 @@ Im Folgenden wird jeder Standard aus der ursprünglichen Liste kurz vorgestellt 
 - **Relevanz für das BBL (fachliche Sicht):** Dieser Standard ist explizit auf ein "Common Data Model" und die semantische Interoperabilität ausgerichtet. Er kann eine robuste, technologieunabhängige Grundlage für die fachliche Datenmodellierung im BBL bieten, indem er zentrale Immobilienkonzepte (Gebäude, Grundstücke, Organisationen, Verträge, Sensoren, Räume) über Domänengrenzen hinweg einheitlich definiert.
 
 <!-- TODO: Bilder einfügen -->
-![Real Estate Core - Zusammenhänge mit weiteren Standards](assets/analyse-standards_rec-zusammenhaenge.png)
+![Real Estate Core - Zusammenhänge mit weiteren Standards](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_03_rec-zusammenhaenge.png)
 *Bild Links: Zusammenhänge mit weiteren Standards. [Quelle]()*
 
-![Real Estate Core - Übersicht wichtigste Entitäten](assets/analyse-standards_rec-entitaeten.png)
+![Real Estate Core - Übersicht wichtigste Entitäten](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_04_rec-entitaeten.png)
 *Bild Mitte: Übersicht wichtigste Entitäten. [Quelle]()*
 
-![Real Estate Core - Übersicht gesamt Ontologie](assets/analyse-standards_rec-ontologie.png)
+![Real Estate Core - Übersicht gesamt Ontologie](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_05_rec-ontologie.png)
 *Bild Rechts: Übersicht gesamt Ontologie. [Quelle]()*
 
 ### 3.2. RCIS Data Standard
@@ -186,13 +186,13 @@ Im Folgenden wird jeder Standard aus der ursprünglichen Liste kurz vorgestellt 
 - usw.
 
 <!-- TODO: Bilder einfügen -->
-![RCIS - Beschreibung der Bereiche](assets/analyse-standards_rcis-bereiche.png)
+![RCIS - Beschreibung der Bereiche](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_06_rcis-bereiche.png)
 *Bild Links: Beschreibung der Bereiche. [Quelle]()*
 
-![RCIS - Übersicht der Entitäten als Graph](assets/analyse-standards_rcis-graph.png)
+![RCIS - Übersicht der Entitäten als Graph](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_07_rcis-graph.png)
 *Bild Mitte: Übersicht der Entitäten als ein Graph*
 
-![RCIS - Physisches Immobilienmodell als UML](assets/analyse-standards_rcis-uml.png)
+![RCIS - Physisches Immobilienmodell als UML](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_08_rcis-uml.png)
 *Bild Rechts: Übersicht von Physischen Immobilienmodell als ein UML*
 
 ### 3.3. IBPDI (International Building Performance and Data Initiative)
@@ -203,13 +203,13 @@ Im Folgenden wird jeder Standard aus der ursprünglichen Liste kurz vorgestellt 
 - **Relevanz für das BBL (fachliche Sicht):** IBPDI definiert Datenpunkte und Metadaten für die Erfassung von Gebäudedaten, die für Performance-Messung, Energieverbrauch, Umweltleistung und Betriebsdaten entscheidend sind. Dies ist von höchster Relevanz für die Domäne "Energie und Ressourcen" und unterstützt das BBL bei seinen Nachhaltigkeitszielen.
 
 <!-- TODO: Bilder einfügen -->
-![IBPDI Datendomänen](assets/analyse-standards_ibpdi-domaenen.png)
+![IBPDI Datendomänen](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_09_ibpdi-domaenen.png)
 *Bild Links: IBPDI Datendomänen. [Quelle]()*
 
-![IBPDI Status pro Datendomäne](assets/analyse-standards_ibpdi-status.png)
+![IBPDI Status pro Datendomäne](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_10_ibpdi-status.png)
 *Bild Mitte: Status pro Datendomäne. [Quelle]()*
 
-![IBPDI Übersicht Datendomäne Digital Twin](assets/analyse-standards_ibpdi-digital-twin.png)
+![IBPDI Übersicht Datendomäne Digital Twin](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_11_ibpdi-digital-twin.png)
 *Bild Rechts: Übersicht Datendomäne Digital Twin. [Quelle]()*
 
 **IBPDI Real Estate Common Data Model - Datencluster:**
@@ -235,10 +235,10 @@ Im Folgenden wird jeder Standard aus der ursprünglichen Liste kurz vorgestellt 
 Die Struktur umfasst: Servitude, Site, Land, Building, Floor, Space, Certificate, Valuation sowie Unit, Area Measurement, System, Component, Sensor, Sensor Measurement, Subcomponent mit zugehörigen Typen.
 
 <!-- TODO: Bilder einfügen -->
-![IBPDI Energie und Ressourcen](assets/analyse-standards_ibpdi-energie.png)
+![IBPDI Energie und Ressourcen](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_12_ibpdi-energie.png)
 *Bild Links: Beschreibung der Datendomäne Energie und Ressourcen. [Quelle]()*
 
-![IBPDI Finanzen](assets/analyse-standards_ibpdi-finanzen.png)
+![IBPDI Finanzen](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_13_ibpdi-finanzen.png)
 *Bild Rechts: Beschreibung der Datendomäne Finanzen. [Quelle]()*
 
 **Energy and Resources Cluster - Hauptkomponenten:**
@@ -299,10 +299,10 @@ Die Struktur umfasst: Servitude, Site, Land, Building, Floor, Space, Certificate
 - **Relevanz für das BBL (fachliche Sicht):** OSCRE-Standards definieren Datenmodelle für Immobilientransaktionen und -prozesse (z.B. Leasing, Asset Management, Finanzberichterstattung). Sie sind relevant für das "Portfolio- und Asset-Management" und das "Mietermanagement", insbesondere wenn es um die Interaktion mit externen Partnern geht.
 
 <!-- TODO: Bilder einfügen -->
-![OSCRE Domain Framework](assets/analyse-standards_oscre-framework.png)
+![OSCRE Domain Framework](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_14_oscre-framework.png)
 *Bild: OSCRE Domain Framework*
 
-![OSCRE Datenmodell](assets/analyse-standards_oscre-datenmodell.png)
+![OSCRE Datenmodell](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_15_oscre-datenmodell.png)
 *Bild: OSCRE Datenmodell*
 
 **OSCRE Domain Framework:**
@@ -362,13 +362,13 @@ Der OSCRE-Standard (Open Standards Consortium for Real Estate) ist das Datenmode
 - **Relevanz für das BBL (fachliche Sicht):** Diese Kataloge definieren spezifische Datenfelder und deren Bedeutung, die für die digitale Bauabwicklung und den Betrieb im Schweizer Kontext relevant sind (z.B. in Bezug auf eBKP-H, NPK). Sie sind von herausragender Bedeutung für die Anpassung an Schweizer Gesetze und Normen in den Domänen "Architektur Sicht" und "Projektmanagement".
 
 <!-- TODO: Bilder einfügen -->
-![BIM2FM Datenfeldkatalog Leitfaden](assets/analyse-standards_bim2fm-leitfaden.png)
+![BIM2FM Datenfeldkatalog Leitfaden](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_16_bim2fm-leitfaden.png)
 *Bild Links: BIM2FM Datenfeldkatalog*
 
-![BIM2FM Beschreibung](assets/analyse-standards_bim2fm-beschreibung.png)
+![BIM2FM Beschreibung](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_17_bim2fm-beschreibung.png)
 *Bild Mitte: Beschreibung von BIM2FM*
 
-![BIM2FM Datenfeldkatalog als UML](assets/analyse-standards_bim2fm-uml.png)
+![BIM2FM Datenfeldkatalog als UML](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_18_bim2fm-uml.png)
 *Bild Rechts: BIM2FM Datenfeldkatalog als UML*
 
 **Über den Datenfeldkatalog BIM2FM:**
@@ -408,13 +408,13 @@ Areal
 - **Relevanz für das BBL (fachliche Sicht):** gefma-Richtlinien (z.B. gefma 100-1, gefma 444) sind wichtig für die fachliche Definition von FM-Prozessen, Datenstrukturen und Kennzahlen. Dies ist besonders relevant für das "Objektmanagement" und "Controlling, Analytics und Reporting". Eine Abstimmung mit Schweizer FM-Standards (ProLeMo) ist jedoch notwendig.
 
 <!-- TODO: Bilder einfügen -->
-![GEFMA 924 - 000 BAUWERKSTYPEN](assets/analyse-standards_gefma-bauwerkstypen.png)
+![GEFMA 924 - 000 BAUWERKSTYPEN](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_19_gefma-bauwerkstypen.png)
 *Bild Links: Ontologie GEFMA 924 - 000 BAUWERKSTYPEN*
 
-![GEFMA 924 - 300 BAUWERK - BAUKONSTRUKTIONEN](assets/analyse-standards_gefma-baukonstruktionen.png)
+![GEFMA 924 - 300 BAUWERK - BAUKONSTRUKTIONEN](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_20_gefma-baukonstruktionen.png)
 *Bild Mitte: Ontologie GEFMA 924 - 300 BAUWERK - BAUKONSTRUKTIONEN*
 
-![GEFMA 924 - 400 BAUWERK - TECHNISCHE ANLAGEN](assets/analyse-standards_gefma-technische-anlagen.png)
+![GEFMA 924 - 400 BAUWERK - TECHNISCHE ANLAGEN](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_21_gefma-technische-anlagen.png)
 *Bild Rechts: Ontologie GEFMA 924 - 400 BAUWERK - TECHNISCHE ANLAGEN*
 
 **GEFMA 924 Bauwerkstypen - Klassifikation:**
@@ -442,10 +442,10 @@ Areal
 - **Relevanz für das BBL (fachliche Sicht):** SAREF definiert standardisierte Ontologien für Sensoren, Aktoren, Messungen und Geräteeigenschaften in intelligenten Gebäuden. Dies ist relevant für die semantische Integration von Gebäudeautomationssystemen und IoT-Daten in die Domänen "Energie und Ressourcen" und "Objektmanagement". SAREF ergänzt Standards wie Brick Schema und Project Haystack und bietet eine europäische Perspektive für die einheitliche Beschreibung von Smart Building-Komponenten und deren Datenströmen.
 
 <!-- TODO: Bilder einfügen -->
-![SAREF Bereiche](assets/analyse-standards_saref-bereiche.png)
+![SAREF Bereiche](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_22_saref-bereiche.png)
 *Bild Links: Übersicht SAREF Bereiche*
 
-![SAREF Core Entitäten](assets/analyse-standards_saref-core.png)
+![SAREF Core Entitäten](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_23_saref-core.png)
 *Bild Rechts: Übersicht Entitäten im Bereich SAREF Core*
 
 **SAREF Module:**
@@ -475,10 +475,10 @@ Areal
 - **Relevanz für das BBL (fachliche Sicht):** IFC ist der de-facto Standard für offene Bauwerksdaten und definiert fachlich, welche Objekte (Gebäude, Räume, Bauteile, Systeme) und Attribute sie haben können. MVDs und IDMs sind entscheidend, um die fachlichen Informationsbedarfe für spezifische BBL-Anwendungsfälle (z.B. Übergabe an FM) zu definieren. Building Smart ist fundamental für die "Architektur Sicht" und das "Projektmanagement". Dieser Standards deckt aber nicht Alle Datendomänen ab.
 
 <!-- TODO: Bilder einfügen -->
-![Open BIM Workflow](assets/analyse-standards_openbim-workflow.png)
+![Open BIM Workflow](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_24_openbim-workflow.png)
 *Bild Links: Open BIM Workflow. [Quelle]()*
 
-![IFC Datendomänen](assets/analyse-standards_ifc-domaenen.png)
+![IFC Datendomänen](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_25_ifc-domaenen.png)
 *Bild Rechts: IFC Datendomänen. [Quelle]()*
 
 **Open BIM Workflow:**
@@ -528,10 +528,10 @@ IFC PROJECT
 ```
 
 <!-- TODO: Bilder einfügen -->
-![IFC Räumliche Hierarchie (vereinfacht)](assets/analyse-standards_ifc-hierarchie-einfach.png)
+![IFC Räumliche Hierarchie (vereinfacht)](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_26_ifc-hierarchie-einfach.png)
 *Bild Links: IFC Räumliche Hierarchie (vereinfach). [Quelle]()*
 
-![IFC Räumliche Hierarchie (als UML)](assets/analyse-standards_ifc-hierarchie-uml.png)
+![IFC Räumliche Hierarchie (als UML)](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_27_ifc-hierarchie-uml.png)
 *Bild Rechts: IFC Räumliche Hierarchie (als UML)*
 
 ### 3.9. e-CH Standards
@@ -631,13 +631,13 @@ IFC PROJECT
 - **Relevanz für das BBL (fachliche Sicht):** Das IDA Modell definiert eine Baumstruktur von Datenfeldern für Immobilienobjekte, die für die Bewertung und das Reporting von Portfolios relevant sind. Es ist relevant für das "Portfolio- und Asset-Management" und "Finanzen", wobei die Übertragbarkeit auf Schweizer Rechnungslegungsnormen zu prüfen ist.
 
 <!-- TODO: Bilder einfügen -->
-![gif IDA Modell - Anwendungsfall](assets/analyse-standards_ida-anwendungsfall.png)
+![gif IDA Modell - Anwendungsfall](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_28_ida-anwendungsfall.png)
 *Bild Links: Vorgesehener Anwendungsfall für das IDA Modell*
 
-![gif IDA Modell - Entitäten](assets/analyse-standards_ida-entitaeten.png)
+![gif IDA Modell - Entitäten](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_29_ida-entitaeten.png)
 *Bild Mitte: Übersicht der Entitäten*
 
-![gif IDA Modell - Subsets](assets/analyse-standards_ida-subsets.png)
+![gif IDA Modell - Subsets](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_30_ida-subsets.png)
 *Bild Rechts: IDA Subsets (Domänen für Attribute)*
 
 **gif IDA Modell - Hauptentitäten:**

@@ -388,16 +388,14 @@ Die Methodik gliedert sich in drei Emissionsbereiche, die für das Immobilienman
 - Die Berechnung des Energiebedarfs basiert primär auf der Norm SIA 380/1
 - Dieser Scope ist entscheidend für die Optimierung des laufenden Betriebs und die Planung des Heizungsersatzes
 
-<!-- TODO: Abbildung 1 - Modul Scope 1 Berechnungsablauf einfügen -->
-![Scope 1 Berechnungsablauf](assets/energie-ressourcen_scope1-berechnungsablauf.png)
+![Scope 1 Berechnungsmethodik](assets/Energie%20und%20Ressourcen/energie-und-ressourcen_01_scope1-berechnungsmethodik.png)
 
 **Scope 2: Indirekte Emissionen (Energieeinkauf)**
 - Umfasst die indirekten THG-Emissionen, die bei der Erzeugung von eingekaufter Energie wie Strom und Fernwärme anfallen
 - Die Berechnung stützt sich u.a. auf die Norm SIA 2024
 - Die Stromproduktion aus gebäudeeigenen Photovoltaikanlagen (PV) kann hier angerechnet werden, was die Planung von energetischen Massnahmen direkt unterstützt
 
-<!-- TODO: Abbildung 2 - Modul Scope 2 Berechnungsablauf einfügen -->
-![Scope 2 Berechnungsablauf](assets/energie-ressourcen_scope2-berechnungsablauf.png)
+![Scope 2 Berechnungsablauf](assets/Energie%20und%20Ressourcen/energie-und-ressourcen_03_scope2-berechnungsablauf.png)
 
 **Scope 3: Indirekte Emissionen (Graue Energie & Lebenszyklus)**
 - Ermittelt die "graue Energie", also jene THG-Emissionen, die über den gesamten Lebenszyklus eines Gebäudes ausserhalb des Betriebs anfallen
@@ -405,8 +403,7 @@ Die Methodik gliedert sich in drei Emissionsbereiche, die für das Immobilienman
 - Die Berechnung basiert auf der Norm SIA 2032
 - Diese Analyse ist von hoher strategischer Bedeutung für langfristige Portfolio-Entscheidungen
 
-<!-- TODO: Abbildung 3 - Modul Scope 3 Berechnungsablauf einfügen -->
-![Scope 3 Berechnungsablauf](assets/energie-ressourcen_scope3-berechnungsablauf.png)
+![Scope 3 Berechnungsmethodik](assets/Energie%20und%20Ressourcen/energie-und-ressourcen_05_scope3-berechnungsmethodik.png)
 
 #### Relevanz für das Immobilienmanagement
 
@@ -475,8 +472,7 @@ Das Scope-3-Modul berechnet verschiedene Szenarien, die bei der Entscheidung zwi
 - Unterstützung effektiver Dekarbonisierungsstrategien
 - Anwendung fortgeschrittener Technologien wie Künstliche Intelligenz und Machine Learning durch konsistente Datenstrukturen
 
-<!-- TODO: IBPDI Energy & Resources Cluster Diagramm einfügen -->
-![IBPDI Energy & Resources Cluster](assets/energie-ressourcen_ibpdi-cluster.png)
+![IBPDI Energy & Resources Cluster](assets/Energie%20und%20Ressourcen/energie-und-ressourcen_06_ibpdi-energy-resources-cluster.png)
 
 | Nr | Begriff (Original) | Begriff (Übersetzung) | Kategorie | Beschreibung | Relevanz BBL | Kommentar |
 |----|-------------------|----------------------|-----------|--------------|--------------|-----------|
@@ -558,3 +554,84 @@ Das Scope-3-Modul berechnet verschiedene Szenarien, die bei der Entscheidung zwi
 | 30 | Outsourced Activities | Ausgelagerte Aktivitäten | Geschäftsobjekt | Emissionen aus ausgelagerten Tätigkeiten (z.B. Facility Management) | Hoch | FM-Dienstleistungen des BBL |
 
 *Tabelle: Geschäftsobjekte und Fachbegriffe GHG Protocol Corporate Standard*
+
+### 5.7 Carbon Risk Real Estate Monitor (CRREM)
+
+- **Relevanz für BBL:** Sehr hoch
+- **Beschreibung:** Der Carbon Risk Real Estate Monitor (CRREM) ist ein führender globaler Standard zur Bewertung von Transitionsrisiken und zur Festlegung wissenschaftsbasierter Dekarbonisierungspfade für den Immobiliensektor. CRREM bietet regionen- und gebäudetypspezifische Emissionspfade, die mit den Zielen des Pariser Klimaabkommens zur Begrenzung der globalen Erwärmung auf 1,5°C übereinstimmen. Die CRREM-Methodik verwendet einen mehrstufigen Downscaling-Ansatz, der das globale CO2-Budget auf nationale, sektorale und objektspezifische Emissionsintensitätsziele herunterbricht. Dabei werden sowohl CO2-only als auch GHG-Gesamtemissionen (inkl. F-Gase) berücksichtigt. Die Pfade basieren auf dem Sectoral Decarbonization Approach (SDA) und sind mit der Science Based Targets initiative (SBTi) und dem IEA Net Zero by 2050 Szenario abgestimmt.
+- **Dokumentation:**
+  - Webseite: http://www.crrem.org und http://www.crrem.eu
+  - Methodologie-Dokument: https://crrem.org/wp-content/uploads/2025/07/CRREM-downscaling-documentation-and-assessment-methodology_Update-V2_V1.01-03.05.2023.pdf
+  - Tool Reference Guide: https://crrem.org/wp-content/uploads/2025/05/CRREM-Risk-Assessment-Reference-Guide-V2_17_02_2025-final.pdf
+
+**Zentrale Merkmale:**
+- Whole Building Approach: Erfassung aller betrieblichen Emissionen unabhängig von der Scope-Zuordnung
+- Berücksichtigung von Netzstromdekarbonisierung und Klimawandeleffekten (HDD/CDD)
+- Differenzierung nach 44 Ländern und mehreren Gebäudetypen
+- Integration von Energieintensitätspfaden (kWh/m²) und CO2-Intensitätspfaden (kgCO2/m²)
+- Stranding Risk Assessment zur Identifikation von Vermögenswerten mit erhöhtem Transitionsrisiko
+
+| Nr | Begriff (Original) | Begriff (Übersetzung) | Kategorie | Beschreibung | Relevanz BBL | Kommentar |
+|----|-------------------|----------------------|-----------|--------------|--------------|-----------|
+| 1 | Stranded Asset | Gestrandete Vermögenswerte | Geschäftsobjekt | Immobilien, die aufgrund des Klimawandels einem erhöhten Risiko vorzeitiger wirtschaftlicher Obsoleszenz ausgesetzt sind | Sehr hoch | Kernkonzept für BBL-Risikobewertung |
+| 2 | Stranding Year | Strandungsjahr | Attribut | Das Jahr, in dem die CO2-Intensität eines Gebäudes die zulässige Dekarbonisierungskurve überschreitet | Sehr hoch | Kritischer Zeitpunkt für Sanierungsentscheidungen |
+| 3 | Carbon Intensity | CO2-Intensität | Attribut | Jährliche betriebliche Treibhausgasemissionen pro Quadratmeter Bruttogeschossfläche (kgCO2/m²/a) | Sehr hoch | Zentrale KPI für Klimaverträglichkeit |
+| 4 | Energy Use Intensity (EUI) | Energienutzungsintensität | Attribut | Energieverbrauch pro Quadratmeter und Jahr (kWh/m²/a) | Sehr hoch | Basis für Energieeffizienz-Benchmarking |
+| 5 | Decarbonization Pathway | Dekarbonisierungspfad | Geschäftsobjekt | Zeitlicher Verlauf der maximal zulässigen CO2-Intensität für einen spezifischen Gebäudetyp in einem Land | Sehr hoch | Benchmark für BBL-Portfolio |
+| 6 | SDA (Sectoral Decarbonization Approach) | Sektoraler Dekarbonisierungsansatz | Geschäftsprozess | Methodik zur Ableitung nationaler Pfade aus globalen Budgets unter Berücksichtigung unterschiedlicher Wachstumsraten | Sehr hoch | Methodische Grundlage der CRREM-Pfade |
+| 7 | Whole Building Approach | Gesamtgebäude-Ansatz | Fachbegriff | Erfassung aller betrieblichen Emissionen eines Gebäudes, unabhängig von der Verantwortungszuordnung | Sehr hoch | BBL-relevante Betrachtungsweise |
+| 8 | Excess Emissions | Überschussemissionen | Geschäftsobjekt | Emissionen, die über dem zulässigen Dekarbonisierungspfad liegen und potenzielle zukünftige Kosten darstellen | Sehr hoch | Basis für CVaR-Berechnung |
+| 9 | Carbon Value at Risk (CVaR) | CO2-Risikowert | Geschäftsobjekt | Barwert der zukünftigen Kosten aus Überschussemissionen bei angenommenen CO2-Preisen | Sehr hoch | Finanzieller Risikoindikator |
+| 10 | Market Share Parameter (m) | Marktanteilsparameter | Attribut | Parameter im SDA-Ansatz, der unterschiedliche Wachstumsraten zwischen Ländern berücksichtigt | Hoch | Steuert nationale Budgetallokation |
+| 11 | Grid Decarbonization | Netzstromdekarbonisierung | Geschäftsprozess | Projizierte Reduktion der CO2-Emissionsfaktoren des Stromnetzes durch zunehmenden Anteil erneuerbarer Energien | Sehr hoch | Beeinflusst Scope 2 Emissionen |
+| 12 | Heating/Cooling Degree Days (HDD/CDD) | Heiz-/Kühlgradtage | Attribut | Klimaparameter zur Normalisierung und Projektion des temperaturabhängigen Energiebedarfs | Sehr hoch | Basis für Klimakorrektur |
+| 13 | Location-based Approach | Standortbasierter Ansatz | Fachbegriff | Emissionsberechnung basierend auf durchschnittlichen nationalen Netzstrom-Emissionsfaktoren | Sehr hoch | Empfohlene Methode für CRREM-Vergleich |
+| 14 | Market-based Approach | Marktbasierter Ansatz | Fachbegriff | Emissionsberechnung basierend auf spezifischen Emissionsfaktoren des bezogenen Stromprodukts | Hoch | Alternative bei Ökostromverträgen |
+| 15 | Fugitive Emissions | Flüchtige Emissionen | Geschäftsobjekt | Kältemittelverluste aus Klimaanlagen und Kühlsystemen, ausgedrückt in CO2-Äquivalenten | Hoch | Relevant für GHGe-Pfad |
+| 16 | F-Gases | F-Gase | Geschäftsobjekt | Fluorierte Treibhausgase (HFCs, PFCs, SF6) mit hohem Treibhauspotenzial | Hoch | Zusätzliche GHG-Komponente |
+| 17 | Retrofit Scenario | Sanierungsszenario | Geschäftsobjekt | Geplante energetische Modernisierungsmaßnahme mit projizierter Energieeinsparung und Investitionskosten | Sehr hoch | Strategische Maßnahmenplanung |
+| 18 | Embodied Carbon | Graue Emissionen | Attribut | CO2-Emissionen aus Herstellung und Transport von Baumaterialien bei Sanierungsmaßnahmen | Hoch | Ökobilanz von Retrofits |
+| 19 | Energy Target | Energiezielwert | Geschäftsobjekt | Maximal zulässiger Energieverbrauch in 2050 bei vollständiger Nutzung erneuerbarer Energien | Sehr hoch | Langfristziel für BBL |
+| 20 | Baseline Emissions | Basisjahr-Emissionen | Attribut | Aktuelle CO2-Intensität eines Gebäudes oder Portfolios im Ausgangsjahr (2020) | Sehr hoch | Startpunkt der Dekarbonisierung |
+| 21 | Data Coverage | Datenabdeckung | Attribut | Anteil der Gebäudefläche, für die Verbrauchsdaten verfügbar sind | Sehr hoch | Qualitätsindikator für Analyse |
+| 22 | Maximum Coverage | Maximale Abdeckung | Attribut | Gesamtfläche des Gebäudes, für die Energieversorgung vorhanden ist | Sehr hoch | Basis für Extrapolation |
+| 23 | Normalisation | Normalisierung | Geschäftsprozess | Bereinigung von Verbrauchsdaten um Leerstand, Wetter und Berichtsperiode für Vergleichbarkeit | Sehr hoch | Datenqualitätssicherung |
+| 24 | Convergence | Konvergenz | Fachbegriff | Annäherung nationaler CO2-Intensitäten an globale Zielwerte bis 2050 im SDA-Ansatz | Hoch | Methodisches Prinzip |
+| 25 | IPMS 2 | IPMS 2 | Fachbegriff | International Property Measurement Standards für Bruttogeschossfläche | Sehr hoch | Flächenstandard für BBL |
+| 26 | Scope 1-3 Integration | Scope 1-3 Integration | Fachbegriff | Ganzheitliche Erfassung aller gebäudebezogenen Emissionen unabhängig von der GHG Protocol Scope-Zuordnung | Sehr hoch | Vereinfachte Bilanzierung |
+| 27 | Net Zero Trajectory | Netto-Null-Trajektorie | Geschäftsobjekt | Pfad zur vollständigen Dekarbonisierung bis 2050 mit minimalem Restemissionsniveau | Sehr hoch | Langfristziel gemäß KlG |
+| 28 | Climate Scenario | Klimaszenario | Geschäftsobjekt | Annahmen über zukünftige Klimaentwicklung (RCP4.5 oder RCP8.5) für HDD/CDD-Projektionen | Hoch | Basis für Bedarfsprognosen |
+| 29 | Activity Data | Aktivitätsdaten | Attribut | Quantitative Verbrauchsdaten (kWh, m³) als Basis für Emissionsberechnungen | Sehr hoch | Grunddaten aus InterWatt EDM |
+| 30 | Asset Stranding Risk | Objekt-Strandungsrisiko | Geschäftsobjekt | Bewertung der Wahrscheinlichkeit vorzeitiger wirtschaftlicher Obsoleszenz aufgrund von Klimafaktoren | Sehr hoch | Kernoutput der CRREM-Analyse |
+
+*Tabelle: Geschäftsobjekte und Fachbegriffe CRREM*
+
+---
+
+## 6. Verweise und Anhang
+
+### 6.1 Verweise
+
+**Standards:**
+<!-- TODO: Links zu Standards ergänzen -->
+- Beispiel Standard: URL, Webseite mit weiteren Details
+- Beispiel Standard: URL, Webseite mit weiteren Details
+
+**Sonstiges:**
+<!-- TODO: Weitere Verweise ergänzen -->
+- Verweis, oder Beispiel: URL, Webseite mit weiteren Details
+- Verweis, oder Beispiel: URL, Webseite mit weiteren Details
+
+### 6.2 Anhang
+
+| Datei | Geändert |
+|-------|----------|
+| PNG-Datei image-2025-8-13_20-35-5.png | 13.08.2025 by Rasner David BBL |
+| Datei Konsolidierte Tabelle Standards und Regelwerke - BBL Energie, Ressourcen und Emissionen.md | 13.08.2025 by Rasner David BBL |
+| PDF-Datei BAFU Methodenbericht 2024 zum erweiterten CO2-Rechner für Gebäude.pdf | 13.08.2025 by Rasner David BBL |
+| PNG-Datei BAFU CO2 Rechner - Scope 1 Berechnungsmethodik.PNG | 13.08.2025 by Rasner David BBL |
+| PNG-Datei BAFU CO2 Rechner - Scope 3 Berechnungsmethodik.PNG | 13.08.2025 by Rasner David BBL |
+| PNG-Datei BAFU CO2 Rechner - Scope 2 Variablen.PNG | 13.08.2025 by Rasner David BBL |
+| PNG-Datei BAFU CO2 Rechner - Scope 2 Berechnungsablauf.PNG | 13.08.2025 by Rasner David BBL |
+| PNG-Datei BAFU CO2 Rechner - Scope 1 Variablen.PNG | 13.08.2025 by Rasner David BBL |
+| PNG-Datei IBPDI - Energy and Ressources _ Mermaid Chart-2025-08-13-225152.png | 14.08.2025 by Rasner David BBL |
