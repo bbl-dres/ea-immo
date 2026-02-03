@@ -469,6 +469,124 @@
             background: white;
         }
 
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .theme-icon {
+            font-size: 1.1rem;
+            line-height: 1;
+        }
+
+        .theme-icon.dark-icon {
+            display: none;
+        }
+
+        /* ==========================================
+           LIGHT MODE STYLES
+           ========================================== */
+        body.light-mode {
+            background: linear-gradient(135deg, #e8f4f8 0%, #d1e8f0 100%);
+            color: #2c3e50;
+        }
+
+        body.light-mode header {
+            background: rgba(255,255,255,0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        body.light-mode header h1 {
+            color: #2c3e50;
+        }
+
+        body.light-mode .theme-toggle {
+            background: rgba(0,0,0,0.08);
+            border-color: rgba(0,0,0,0.15);
+        }
+
+        body.light-mode .theme-toggle:hover {
+            background: rgba(0,0,0,0.12);
+        }
+
+        body.light-mode .theme-icon.light-icon {
+            display: none;
+        }
+
+        body.light-mode .theme-icon.dark-icon {
+            display: inline;
+        }
+
+        body.light-mode .toggle-btn {
+            border-color: rgba(44,62,80,0.3);
+            color: rgba(44,62,80,0.7);
+        }
+
+        body.light-mode .toggle-btn:hover {
+            background: rgba(44,62,80,0.1);
+            color: #2c3e50;
+        }
+
+        body.light-mode .toggle-btn.active {
+            background: #2c3e50;
+            color: white;
+            border-color: #2c3e50;
+        }
+
+        body.light-mode .legend {
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        body.light-mode .legend-toggle {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        body.light-mode .zoom-btn {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        body.light-mode .zoom-btn:hover {
+            background: #f8f9fa;
+        }
+
+        body.light-mode .table-container {
+            background: #e8f4f8;
+        }
+
+        body.light-mode .tooltip {
+            background: rgba(44,62,80,0.95);
+        }
+
+        body.light-mode .graph-label {
+            fill: #2c3e50;
+        }
+
+        body.light-mode .label-bg {
+            fill: rgba(255, 255, 255, 0.9);
+        }
+
         /* ==========================================
            RESPONSIVE DESIGN - MEDIA QUERIES
            ========================================== */
@@ -517,6 +635,17 @@
             header h1 {
                 font-size: 0.9rem;
                 margin-bottom: 0.4rem;
+                padding-right: 2.5rem;
+            }
+
+            .theme-toggle {
+                width: 32px;
+                height: 32px;
+                right: 0.75rem;
+            }
+
+            .theme-icon {
+                font-size: 1rem;
             }
 
             .view-toggle {
@@ -655,6 +784,17 @@
             header h1 {
                 font-size: 0.75rem;
                 line-height: 1.2;
+                padding-right: 2rem;
+            }
+
+            .theme-toggle {
+                width: 28px;
+                height: 28px;
+                right: 0.5rem;
+            }
+
+            .theme-icon {
+                font-size: 0.85rem;
             }
 
             .view-toggle {
@@ -878,6 +1018,15 @@
                 height: 36px;
                 font-size: 1.2rem;
             }
+
+            .theme-toggle {
+                width: 28px;
+                height: 28px;
+            }
+
+            .theme-icon {
+                font-size: 0.85rem;
+            }
         }
 
         /* Touch device detection - disable hover effects */
@@ -885,6 +1034,10 @@
             .toggle-btn:hover {
                 background: transparent;
                 color: rgba(255,255,255,0.7);
+            }
+
+            .theme-toggle:hover {
+                transform: translateY(-50%);
             }
 
             .toggle-btn.active:hover {
@@ -907,6 +1060,10 @@
 <body>
     <header>
         <h1>BBL Immobilienmanagement - Konzeptuelles Datenmodell</h1>
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Theme wechseln">
+            <span class="theme-icon light-icon">☀️</span>
+            <span class="theme-icon dark-icon">🌙</span>
+        </button>
         <div class="view-toggle">
             <button class="toggle-btn active" onclick="setView('chart')">Bubble Chart</button>
             <button class="toggle-btn" onclick="setView('graph')">Graph</button>

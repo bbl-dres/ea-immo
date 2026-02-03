@@ -15,6 +15,9 @@
     let isTouchDevice = false;
     let legendVisible = false;
 
+    // Theme state
+    let isLightMode = false;
+
     const colors = {
         muss: '#7ecba1',
         soll: '#f9d77e',
@@ -61,6 +64,34 @@
         return isMobile;
     }
 
+    // Initialize theme from localStorage or system preference
+    function initTheme() {
+        const savedTheme = localStorage.getItem('ea-immo-theme');
+        if (savedTheme) {
+            isLightMode = savedTheme === 'light';
+        } else {
+            // Check system preference
+            isLightMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        }
+        applyTheme();
+    }
+
+    // Apply the current theme
+    function applyTheme() {
+        if (isLightMode) {
+            document.body.classList.add('light-mode');
+        } else {
+            document.body.classList.remove('light-mode');
+        }
+    }
+
+    // Toggle theme (exposed to window for onclick)
+    window.toggleTheme = function() {
+        isLightMode = !isLightMode;
+        applyTheme();
+        localStorage.setItem('ea-immo-theme', isLightMode ? 'light' : 'dark');
+    };
+
     // Initialize legend visibility based on screen size
     function initLegend() {
         const legend = document.getElementById('legend');
@@ -92,6 +123,7 @@
     async function init() {
         try {
             detectMobile();
+            initTheme();
             const response = await fetch('data/geschaeftsobjekte.json');
             domainData = await response.json();
             setupChart();
