@@ -51,7 +51,7 @@
 
     async function init() {
         try {
-            const response = await fetch('../data/geschaeftsobjekte.json');
+            const response = await fetch('data/geschaeftsobjekte.json');
             domainData = await response.json();
             setupChart();
             render();
@@ -514,25 +514,297 @@
     // View toggle
     window.setView = function(view) {
         const chartEl = document.getElementById('chart');
+        const graphEl = document.getElementById('graphView');
         const tableEl = document.getElementById('tableView');
         const legendEl = document.querySelector('.legend');
+        const zoomEl = document.querySelector('.zoom-controls');
         const buttons = document.querySelectorAll('.toggle-btn');
 
         buttons.forEach(btn => btn.classList.remove('active'));
 
+        chartEl.style.display = 'none';
+        graphEl.style.display = 'none';
+        tableEl.style.display = 'none';
+
         if (view === 'chart') {
             chartEl.style.display = 'block';
-            tableEl.style.display = 'none';
             legendEl.style.display = 'block';
+            zoomEl.style.display = 'flex';
             buttons[0].classList.add('active');
+        } else if (view === 'graph') {
+            graphEl.style.display = 'block';
+            legendEl.style.display = 'block';
+            zoomEl.style.display = 'flex';
+            buttons[1].classList.add('active');
+            renderGraph();
         } else {
-            chartEl.style.display = 'none';
             tableEl.style.display = 'block';
             legendEl.style.display = 'none';
-            buttons[1].classList.add('active');
+            zoomEl.style.display = 'none';
+            buttons[2].classList.add('active');
             renderTable();
         }
     };
+
+    let graphSvg = null;
+    let graphZoom = null;
+    let graphSimulation = null;
+
+    function renderGraph() {
+        graphSvg = d3.select('#graphView');
+
+        // Check if already rendered
+        if (graphSvg.select('.graph-container').size() > 0) return;
+
+        graphSvg
+            .attr('width', width)
+            .attr('height', height);
+
+        // Setup zoom for graph
+        graphZoom = d3.zoom()
+            .scaleExtent([0.2, 4])
+            .on('zoom', (event) => {
+                graphSvg.select('.graph-container').attr('transform', event.transform);
+            });
+
+        graphSvg.call(graphZoom);
+
+        const container = graphSvg.append('g')
+            .attr('class', 'graph-container');
+
+        // Build nodes and links for 3 levels: domain > group > concept
+        const nodes = [];
+        const links = [];
+
+        // Create domain nodes
+        domainData.domains.forEach(domain => {
+            nodes.push({
+                id: 'domain:' + domain.id,
+                name: domain.shortName || domain.name,
+                type: 'domain',
+                domain: domain,
+                domainId: domain.id,
+                priority: domain.priority
+            });
+        });
+
+        // Create group and concept nodes
+        domainData.domains.forEach(domain => {
+            if (!domain.groups) return;
+
+            domain.groups.forEach(group => {
+                if (!group.concepts || group.concepts.length === 0) return;
+
+                const groupId = 'group:' + domain.id + '/' + group.name;
+
+                // Group node
+                nodes.push({
+                    id: groupId,
+                    name: group.name,
+                    type: 'group',
+                    domain: domain,
+                    domainId: domain.id,
+                    groupName: group.name
+                });
+
+                // Link domain to group
+                links.push({
+                    source: 'domain:' + domain.id,
+                    target: groupId,
+                    type: 'domain-group',
+                    domainId: domain.id
+                });
+
+                // Concept nodes
+                group.concepts.forEach(concept => {
+                    const conceptId = 'concept:' + domain.id + '/' + group.name + '/' + concept.name;
+
+                    nodes.push({
+                        id: conceptId,
+                        name: concept.name,
+                        type: 'concept',
+                        concept: concept,
+                        domain: domain,
+                        domainId: domain.id,
+                        groupName: group.name,
+                        priority: concept.priority
+                    });
+
+                    // Link group to concept
+                    links.push({
+                        source: groupId,
+                        target: conceptId,
+                        type: 'group-concept',
+                        domainId: domain.id
+                    });
+                });
+            });
+        });
+
+        // Create inter-domain links
+        if (domainData.connections) {
+            domainData.connections.forEach(conn => {
+                links.push({
+                    source: 'domain:' + conn.from,
+                    target: 'domain:' + conn.to,
+                    type: 'domain-domain'
+                });
+            });
+        }
+
+        // Node size based on type
+        function getNodeRadius(d) {
+            if (d.type === 'domain') return 30;
+            if (d.type === 'group') return 16;
+            return 8;
+        }
+
+        // Create force simulation
+        graphSimulation = d3.forceSimulation(nodes)
+            .force('link', d3.forceLink(links)
+                .id(d => d.id)
+                .distance(d => {
+                    if (d.type === 'domain-domain') return 300;
+                    if (d.type === 'domain-group') return 80;
+                    return 40;
+                })
+                .strength(d => {
+                    if (d.type === 'domain-domain') return 0.05;
+                    if (d.type === 'domain-group') return 0.3;
+                    return 0.5;
+                }))
+            .force('charge', d3.forceManyBody()
+                .strength(d => {
+                    if (d.type === 'domain') return -400;
+                    if (d.type === 'group') return -100;
+                    return -30;
+                }))
+            .force('center', d3.forceCenter(width / 2, height / 2))
+            .force('collision', d3.forceCollide().radius(d => getNodeRadius(d) + 5))
+            .force('x', d3.forceX(width / 2).strength(0.02))
+            .force('y', d3.forceY(height / 2).strength(0.02));
+
+        // Draw links
+        const link = container.append('g')
+            .attr('class', 'links')
+            .selectAll('line')
+            .data(links)
+            .enter()
+            .append('line')
+            .attr('class', d => 'graph-link ' + d.type)
+            .attr('stroke', d => {
+                if (d.type === 'domain-domain') return 'rgba(255,255,255,0.3)';
+                return getDomainColor(d.domainId, 0.4);
+            })
+            .attr('stroke-width', d => {
+                if (d.type === 'domain-domain') return 2;
+                if (d.type === 'domain-group') return 1.5;
+                return 1;
+            })
+            .attr('stroke-dasharray', d => d.type === 'domain-domain' ? '8,4' : null);
+
+        // Draw nodes
+        const node = container.append('g')
+            .attr('class', 'nodes')
+            .selectAll('g')
+            .data(nodes)
+            .enter()
+            .append('g')
+            .attr('class', d => 'graph-node graph-node-' + d.type)
+            .call(d3.drag()
+                .on('start', dragstarted)
+                .on('drag', dragged)
+                .on('end', dragended));
+
+        // Node circles
+        node.append('circle')
+            .attr('r', d => getNodeRadius(d))
+            .attr('fill', d => {
+                if (d.type === 'domain') return getDomainColor(d.domainId);
+                if (d.type === 'group') return getDomainColor(d.domainId, 0.6);
+                return getColor(d.priority);
+            })
+            .attr('stroke', d => {
+                if (d.type === 'domain') return '#fff';
+                if (d.type === 'group') return getDomainColor(d.domainId);
+                return '#555';
+            })
+            .attr('stroke-width', d => d.type === 'domain' ? 3 : d.type === 'group' ? 2 : 1);
+
+        // Node labels
+        node.append('text')
+            .attr('class', 'graph-label')
+            .attr('dy', d => d.type === 'domain' ? 5 : -getNodeRadius(d) - 4)
+            .attr('text-anchor', 'middle')
+            .attr('fill', d => d.type === 'domain' ? '#fff' : '#fff')
+            .attr('font-size', d => d.type === 'domain' ? '11px' : d.type === 'group' ? '9px' : '7px')
+            .attr('font-weight', d => d.type === 'domain' ? 'bold' : '500')
+            .text(d => {
+                const maxLen = d.type === 'domain' ? 12 : d.type === 'group' ? 14 : 12;
+                if (d.name.length > maxLen) return d.name.substring(0, maxLen - 2) + '..';
+                return d.name;
+            });
+
+        // Node interactions
+        node.on('mouseenter', function(event, d) {
+            const r = getNodeRadius(d);
+            d3.select(this).select('circle')
+                .attr('r', r * 1.2)
+                .attr('stroke-width', d.type === 'domain' ? 4 : 3);
+
+            if (d.type === 'domain') {
+                showTooltip(event, d.domain.name, d.domain.priority + ' · ' + (d.domain.standards || []).slice(0, 3).join(', '));
+            } else if (d.type === 'group') {
+                showTooltip(event, d.name, d.domain.name);
+            } else {
+                showTooltip(event, d.name, d.groupName + ' · ' + d.domain.name);
+            }
+        })
+        .on('mousemove', (event) => moveTooltip(event))
+        .on('mouseleave', function(event, d) {
+            d3.select(this).select('circle')
+                .attr('r', getNodeRadius(d))
+                .attr('stroke-width', d.type === 'domain' ? 3 : d.type === 'group' ? 2 : 1);
+            hideTooltip();
+        })
+        .on('click', (event, d) => {
+            event.stopPropagation();
+            if (d.type === 'domain') {
+                showDomainPopup(d.domain);
+            } else if (d.type === 'concept') {
+                showConceptPopup(d.concept, d.domain.name);
+            }
+        });
+
+        // Tick function
+        graphSimulation.on('tick', () => {
+            link
+                .attr('x1', d => d.source.x)
+                .attr('y1', d => d.source.y)
+                .attr('x2', d => d.target.x)
+                .attr('y2', d => d.target.y);
+
+            node.attr('transform', d => `translate(${d.x}, ${d.y})`);
+        });
+
+        // Drag functions
+        function dragstarted(event, d) {
+            if (!event.active) graphSimulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) graphSimulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+    }
 
     function renderTable() {
         const tbody = document.getElementById('tableBody');
@@ -580,15 +852,30 @@
 
     // Zoom controls
     window.zoomIn = function() {
-        svg.transition().duration(300).call(zoom.scaleBy, 1.4);
+        const chartVisible = document.getElementById('chart').style.display !== 'none';
+        if (chartVisible) {
+            svg.transition().duration(300).call(zoom.scaleBy, 1.4);
+        } else if (graphSvg && graphZoom) {
+            graphSvg.transition().duration(300).call(graphZoom.scaleBy, 1.4);
+        }
     };
 
     window.zoomOut = function() {
-        svg.transition().duration(300).call(zoom.scaleBy, 0.7);
+        const chartVisible = document.getElementById('chart').style.display !== 'none';
+        if (chartVisible) {
+            svg.transition().duration(300).call(zoom.scaleBy, 0.7);
+        } else if (graphSvg && graphZoom) {
+            graphSvg.transition().duration(300).call(graphZoom.scaleBy, 0.7);
+        }
     };
 
     window.zoomReset = function() {
-        svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity);
+        const chartVisible = document.getElementById('chart').style.display !== 'none';
+        if (chartVisible) {
+            svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity);
+        } else if (graphSvg && graphZoom) {
+            graphSvg.transition().duration(300).call(graphZoom.transform, d3.zoomIdentity);
+        }
     };
 
     document.addEventListener('keydown', (e) => {

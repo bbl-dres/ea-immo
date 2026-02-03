@@ -38,12 +38,43 @@
             margin-bottom: 0.25rem;
         }
 
-        #chart {
+        #chart, #graphView {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
+        }
+
+        /* Graph specific styles */
+        .graph-link {
+            stroke-opacity: 0.4;
+        }
+
+        .graph-link.domain-link {
+            stroke-width: 2;
+            stroke-dasharray: 5,3;
+        }
+
+        .graph-node {
+            cursor: pointer;
+        }
+
+        .graph-node:hover {
+            filter: brightness(1.2);
+        }
+
+        .graph-label {
+            font-size: 8px;
+            pointer-events: none;
+            fill: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .domain-hull {
+            fill-opacity: 0.08;
+            stroke-width: 2;
+            stroke-dasharray: 8,4;
         }
 
         /* Legend */
@@ -420,11 +451,14 @@
         <h1>BBL Immobilienmanagement - Konzeptuelles Datenmodell</h1>
         <div class="view-toggle">
             <button class="toggle-btn active" onclick="setView('chart')">Bubble Chart</button>
+            <button class="toggle-btn" onclick="setView('graph')">Graph</button>
             <button class="toggle-btn" onclick="setView('table')">Tabelle</button>
         </div>
     </header>
 
     <svg id="chart"></svg>
+
+    <svg id="graphView" style="display: none;"></svg>
 
     <div id="tableView" class="table-container" style="display: none;">
         <table id="conceptTable">
