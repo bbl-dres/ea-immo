@@ -19,18 +19,18 @@ Dieses Repository definiert zentrale Geschäftsobjekte (Gebäude, Räume, Mietve
 | Domäne | Beschreibung | Priorität | Konzepte | Status |
 |--------|--------------|-----------|----------|--------|
 | [Architektonische Sicht](docs/Architektonische%20Sicht.md) | Physische Strukturen (Grundstücke, Gebäude, Räume, Anlagen) | Muss | 48 | Definiert |
-| [Projektmanagement](docs/Projektmanagement.md) | Planung und Realisierung von Bauvorhaben | Muss | 32 | Definiert |
+| [Projektmanagement](docs/Projektmanagement.md) | Planung und Realisierung von Bauvorhaben | Muss | 32 | Entwurf |
 | [Dokumentenmanagement](docs/Dokumentenmanagement.md) | Strukturierte Erfassung und Verwaltung von Dokumenten | Muss | 11 | Definiert |
-| [Mietermanagement](docs/Mietermanagement%20%28Nutzungssicht%29.md) | Nutzungs- und vermietungsbezogene Aspekte | Muss | 24 | Definiert |
+| [Mietermanagement](docs/Mietermanagement%20%28Nutzungssicht%29.md) | Nutzungs- und vermietungsbezogene Aspekte | Muss | 24 | Entwurf |
 | [Energie und Ressourcen](docs/Energie%20und%20Ressourcen.md) | Verbrauchsdaten, Emissionen, Nachhaltigkeit | Muss | 16 | Definiert |
-| [Organisatorische Daten](docs/Organisatorische%20Daten%20%28MDM%29.md) | Master Data Management | Sollte | 6 | Definiert |
-| [Workspace Management](docs/Workspace%20Management.md) | Benutzer- und Kundenerfahrung | Sollte | – | Entwurf |
-| [Finanzen](docs/Finanzen.md) | Buchhalterische und wirtschaftliche Perspektive | Sollte | – | Entwurf |
-| Controlling, Analytics und Reporting | Berichtswesen und Analysen | Sollte | – | Entwurf |
-| [Portfoliomanagement](docs/Portfoliomanagement.md) | Strategische Sicht auf das Immobilienportfolio | Könnte | – | Entwurf |
-| Objektmanagement | Technisches Gebäudemanagement | Könnte | – | Entwurf |
-| Baustellenmanagement | Bauausführung und Bauüberwachung | Könnte | – | Entwurf |
-| [Metadaten](docs/Metadaten.md) | Metadaten-Definitionen | – | – | Entwurf |
+| [Organisatorische Daten](docs/Organisatorische%20Daten%20%28MDM%29.md) | Master Data Management | Sollte | 6 | Entwurf |
+| [Workspace Management](docs/Workspace%20Management.md) | Benutzer- und Kundenerfahrung | Sollte | – | Zu definieren |
+| [Finanzen](docs/Finanzen.md) | Buchhalterische und wirtschaftliche Perspektive | Sollte | – | Zu definieren |
+| Controlling, Analytics und Reporting | Berichtswesen und Analysen | Sollte | – | Zu definieren |
+| [Portfoliomanagement](docs/Portfoliomanagement.md) | Strategische Sicht auf das Immobilienportfolio | Könnte | – | Zu definieren |
+| Objektmanagement | Technisches Gebäudemanagement | Könnte | – | Zu definieren |
+| Baustellenmanagement | Bauausführung und Bauüberwachung | Könnte | – | Zu definieren |
+| [Metadaten](docs/Metadaten.md) | Metadaten-Definitionen | – | – | Zu definieren |
 
 **Total: 137 Konzepte** in 6 definierten Domänen
 
