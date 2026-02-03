@@ -11,23 +11,23 @@ Dieses Repository definiert zentrale Geschäftsobjekte (Gebäude, Räume, Mietve
 | Domäne | Beschreibung |
 |--------|--------------|
 | [Architektonische Sicht](Architektonische%20Sicht.md) | Physische Strukturen (Grundstücke, Gebäude, Räume) |
-| [Dokumentenmanagement](Dokumentenmanagement.md) | Strukturierte Erfassung und Verwaltung von Dokumenten |
-| [Mietermanagement](Mietermanagement%20%28Nutzungssicht%29.md) | Nutzungs- und vermietungsbezogene Aspekte |
-| [Energie und Ressourcen](Energie%20und%20Ressourcen.md) | Verbrauchsdaten, Emissionen, Nachhaltigkeit |
-| [Projektmanagement](Projektmanagement.md) | Planung und Realisierung von Bauvorhaben |
-| [Finanzen](Finanzen.md) | Buchhalterische und wirtschaftliche Perspektive |
-| [Portfoliomanagement](Portfoliomanagement.md) | Strategische Sicht auf das Immobilienportfolio |
-| [Organisatorische Daten](Organisatorische%20Daten%20%28MDM%29.md) | Master Data Management |
+| [Baumanagement](Baumanagement.md) | Baumanagement-Prozesse |
 | [Controlling & Reporting](Controlling%2C%20Analytics%20und%20Reporting%20%28MIS%29.md) | Management Information System |
+| [Dokumentenmanagement](Dokumentenmanagement.md) | Strukturierte Erfassung und Verwaltung von Dokumenten |
+| [Energie und Ressourcen](Energie%20und%20Ressourcen.md) | Verbrauchsdaten, Emissionen, Nachhaltigkeit |
+| [Finanzen](Finanzen.md) | Buchhalterische und wirtschaftliche Perspektive |
+| [Investitionen und Verkäufe](Investitionen%20und%20Verk%C3%A4ufe.md) | Investment Management |
+| [Marktdaten](Marktdaten.md) | Externe Marktdaten |
+| [Metadaten](Metadaten.md) | Metadaten-Definitionen |
+| [Mietermanagement](Mietermanagement%20%28Nutzungssicht%29.md) | Nutzungs- und vermietungsbezogene Aspekte |
+| [Organisatorische Daten](Organisatorische%20Daten%20%28MDM%29.md) | Master Data Management |
+| [Portfoliomanagement](Portfoliomanagement.md) | Strategische Sicht auf das Immobilienportfolio |
+| [Projektmanagement](Projektmanagement.md) | Planung und Realisierung von Bauvorhaben |
 | [Workspace Management](Workspace%20Management.md) | Benutzer- und Kundenerfahrung |
 
 ## Weitere Dokumentation
 
 - [Analyse - Übersicht Standards IMMO](Analyse%20-%20%C3%9Cbersicht%20Standards%20IMMO.md) - Relevante Branchenstandards
-- [Metadaten](Metadaten.md) - Metadaten-Definitionen
-- [Baumanagement](Baumanagement.md) - Baumanagement-Prozesse
-- [Marktdaten](Marktdaten.md) - Externe Marktdaten
-- [Investitionen und Verkäufe](Investitionen%20und%20Verk%C3%A4ufe.md) - Investment Management
 
 ## Grundsätze
 
