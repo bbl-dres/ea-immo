@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBL Immobilienmanagement - Domänenmodell</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            overflow: hidden;
+            color: white;
+        }
+
+        header {
+            background: rgba(0,0,0,0.3);
+            padding: 0.5rem 2rem 0.75rem;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        header h1 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 0.25rem;
+        }
+
+        #chart {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        /* Legend */
+        .legend {
+            position: fixed;
+            top: 80px;
+            left: 1rem;
+            background: rgba(255,255,255,0.95);
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            z-index: 50;
+            color: #333;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .legend h3 {
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+
+        .legend-color.muss { background: #7ecba1; }
+        .legend-color.sollte { background: #f9d77e; }
+        .legend-color.koennte { background: #fff; border: 1px solid #ccc; }
+        .legend-color.outofscope { background: #adb5bd; }
+
+        .legend-divider {
+            border-top: 1px solid #ddd;
+            margin: 0.5rem 0;
+        }
+
+        .legend-note {
+            font-size: 0.7rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Popup */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(3px);
+        }
+
+        .popup-overlay.active {
+            display: flex;
+        }
+
+        .popup {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            max-width: 500px;
+            max-height: 80vh;
+            overflow: hidden;
+            animation: popupIn 0.25s ease;
+            color: #333;
+        }
+
+        @keyframes popupIn {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .popup-header {
+            background: #2c3e50;
+            color: white;
+            padding: 1.25rem 1.5rem;
+            position: relative;
+        }
+
+        .popup-header h2 {
+            font-size: 1.15rem;
+            margin-bottom: 0.25rem;
+            padding-right: 2rem;
+        }
+
+        .popup-header .subtitle {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .popup-close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0.7;
+            line-height: 1;
+        }
+
+        .popup-close:hover { opacity: 1; }
+
+        .popup-content {
+            padding: 1.5rem;
+            overflow-y: auto;
+            max-height: calc(80vh - 80px);
+        }
+
+        .popup-description {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .popup-section {
+            margin-bottom: 1rem;
+        }
+
+        .popup-section-title {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .standards-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .standard-tag {
+            background: #e9ecef;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: #495057;
+        }
+
+        .concept-tag {
+            background: #e9ecef;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .concept-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .priority-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .priority-badge.muss { background: #7ecba1; color: #1a5f3a; }
+        .priority-badge.soll, .priority-badge.sollte { background: #f9d77e; color: #7a5d00; }
+        .priority-badge.kann, .priority-badge.könnte { background: #e9ecef; color: #495057; }
+
+        /* Tooltips */
+        .tooltip {
+            position: fixed;
+            background: rgba(0,0,0,0.85);
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            pointer-events: none;
+            z-index: 150;
+            max-width: 250px;
+            opacity: 0;
+            transition: opacity 0.15s;
+        }
+
+        .tooltip.visible { opacity: 1; }
+
+        .tooltip-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .tooltip-domain {
+            font-size: 0.7rem;
+            opacity: 0.7;
+        }
+
+        /* Zoom Controls */
+        .zoom-controls {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            z-index: 50;
+        }
+
+        .zoom-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: rgba(255,255,255,0.95);
+            border-radius: 8px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: #2c3e50;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .zoom-btn:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        /* View Toggle */
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        .toggle-btn {
+            padding: 0.4rem 1rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: transparent;
+            color: rgba(255,255,255,0.7);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .toggle-btn:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .toggle-btn.active {
+            background: white;
+            color: #2c3e50;
+            border-color: white;
+        }
+
+        /* Table View */
+        .table-container {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: auto;
+            padding: 1rem 2rem;
+            background: #1a1a2e;
+        }
+
+        #conceptTable {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        #conceptTable th {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-size: 0.85rem;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+
+        #conceptTable td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 0.85rem;
+            color: #333;
+            vertical-align: top;
+        }
+
+        #conceptTable tr:hover td {
+            background: #f8f9fa;
+        }
+
+        #conceptTable .domain-cell {
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        #conceptTable .group-cell {
+            color: #666;
+            font-style: italic;
+        }
+
+        #conceptTable .priority-cell {
+            text-align: center;
+        }
+
+        #conceptTable .priority-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        #conceptTable .description-cell {
+            max-width: 300px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        #conceptTable .standards-cell {
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BBL Immobilienmanagement - Konzeptuelles Datenmodell</h1>
+        <div class="view-toggle">
+            <button class="toggle-btn active" onclick="setView('chart')">Bubble Chart</button>
+            <button class="toggle-btn" onclick="setView('table')">Tabelle</button>
+        </div>
+    </header>
+
+    <svg id="chart"></svg>
+
+    <div id="tableView" class="table-container" style="display: none;">
+        <table id="conceptTable">
+            <thead>
+                <tr>
+                    <th>Domäne</th>
+                    <th>Gruppe</th>
+                    <th>Konzept</th>
+                    <th>Priorität</th>
+                    <th>Beschreibung</th>
+                    <th>Standards</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+    <div class="zoom-controls">
+        <button class="zoom-btn" onclick="zoomIn()" title="Zoom in (+)">+</button>
+        <button class="zoom-btn" onclick="zoomOut()" title="Zoom out (-)">−</button>
+        <button class="zoom-btn" onclick="zoomReset()" title="Reset (0)">⟲</button>
+    </div>
+
+    <div class="legend">
+        <h3>Priorisierung</h3>
+        <div class="legend-item">
+            <div class="legend-color muss"></div>
+            <span>Muss</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color sollte"></div>
+            <span>Sollte</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color koennte"></div>
+            <span>Könnte</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color outofscope"></div>
+            <span>Out of scope</span>
+        </div>
+        <div class="legend-divider"></div>
+        <div class="legend-note">Bubble-Grösse = Anzahl Konzepte</div>
+    </div>
+
+    <div class="popup-overlay" id="popupOverlay" onclick="closePopup(event)">
+        <div class="popup" onclick="event.stopPropagation()">
+            <div class="popup-header">
+                <button class="popup-close" onclick="closePopup()">&times;</button>
+                <h2 id="popupTitle">Titel</h2>
+                <div class="subtitle" id="popupSubtitle"></div>
+            </div>
+            <div class="popup-content" id="popupContent"></div>
+        </div>
+    </div>
+
+    <div class="tooltip" id="tooltip">
+        <div class="tooltip-title" id="tooltipTitle"></div>
+        <div class="tooltip-domain" id="tooltipDomain"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

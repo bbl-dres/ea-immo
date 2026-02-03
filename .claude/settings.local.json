@@ -15,7 +15,8 @@
       "Bash(done)",
       "Bash(grep:*)",
       "Bash(xargs:*)",
-      "Bash(tr:*)"
+      "Bash(tr:*)",
+      "Bash(timeout:*)"
     ]
   }
 }
