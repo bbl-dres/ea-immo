@@ -10,19 +10,20 @@
            DESIGN SYSTEM - Variables & Base
            =========================================== */
         :root {
-            /* Colors */
-            --bg-primary: #0f0f1a;
-            --bg-secondary: #1a1a2e;
-            --bg-tertiary: #16213e;
-            --text-primary: #ffffff;
-            --text-secondary: rgba(255, 255, 255, 0.75);
-            --text-muted: rgba(255, 255, 255, 0.5);
-            --accent-primary: #4a9eff;
-            --accent-success: #22c55e;
-            --accent-warning: #f59e0b;
-            --accent-muted: #6b7280;
+            /* Dark Mode Colors (default) */
+            --bg-primary: #0a0a12;
+            --bg-secondary: #12121f;
+            --bg-tertiary: #1a1a2e;
+            --bg-canvas: #0f0f1a;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --accent-primary: #60a5fa;
+            --accent-success: #34d399;
+            --accent-warning: #fbbf24;
+            --accent-muted: #475569;
 
-            /* Priority Colors - refined */
+            /* Priority Colors */
             --priority-muss: #34d399;
             --priority-muss-text: #064e3b;
             --priority-soll: #fbbf24;
@@ -32,16 +33,23 @@
             --priority-default: #9ca3af;
 
             /* Surfaces */
-            --surface-glass: rgba(255, 255, 255, 0.08);
-            --surface-glass-hover: rgba(255, 255, 255, 0.12);
+            --surface-glass: rgba(255, 255, 255, 0.06);
+            --surface-glass-hover: rgba(255, 255, 255, 0.1);
             --surface-solid: #ffffff;
-            --surface-elevated: #f8fafc;
+            --surface-elevated: #1e1e2e;
+            --surface-card: rgba(255, 255, 255, 0.03);
+
+            /* Chart Colors */
+            --chart-domain-stroke: rgba(255, 255, 255, 0.8);
+            --chart-group-stroke: rgba(255, 255, 255, 0.4);
+            --chart-label-bg: rgba(0, 0, 0, 0.75);
+            --chart-label-text: #ffffff;
 
             /* Shadows */
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
-            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.25);
-            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.35);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.4);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.5);
 
             /* Spacing */
             --radius-sm: 6px;
@@ -63,7 +71,7 @@
 
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(145deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+            background: var(--bg-canvas);
             min-height: 100vh;
             overflow: hidden;
             color: var(--text-primary);
@@ -680,21 +688,43 @@
            LIGHT MODE STYLES
            =========================================== */
         body.light-mode {
-            --bg-primary: #f0f9ff;
-            --bg-secondary: #e0f2fe;
-            --bg-tertiary: #bae6fd;
+            /* Light Mode Color Overrides */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --bg-canvas: #ffffff;
             --text-primary: #0f172a;
-            --text-secondary: #334155;
-            --surface-glass: rgba(255, 255, 255, 0.7);
-            --surface-glass-hover: rgba(255, 255, 255, 0.85);
-            background: linear-gradient(145deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --accent-primary: #2563eb;
+            --accent-muted: #cbd5e1;
+
+            /* Light Mode Surfaces */
+            --surface-glass: rgba(255, 255, 255, 0.9);
+            --surface-glass-hover: rgba(255, 255, 255, 0.95);
+            --surface-elevated: #ffffff;
+            --surface-card: rgba(0, 0, 0, 0.02);
+
+            /* Light Mode Chart Colors */
+            --chart-domain-stroke: rgba(0, 0, 0, 0.7);
+            --chart-group-stroke: rgba(0, 0, 0, 0.3);
+            --chart-label-bg: rgba(255, 255, 255, 0.95);
+            --chart-label-text: #0f172a;
+
+            /* Light Mode Shadows */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.15);
+
+            background: #ffffff;
             color: var(--text-primary);
         }
 
         body.light-mode header {
-            background: rgba(255, 255, 255, 0.8);
-            border-bottom-color: rgba(0, 0, 0, 0.06);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.92);
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
         }
 
         body.light-mode header h1 {
@@ -702,12 +732,12 @@
         }
 
         body.light-mode .theme-toggle {
-            background: rgba(0, 0, 0, 0.05);
-            border-color: rgba(0, 0, 0, 0.1);
+            background: #f1f5f9;
+            border-color: #e2e8f0;
         }
 
         body.light-mode .theme-toggle:hover {
-            background: rgba(0, 0, 0, 0.08);
+            background: #e2e8f0;
         }
 
         body.light-mode .theme-icon.light-icon {
@@ -719,59 +749,88 @@
         }
 
         body.light-mode .toggle-btn {
-            background: rgba(255, 255, 255, 0.5);
-            border-color: rgba(0, 0, 0, 0.1);
+            background: #f8fafc;
+            border-color: #e2e8f0;
             color: #475569;
         }
 
         body.light-mode .toggle-btn:hover {
-            background: rgba(255, 255, 255, 0.8);
+            background: #f1f5f9;
             color: #1e293b;
+            border-color: #cbd5e1;
         }
 
         body.light-mode .toggle-btn.active {
-            background: #1e293b;
+            background: #0f172a;
             color: white;
-            border-color: #1e293b;
+            border-color: #0f172a;
         }
 
         body.light-mode .legend {
             background: white;
+            border: 1px solid #e2e8f0;
             box-shadow: var(--shadow-md);
         }
 
         body.light-mode .legend-toggle {
             background: white;
-            box-shadow: var(--shadow-md);
+            border: 1px solid #e2e8f0;
+            box-shadow: var(--shadow-sm);
         }
 
         body.light-mode .zoom-btn {
             background: white;
-            box-shadow: var(--shadow-md);
+            border: 1px solid #e2e8f0;
+            box-shadow: var(--shadow-sm);
         }
 
         body.light-mode .zoom-btn:hover {
             background: #f8fafc;
+            border-color: #cbd5e1;
         }
 
         body.light-mode .table-container {
-            background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);
+            background: #f8fafc;
+        }
+
+        body.light-mode #conceptTable {
+            border: 1px solid #e2e8f0;
         }
 
         body.light-mode .tooltip {
-            background: rgba(15, 23, 42, 0.92);
+            background: #0f172a;
+            box-shadow: var(--shadow-lg);
+        }
+
+        body.light-mode .tooltip-title {
+            color: #f8fafc;
+        }
+
+        body.light-mode .tooltip-domain {
+            color: #94a3b8;
         }
 
         body.light-mode .graph-label {
-            fill: #1e293b;
+            fill: var(--chart-label-text);
         }
 
         body.light-mode .label-bg {
-            fill: rgba(255, 255, 255, 0.92);
+            fill: var(--chart-label-bg);
+            stroke: #e2e8f0;
+            stroke-width: 1;
         }
 
         body.light-mode .popup-header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        }
+
+        body.light-mode .popup {
+            border: 1px solid #e2e8f0;
+        }
+
+        body.light-mode .popup-description {
+            background: #f8fafc;
+            border-left-color: var(--accent-primary);
         }
 
         /* ==========================================

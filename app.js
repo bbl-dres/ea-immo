@@ -85,11 +85,41 @@
         }
     }
 
+    // Get CSS variable value
+    function getCSSVar(varName) {
+        return getComputedStyle(document.body).getPropertyValue(varName).trim();
+    }
+
+    // Get theme-aware colors
+    function getThemeColors() {
+        return {
+            textPrimary: getCSSVar('--text-primary') || (isLightMode ? '#0f172a' : '#f8fafc'),
+            textSecondary: getCSSVar('--text-secondary') || (isLightMode ? '#475569' : '#cbd5e1'),
+            chartLabelBg: getCSSVar('--chart-label-bg') || (isLightMode ? 'rgba(255,255,255,0.95)' : 'rgba(0,0,0,0.75)'),
+            chartLabelText: getCSSVar('--chart-label-text') || (isLightMode ? '#0f172a' : '#ffffff'),
+            domainStroke: isLightMode ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.15)',
+            conceptText: isLightMode ? '#1e293b' : '#1e293b'
+        };
+    }
+
     // Toggle theme (exposed to window for onclick)
     window.toggleTheme = function() {
         isLightMode = !isLightMode;
         applyTheme();
         localStorage.setItem('ea-immo-theme', isLightMode ? 'light' : 'dark');
+
+        // Re-render charts with new theme colors
+        if (domainData) {
+            render();
+            // Reset graph so it re-renders with new colors
+            const graphContainer = d3.select('#graphView .graph-container');
+            if (graphContainer.size() > 0) {
+                graphContainer.remove();
+                if (document.getElementById('graphView').style.display !== 'none') {
+                    renderGraph();
+                }
+            }
+        }
     };
 
     // Initialize legend visibility based on screen size
@@ -267,10 +297,13 @@
             .attr('class', 'domain-group')
             .attr('transform', d => `translate(${d.x}, ${d.y})`);
 
+        // Theme-aware domain circle opacity
+        const domainFillOpacity = isLightMode ? 0.08 : 0.12;
+
         // Domain background circles
         domainGroups.append('circle')
             .attr('r', d => d.r)
-            .attr('fill', d => getDomainColor(d.data.id, 0.12))
+            .attr('fill', d => getDomainColor(d.data.id, domainFillOpacity))
             .attr('stroke', d => getDomainColor(d.data.id))
             .attr('stroke-width', 3)
             .style('cursor', 'pointer')
@@ -335,11 +368,15 @@
             .attr('class', 'group-group')
             .attr('transform', d => `translate(${d.x}, ${d.y})`);
 
+        // Theme-aware group circle colors
+        const groupFillOpacity = isLightMode ? 0.15 : 0.25;
+        const groupStrokeOpacity = isLightMode ? 0.35 : 0.5;
+
         // Group background circles
         groupGroups.append('circle')
             .attr('r', d => d.r)
-            .attr('fill', d => d.data.placeholder ? 'rgba(100,100,100,0.1)' : getDomainColor(d.data.domainId, 0.25))
-            .attr('stroke', d => d.data.placeholder ? 'transparent' : getDomainColor(d.data.domainId, 0.5))
+            .attr('fill', d => d.data.placeholder ? 'rgba(100,100,100,0.1)' : getDomainColor(d.data.domainId, groupFillOpacity))
+            .attr('stroke', d => d.data.placeholder ? 'transparent' : getDomainColor(d.data.domainId, groupStrokeOpacity))
             .attr('stroke-width', 1.5)
             .attr('stroke-dasharray', '4,2');
 
@@ -356,6 +393,10 @@
             return baseName + ' (' + count + ')';
         }
 
+        // Theme-aware group label colors
+        const groupLabelBg = isLightMode ? 'rgba(255, 255, 255, 0.92)' : 'rgba(0, 0, 0, 0.6)';
+        const groupLabelText = isLightMode ? '#0f172a' : 'white';
+
         // Label background pill
         groupLabels.append('rect')
             .attr('x', d => {
@@ -369,15 +410,15 @@
             })
             .attr('height', 18)
             .attr('rx', 9)
-            .attr('fill', 'rgba(0, 0, 0, 0.6)')
-            .attr('stroke', d => getDomainColor(d.data.domainId, 0.6))
+            .attr('fill', groupLabelBg)
+            .attr('stroke', d => getDomainColor(d.data.domainId, isLightMode ? 0.4 : 0.6))
             .attr('stroke-width', 1);
 
         // Label text
         groupLabels.append('text')
             .attr('y', 4)
             .attr('text-anchor', 'middle')
-            .attr('fill', 'white')
+            .attr('fill', groupLabelText)
             .attr('font-size', '9px')
             .attr('font-weight', '500')
             .style('pointer-events', 'none')
@@ -394,13 +435,16 @@
             .attr('transform', d => `translate(${d.x}, ${d.y})`)
             .style('cursor', d => d.data.placeholder ? 'default' : 'pointer');
 
+        // Theme-aware concept circle stroke
+        const conceptStroke = isLightMode ? '#94a3b8' : '#555';
+
         // Concept circles
         conceptGroups.append('circle')
             .attr('r', d => d.r)
             .attr('fill', d => d.data.placeholder ? 'rgba(150,150,150,0.3)' : getColor(d.data.priority))
-            .attr('stroke', d => d.data.placeholder ? 'transparent' : '#555')
+            .attr('stroke', d => d.data.placeholder ? 'transparent' : conceptStroke)
             .attr('stroke-width', 1)
-            .attr('opacity', d => d.data.placeholder ? 0.5 : 0.9);
+            .attr('opacity', d => d.data.placeholder ? 0.5 : 0.95);
 
         // Concept labels - scale font to fit circle
         conceptGroups.append('text')
@@ -849,6 +893,9 @@
             .force('x', d3.forceX(width / 2).strength(0.01))
             .force('y', d3.forceY(height / 2).strength(0.01));
 
+        // Get theme-aware link color
+        const domainLinkColor = isLightMode ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.3)';
+
         // Draw links
         const link = container.append('g')
             .attr('class', 'links')
@@ -858,7 +905,7 @@
             .append('line')
             .attr('class', d => 'graph-link ' + d.type)
             .attr('stroke', d => {
-                if (d.type === 'domain-domain') return 'rgba(255,255,255,0.3)';
+                if (d.type === 'domain-domain') return domainLinkColor;
                 return getDomainColor(d.domainId, 0.4);
             })
             .attr('stroke-width', d => {
@@ -901,6 +948,11 @@
             return d.name;
         }
 
+        // Theme-aware label colors
+        const labelBgColor = isLightMode ? 'rgba(255, 255, 255, 0.95)' : 'rgba(0, 0, 0, 0.75)';
+        const labelTextColor = isLightMode ? '#0f172a' : '#ffffff';
+        const labelStroke = isLightMode ? 'rgba(0, 0, 0, 0.1)' : 'none';
+
         // Label backgrounds for group and concept nodes
         node.filter(d => d.type !== 'domain')
             .append('rect')
@@ -908,7 +960,9 @@
             .attr('y', d => -getNodeRadius(d) - 16)
             .attr('height', 14)
             .attr('rx', 3)
-            .attr('fill', 'rgba(0, 0, 0, 0.75)')
+            .attr('fill', labelBgColor)
+            .attr('stroke', labelStroke)
+            .attr('stroke-width', isLightMode ? 1 : 0)
             .attr('x', function(d) {
                 const text = getLabelText(d);
                 const fontSize = d.type === 'group' ? 9 : 8;
@@ -926,7 +980,7 @@
             .attr('class', 'graph-label')
             .attr('dy', d => d.type === 'domain' ? 5 : -getNodeRadius(d) - 5)
             .attr('text-anchor', 'middle')
-            .attr('fill', '#fff')
+            .attr('fill', d => d.type === 'domain' ? '#fff' : labelTextColor)
             .attr('font-size', d => d.type === 'domain' ? '11px' : d.type === 'group' ? '9px' : '8px')
             .attr('font-weight', d => d.type === 'domain' ? 'bold' : '500')
             .text(d => getLabelText(d));
