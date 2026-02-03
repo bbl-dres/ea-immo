@@ -251,7 +251,7 @@
                 });
             }
         });
-        document.getElementById('legendTotal').textContent = totalConcepts + ' Konzepte';
+        document.getElementById('legendTotal').textContent = totalConcepts;
 
         // Create container group with offset for header
         const g = zoomGroup.append('g')
