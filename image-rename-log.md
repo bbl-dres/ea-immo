@@ -6,41 +6,48 @@ This log tracks all image renames and path updates made during the migration.
 
 ## Analyse - Übersicht Standards IMMO.md
 
-### Image Renames (30 total):
-1. `image-2025-7-16_20-58-34.png` → `analyse-uebersicht-standards-immo_01_dreistufiges-metadatenmodell.png`
-2. `chart (2).png` → `analyse-uebersicht-standards-immo_02_priorisierung-relevanz.png`
-3. `image.png` → `analyse-uebersicht-standards-immo_03_rec-zusammenhaenge.png`
-4. `Editor _ Mermaid Chart-2025-03-28-221835.png` → `analyse-uebersicht-standards-immo_04_rec-entitaeten.png`
-5. `image-2025-7-16_21-1-6.png` → `analyse-uebersicht-standards-immo_05_rec-ontologie.png`
-6. `image-2025-7-16_21-1-29.png` → `analyse-uebersicht-standards-immo_06_rcis-bereiche.png`
-7. `image-2025-7-16_21-4-28.png` → `analyse-uebersicht-standards-immo_07_rcis-graph.png`
-8. `image (1).png` → `analyse-uebersicht-standards-immo_08_rcis-uml.png`
-9. `image (2).png` → `analyse-uebersicht-standards-immo_09_ibpdi-domaenen.png`
-10. `Editor _ Mermaid Chart-2025-03-28-223409.png` → `analyse-uebersicht-standards-immo_10_ibpdi-status.png`
-11. `image-2025-7-16_21-6-53.png` → `analyse-uebersicht-standards-immo_11_ibpdi-digital-twin.png`
-12. `image-2025-7-16_21-7-31.png` → `analyse-uebersicht-standards-immo_12_ibpdi-energie.png`
-13. `image-2025-7-16_21-9-25.png` → `analyse-uebersicht-standards-immo_13_ibpdi-finanzen.png`
-14. `image (3).png` → `analyse-uebersicht-standards-immo_14_oscre-framework.png`
-15. `image-2025-7-16_21-10-59.png` → `analyse-uebersicht-standards-immo_15_oscre-datenmodell.png`
-16. `image (4).png` → `analyse-uebersicht-standards-immo_16_bim2fm-leitfaden.png`
-17. `image-2025-7-16_21-12-22.png` → `analyse-uebersicht-standards-immo_17_bim2fm-beschreibung.png`
-18. `BIM2FM _ Mermaid Chart-2025-07-17-210148.png` → `analyse-uebersicht-standards-immo_18_bim2fm-uml.png`
-19. `GEFMA 924 - 000 BAUWERKSTYPEN.png` → `analyse-uebersicht-standards-immo_19_gefma-bauwerkstypen.png`
-20. `GEFMA 924 - 300 BAUWERK - BAUKONSTRUKTIONEN.png` → `analyse-uebersicht-standards-immo_20_gefma-baukonstruktionen.png`
-21. `GEFMA 924 - 400 BAUWERK - TECHNISCHE ANLAGEN.png` → `analyse-uebersicht-standards-immo_21_gefma-technische-anlagen.png`
-22. `Modules.png` → `analyse-uebersicht-standards-immo_22_saref-bereiche.png`
-23. `Overview_canonical.png` → `analyse-uebersicht-standards-immo_23_saref-core.png`
-24. `openBIMw-1024x542.png` → `analyse-uebersicht-standards-immo_24_openbim-workflow.png`
-25. `image-2025-7-17_11-21-51.png` → `analyse-uebersicht-standards-immo_25_ifc-domaenen.png`
-26. `Tree-structure-of-the-IFC-format-Source-own-elaboration-based-on-wwwbuildbimcl.png` → `analyse-uebersicht-standards-immo_26_ifc-hierarchie-einfach.png`
-27. `Editor _ Mermaid Chart-2025-03-28-204937.png` → `analyse-uebersicht-standards-immo_27_ifc-hierarchie-uml.png`
-28. `image (5).png` → `analyse-uebersicht-standards-immo_28_ida-anwendungsfall.png`
-29. `Editor _ Mermaid Chart-2025-03-28-200709.png` → `analyse-uebersicht-standards-immo_29_ida-entitaeten.png`
-30. `Editor _ Mermaid Chart-2025-03-28-195904.png` → `analyse-uebersicht-standards-immo_30_ida-subsets.png`
+### ✅ CORRECTED (2026-02-03)
 
-### Unused Files in assets folder:
-- `Datenstandards.xlsx`, `Standards.pbix`, `Standards.JPG`
-- 7 unused image files (dated 2025-3 to 2025-7)
+The original image mapping was incorrect. Images were remapped based on visual comparison with the source PDF.
+
+### Correct Image Mapping (30 total):
+
+| # | Filename | Content Description |
+|---|----------|---------------------|
+| 01 | `_01_dreistufiges-metadatenmodell.png` | Dreistufiges Metadatenmodell (Die fachliche/physische Sicht) |
+| 02 | `_02_priorisierung-relevanz.jpg` | Standards Priorisierung vs. Relevanz BBL scatter plot |
+| 03 | `_03_rec-zusammenhaenge.png` | Real Estate Core - connections with other standards |
+| 04 | `_04_rec-entitaeten.png` | RealEstateCore Structure diagram |
+| 05 | `_05_rec-ontologie.png` | Real Estate Core full ontology network graph |
+| 06 | `_06_rcis-bereiche.png` | RCIS 9 category descriptions |
+| 07 | `_07_rcis-graph.png` | RCIS entities network graph |
+| 08 | `_08_rcis-uml.png` | RCIS Physical Property UML model |
+| 09 | `_09_ibpdi-domaenen.png` | IBPDI circular domain diagram |
+| 10 | `_10_ibpdi-status.png` | IBPDI Datencluster colored circles |
+| 11 | `_11_ibpdi-digital-twin.png` | IBPDI Digital Twin hierarchy |
+| 12 | `_12_ibpdi-energie.png` | IBPDI Energy and Resources cluster |
+| 13 | `_13_ibpdi-finanzen.png` | IBPDI Financials cluster |
+| 14 | `_14_oscre-framework.png` | OSCRE Domain Framework circular diagram |
+| 15 | `_15_oscre-datenmodell.png` | OSCRE Datenmodell UML |
+| 16 | `_16_bim2fm-leitfaden.png` | BIM2FM Datenfeldkatalog Leitfaden cover |
+| 17 | `_17_bim2fm-beschreibung.png` | BIM2FM description text |
+| 18 | `_18_bim2fm-uml.png` | BIM2FM UML diagram |
+| 19 | `_19_gefma-bauwerkstypen.png` | GEFMA 924 - 000 BAUWERKSTYPEN tree |
+| 20 | `_20_gefma-baukonstruktionen.png` | GEFMA 924 - 300 BAUKONSTRUKTIONEN |
+| 21 | `_21_gefma-technische-anlagen.png` | GEFMA 924 - 400 TECHNISCHE ANLAGEN |
+| 22 | `_22_saref-bereiche.png` | SAREF modules overview |
+| 23 | `_23_saref-core.png` | SAREF Core entities diagram |
+| 24 | `_24_openbim-workflow.png` | Open BIM Workflow (Require→Produce→Review→Deliver) |
+| 25 | `_25_ifc-domaenen.png` | IFC Datendomänen layer diagram |
+| 26 | `_26_ifc-hierarchie-einfach.png` | IFC Spatial Hierarchy with building illustration |
+| 27 | `_27_ifc-hierarchie-uml.png` | IFC Spatial Hierarchy UML |
+| 28 | `_28_ida-anwendungsfall.png` | gif IDA Modell Anwendungsfall flow diagram |
+| 29 | `_29_ida-entitaeten.png` | gif IDA Modell Entitäten (blue boxes) |
+| 30 | `_30_ida-subsets.png` | gif IDA Subsets/Clusters descriptions |
+
+### Cleanup:
+- Deleted unused original source files
+- Kept: `Datenstandards.xlsx`, `Standards.pbix`
 
 ---
 

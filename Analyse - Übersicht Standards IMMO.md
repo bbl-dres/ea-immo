@@ -67,7 +67,7 @@ Die Standards werden basierend auf einer kombinierten Bewertung aus Prioritätss
 - **Priorität D (Niedrig/Optional):** Standards mit geringer direkter Relevanz für die BBL-Kernprozesse. Sie können in speziellen Nischenbereichen relevant sein oder als Referenz dienen.
 
 <!-- TODO: Bild einfügen - Standards Priorisierung vs. Relevanz BBL (Scatterplot) -->
-![Standards - Priorisierung vs. Relevanz BBL](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_02_priorisierung-relevanz.png)
+![Standards - Priorisierung vs. Relevanz BBL](assets/Analyse%20-%20Übersicht%20Standards%20IMMO/analyse-uebersicht-standards-immo_02_priorisierung-relevanz.jpg)
 
 *Bild: Standards - Priorisierung vs. Relevanz BBL*
 
