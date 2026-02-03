@@ -2,6 +2,8 @@
 
 Einheitliches Datenmodell und Geschäftsobjekte für das Immobilienmanagement des BBL (Bundesamt für Bauten und Logistik).
 
+![Konzeptuelles Datenmodell - Bubble Chart](assets/Preview.JPG)
+
 ## Ziel
 
 Dieses Repository definiert zentrale Geschäftsobjekte (Gebäude, Räume, Mietverträge, etc.) in einer standardkonformen, systemunabhängigen Sprache. Es dient als verbindliche Referenz für Fach- und IT-Bereiche.
