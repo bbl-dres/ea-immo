@@ -6,7 +6,11 @@ Einheitliches Datenmodell und Geschäftsobjekte für das Immobilienmanagement de
 
 Dieses Repository definiert zentrale Geschäftsobjekte (Gebäude, Räume, Mietverträge, etc.) in einer standardkonformen, systemunabhängigen Sprache. Es dient als verbindliche Referenz für Fach- und IT-Bereiche.
 
+![The Blind Men and the Elephant](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/211585695.png)
+
 ## Domänengruppen
+
+![Domänengruppen IMMO](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/vorschlag_domaenengruppen_immo.png)
 
 | Domäne | Beschreibung | Status |
 |--------|--------------|--------|
