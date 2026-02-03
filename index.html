@@ -447,6 +447,461 @@
             color: #666;
         }
 
+        /* Mobile Legend Toggle Button */
+        .legend-toggle {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 1rem;
+            z-index: 51;
+            background: rgba(255,255,255,0.95);
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            color: #2c3e50;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            font-weight: 500;
+        }
+
+        .legend-toggle:hover {
+            background: white;
+        }
+
+        /* ==========================================
+           RESPONSIVE DESIGN - MEDIA QUERIES
+           ========================================== */
+
+        /* Tablet and smaller (max-width: 1024px) */
+        @media (max-width: 1024px) {
+            header {
+                padding: 0.4rem 1rem 0.6rem;
+            }
+
+            header h1 {
+                font-size: 1rem;
+            }
+
+            .legend {
+                max-width: 160px;
+                padding: 0.75rem;
+                font-size: 0.75rem;
+            }
+
+            .legend-total {
+                font-size: 1.2rem;
+            }
+
+            .table-container {
+                padding: 1rem;
+            }
+
+            #conceptTable th,
+            #conceptTable td {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.8rem;
+            }
+
+            #conceptTable .description-cell {
+                max-width: 200px;
+            }
+        }
+
+        /* Mobile Landscape and smaller tablets (max-width: 768px) */
+        @media (max-width: 768px) {
+            header {
+                padding: 0.4rem 0.75rem 0.5rem;
+            }
+
+            header h1 {
+                font-size: 0.9rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .view-toggle {
+                gap: 0.25rem;
+                margin-top: 0.3rem;
+                flex-wrap: wrap;
+            }
+
+            .toggle-btn {
+                padding: 0.35rem 0.7rem;
+                font-size: 0.75rem;
+            }
+
+            /* Collapsible legend for mobile */
+            .legend-toggle {
+                display: block;
+            }
+
+            .legend {
+                top: 115px;
+                left: 1rem;
+                max-width: 150px;
+                padding: 0.6rem;
+                font-size: 0.7rem;
+                transform: translateX(-120%);
+                transition: transform 0.3s ease;
+            }
+
+            .legend.visible {
+                transform: translateX(0);
+            }
+
+            .legend-total {
+                font-size: 1rem;
+            }
+
+            .legend h3 {
+                font-size: 0.75rem;
+            }
+
+            .legend-color {
+                width: 12px;
+                height: 12px;
+            }
+
+            .legend-note {
+                font-size: 0.6rem;
+            }
+
+            /* Zoom controls - more touch friendly */
+            .zoom-controls {
+                bottom: 1rem;
+                right: 1rem;
+                gap: 0.4rem;
+            }
+
+            .zoom-btn {
+                width: 44px;
+                height: 44px;
+                font-size: 1.5rem;
+            }
+
+            /* Popup adjustments */
+            .popup {
+                max-width: calc(100vw - 2rem);
+                max-height: 85vh;
+                margin: 1rem;
+                border-radius: 12px;
+            }
+
+            .popup-header {
+                padding: 1rem;
+            }
+
+            .popup-header h2 {
+                font-size: 1rem;
+            }
+
+            .popup-content {
+                padding: 1rem;
+                max-height: calc(85vh - 70px);
+            }
+
+            .popup-description {
+                font-size: 0.85rem;
+                padding: 0.75rem;
+            }
+
+            /* Table responsive */
+            .table-container {
+                top: 75px;
+                padding: 0.5rem;
+            }
+
+            #conceptTable {
+                font-size: 0.75rem;
+            }
+
+            #conceptTable th {
+                padding: 0.5rem;
+                font-size: 0.7rem;
+            }
+
+            #conceptTable td {
+                padding: 0.4rem 0.5rem;
+                font-size: 0.7rem;
+            }
+
+            #conceptTable .description-cell {
+                max-width: 150px;
+                font-size: 0.65rem;
+            }
+
+            #conceptTable .standards-cell {
+                max-width: 100px;
+                font-size: 0.65rem;
+            }
+
+            /* Tooltip adjustments for mobile */
+            .tooltip {
+                max-width: 200px;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Mobile Portrait (max-width: 480px) */
+        @media (max-width: 480px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            header {
+                padding: 0.3rem 0.5rem 0.4rem;
+            }
+
+            header h1 {
+                font-size: 0.75rem;
+                line-height: 1.2;
+            }
+
+            .view-toggle {
+                gap: 0.2rem;
+            }
+
+            .toggle-btn {
+                padding: 0.3rem 0.5rem;
+                font-size: 0.65rem;
+            }
+
+            .legend-toggle {
+                top: 70px;
+                font-size: 0.7rem;
+                padding: 0.4rem 0.6rem;
+            }
+
+            .legend {
+                top: 105px;
+                max-width: 130px;
+                padding: 0.5rem;
+            }
+
+            .legend-total {
+                font-size: 0.9rem;
+            }
+
+            .legend h3 {
+                font-size: 0.65rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .legend-item {
+                gap: 0.3rem;
+                margin-bottom: 0.2rem;
+                font-size: 0.65rem;
+            }
+
+            .legend-color {
+                width: 10px;
+                height: 10px;
+            }
+
+            /* Popup for small screens */
+            .popup {
+                max-width: calc(100vw - 1rem);
+                max-height: 90vh;
+                margin: 0.5rem;
+                border-radius: 10px;
+            }
+
+            .popup-header {
+                padding: 0.75rem;
+            }
+
+            .popup-header h2 {
+                font-size: 0.9rem;
+                padding-right: 1.5rem;
+            }
+
+            .popup-header .subtitle {
+                font-size: 0.75rem;
+            }
+
+            .popup-close {
+                right: 0.5rem;
+                top: 0.5rem;
+                font-size: 1.3rem;
+            }
+
+            .popup-content {
+                padding: 0.75rem;
+                max-height: calc(90vh - 60px);
+            }
+
+            .popup-description {
+                font-size: 0.8rem;
+                padding: 0.6rem;
+                line-height: 1.5;
+            }
+
+            .popup-section-title {
+                font-size: 0.7rem;
+            }
+
+            .standard-tag,
+            .concept-tag {
+                font-size: 0.65rem;
+                padding: 0.2rem 0.4rem;
+            }
+
+            .priority-badge {
+                font-size: 0.6rem;
+                padding: 0.2rem 0.4rem;
+            }
+
+            /* Table: horizontal scroll with fixed first column */
+            .table-container {
+                top: 68px;
+                padding: 0.25rem;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            #conceptTable {
+                min-width: 600px;
+                font-size: 0.7rem;
+            }
+
+            #conceptTable th {
+                padding: 0.4rem;
+                font-size: 0.65rem;
+                white-space: nowrap;
+            }
+
+            #conceptTable td {
+                padding: 0.3rem 0.4rem;
+            }
+
+            #conceptTable .domain-cell {
+                position: sticky;
+                left: 0;
+                background: white;
+                z-index: 1;
+                min-width: 80px;
+            }
+
+            #conceptTable tr:hover .domain-cell {
+                background: #f8f9fa;
+            }
+
+            /* Zoom controls - larger touch targets */
+            .zoom-controls {
+                bottom: 0.75rem;
+                right: 0.75rem;
+            }
+
+            .zoom-btn {
+                width: 48px;
+                height: 48px;
+                font-size: 1.6rem;
+            }
+
+            /* Tooltip - positioned at bottom on mobile */
+            .tooltip {
+                max-width: 180px;
+                font-size: 0.7rem;
+                padding: 0.4rem 0.6rem;
+            }
+        }
+
+        /* Very small screens (max-width: 360px) */
+        @media (max-width: 360px) {
+            header h1 {
+                font-size: 0.65rem;
+            }
+
+            .toggle-btn {
+                padding: 0.25rem 0.4rem;
+                font-size: 0.6rem;
+            }
+
+            .legend {
+                max-width: 120px;
+            }
+
+            .popup {
+                margin: 0.25rem;
+            }
+        }
+
+        /* Landscape mode on mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            header {
+                padding: 0.2rem 1rem 0.3rem;
+            }
+
+            header h1 {
+                font-size: 0.8rem;
+                margin-bottom: 0.2rem;
+            }
+
+            .view-toggle {
+                margin-top: 0.2rem;
+            }
+
+            .toggle-btn {
+                padding: 0.2rem 0.6rem;
+                font-size: 0.7rem;
+            }
+
+            .legend-toggle {
+                top: 55px;
+            }
+
+            .legend {
+                top: 85px;
+                max-height: calc(100vh - 100px);
+                overflow-y: auto;
+            }
+
+            .popup {
+                max-height: 95vh;
+            }
+
+            .popup-content {
+                max-height: calc(95vh - 60px);
+            }
+
+            .table-container {
+                top: 55px;
+            }
+
+            .zoom-controls {
+                bottom: 0.5rem;
+                right: 0.5rem;
+            }
+
+            .zoom-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Touch device detection - disable hover effects */
+        @media (hover: none) and (pointer: coarse) {
+            .toggle-btn:hover {
+                background: transparent;
+                color: rgba(255,255,255,0.7);
+            }
+
+            .toggle-btn.active:hover {
+                background: white;
+                color: #2c3e50;
+            }
+
+            .zoom-btn:hover {
+                transform: none;
+            }
+
+            .concept-tag:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -485,7 +940,9 @@
         <button class="zoom-btn" onclick="zoomReset()" title="Reset (0)">⟲</button>
     </div>
 
-    <div class="legend">
+    <button class="legend-toggle" id="legendToggle" onclick="toggleLegend()">Legende</button>
+
+    <div class="legend" id="legend">
         <div class="legend-total" id="legendTotal">0 Konzepte</div>
         <div class="legend-divider"></div>
         <h3>Priorisierung</h3>

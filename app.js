@@ -10,6 +10,11 @@
     let svg = null;
     let zoomGroup = null;
 
+    // Mobile detection and state
+    let isMobile = false;
+    let isTouchDevice = false;
+    let legendVisible = false;
+
     const colors = {
         muss: '#7ecba1',
         soll: '#f9d77e',
@@ -49,12 +54,49 @@
         return `rgba(${r}, ${g}, ${b}, ${alpha})`;
     }
 
+    // Check if device is mobile or touch-enabled
+    function detectMobile() {
+        isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+        isMobile = window.innerWidth <= 768;
+        return isMobile;
+    }
+
+    // Initialize legend visibility based on screen size
+    function initLegend() {
+        const legend = document.getElementById('legend');
+        const legendToggle = document.getElementById('legendToggle');
+
+        if (isMobile) {
+            legendVisible = false;
+            legend.classList.remove('visible');
+            legendToggle.style.display = 'block';
+        } else {
+            legendVisible = true;
+            legend.classList.add('visible');
+            legendToggle.style.display = 'none';
+        }
+    }
+
+    // Toggle legend visibility (for mobile)
+    window.toggleLegend = function() {
+        const legend = document.getElementById('legend');
+        legendVisible = !legendVisible;
+
+        if (legendVisible) {
+            legend.classList.add('visible');
+        } else {
+            legend.classList.remove('visible');
+        }
+    };
+
     async function init() {
         try {
+            detectMobile();
             const response = await fetch('data/geschaeftsobjekte.json');
             domainData = await response.json();
             setupChart();
             render();
+            initLegend();
         } catch (error) {
             console.error('Error loading data:', error);
         }
@@ -69,8 +111,16 @@
             .attr('height', height);
 
         window.addEventListener('resize', () => {
+            const wasMobile = isMobile;
             width = window.innerWidth;
             height = window.innerHeight;
+            detectMobile();
+
+            // Update legend visibility on screen size change
+            if (wasMobile !== isMobile) {
+                initLegend();
+            }
+
             d3.select('#chart').attr('width', width).attr('height', height);
             render();
         });
@@ -342,7 +392,7 @@
                 return d.data.name;
             });
 
-        // Concept interactions
+        // Concept interactions - with touch support
         conceptGroups.filter(d => !d.data.placeholder)
             .on('mouseenter', function(event, d) {
                 d3.select(this).select('circle')
@@ -360,18 +410,40 @@
             .on('click', (event, d) => {
                 event.stopPropagation();
                 showConceptPopup(d.data.concept, d.data.domainName);
-            });
+            })
+            .on('touchstart', function(event, d) {
+                event.preventDefault();
+                d3.select(this).select('circle')
+                    .attr('opacity', 1)
+                    .attr('stroke-width', 2);
+            }, { passive: false })
+            .on('touchend', function(event, d) {
+                event.preventDefault();
+                d3.select(this).select('circle')
+                    .attr('opacity', 0.9)
+                    .attr('stroke-width', 1);
+                showConceptPopup(d.data.concept, d.data.domainName);
+            }, { passive: false });
 
-        // Domain hover
+        // Domain interactions - with touch support
         domainGroups
             .on('mouseenter', function() {
                 d3.select(this).select('circle').attr('stroke-width', 4);
             })
             .on('mouseleave', function() {
                 d3.select(this).select('circle').attr('stroke-width', 3);
-            });
+            })
+            .on('touchstart', function(event) {
+                event.preventDefault();
+                d3.select(this).select('circle').attr('stroke-width', 4);
+            }, { passive: false })
+            .on('touchend', function(event, d) {
+                event.preventDefault();
+                d3.select(this).select('circle').attr('stroke-width', 3);
+                showDomainPopup(d.data.domain);
+            }, { passive: false });
 
-        // Group hover - show tooltip with group name
+        // Group interactions - with touch support
         groupGroups.filter(d => !d.data.placeholder)
             .style('cursor', 'pointer')
             .on('mouseenter', function(event, d) {
@@ -382,26 +454,77 @@
             .on('mouseleave', function() {
                 d3.select(this).select('circle').attr('stroke-width', 1.5);
                 hideTooltip();
-            });
+            })
+            .on('touchstart', function(event) {
+                event.preventDefault();
+                d3.select(this).select('circle').attr('stroke-width', 2.5);
+            }, { passive: false })
+            .on('touchend', function(event, d) {
+                event.preventDefault();
+                d3.select(this).select('circle').attr('stroke-width', 1.5);
+                // For groups, show tooltip briefly then hide
+                const touch = event.changedTouches[0];
+                showTooltip({ clientX: touch.clientX, clientY: touch.clientY }, d.data.name, d.data.domainName);
+            }, { passive: false });
     }
 
-    // Tooltip functions
+    // Tooltip functions with touch support
+    let tooltipTimeout = null;
+
     function showTooltip(event, title, subtitle) {
+        // Skip tooltip on touch devices for better UX (use tap for popup instead)
+        if (isTouchDevice && event.type && event.type.startsWith('touch')) {
+            return;
+        }
+
         const tooltip = document.getElementById('tooltip');
         document.getElementById('tooltipTitle').textContent = title;
         document.getElementById('tooltipDomain').textContent = subtitle;
         tooltip.classList.add('visible');
         moveTooltip(event);
+
+        // Auto-hide tooltip on touch after 2 seconds
+        if (isTouchDevice) {
+            clearTimeout(tooltipTimeout);
+            tooltipTimeout = setTimeout(hideTooltip, 2000);
+        }
     }
 
     function moveTooltip(event) {
         const tooltip = document.getElementById('tooltip');
-        tooltip.style.left = (event.clientX + 15) + 'px';
-        tooltip.style.top = (event.clientY + 15) + 'px';
+        let x, y;
+
+        // Handle both mouse and touch events
+        if (event.touches && event.touches.length > 0) {
+            x = event.touches[0].clientX;
+            y = event.touches[0].clientY;
+        } else {
+            x = event.clientX;
+            y = event.clientY;
+        }
+
+        // Position tooltip, ensuring it stays within viewport
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const padding = 15;
+
+        let left = x + padding;
+        let top = y + padding;
+
+        // Adjust if tooltip would go off screen
+        if (left + tooltipRect.width > window.innerWidth) {
+            left = x - tooltipRect.width - padding;
+        }
+        if (top + tooltipRect.height > window.innerHeight) {
+            top = y - tooltipRect.height - padding;
+        }
+
+        tooltip.style.left = left + 'px';
+        tooltip.style.top = top + 'px';
     }
 
     function hideTooltip() {
         document.getElementById('tooltip').classList.remove('visible');
+        clearTimeout(tooltipTimeout);
     }
 
     // Popup functions
@@ -516,7 +639,8 @@
         const chartEl = document.getElementById('chart');
         const graphEl = document.getElementById('graphView');
         const tableEl = document.getElementById('tableView');
-        const legendEl = document.querySelector('.legend');
+        const legendEl = document.getElementById('legend');
+        const legendToggle = document.getElementById('legendToggle');
         const zoomEl = document.querySelector('.zoom-controls');
         const buttons = document.querySelectorAll('.toggle-btn');
 
@@ -529,20 +653,29 @@
         if (view === 'chart') {
             chartEl.style.display = 'block';
             legendEl.style.display = 'block';
+            legendToggle.style.display = isMobile ? 'block' : 'none';
             zoomEl.style.display = 'flex';
             buttons[0].classList.add('active');
         } else if (view === 'graph') {
             graphEl.style.display = 'block';
             legendEl.style.display = 'block';
+            legendToggle.style.display = isMobile ? 'block' : 'none';
             zoomEl.style.display = 'flex';
             buttons[1].classList.add('active');
             renderGraph();
         } else {
             tableEl.style.display = 'block';
             legendEl.style.display = 'none';
+            legendToggle.style.display = 'none';
             zoomEl.style.display = 'none';
             buttons[2].classList.add('active');
             renderTable();
+        }
+
+        // Hide legend on mobile when switching views
+        if (isMobile && view !== 'table') {
+            legendVisible = false;
+            legendEl.classList.remove('visible');
         }
     };
 
@@ -766,7 +899,7 @@
             .attr('font-weight', d => d.type === 'domain' ? 'bold' : '500')
             .text(d => getLabelText(d));
 
-        // Node interactions
+        // Node interactions - with touch support
         node.on('mouseenter', function(event, d) {
             const r = getNodeRadius(d);
             d3.select(this).select('circle')
@@ -790,6 +923,21 @@
         })
         .on('click', (event, d) => {
             event.stopPropagation();
+            if (d.type === 'domain') {
+                showDomainPopup(d.domain);
+            } else if (d.type === 'concept') {
+                showConceptPopup(d.concept, d.domain.name);
+            }
+        });
+
+        // Touch-specific interactions for nodes (tap to show popup)
+        node.on('touchend', function(event, d) {
+            // Only trigger if it's a tap, not a drag
+            if (event.defaultPrevented) return;
+
+            event.preventDefault();
+            event.stopPropagation();
+
             if (d.type === 'domain') {
                 showDomainPopup(d.domain);
             } else if (d.type === 'concept') {
