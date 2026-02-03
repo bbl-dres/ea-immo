@@ -1,3 +1,0 @@
-# Investitionen und Verkäufe
-
-- TBD

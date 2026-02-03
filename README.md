@@ -8,22 +8,18 @@ Dieses Repository definiert zentrale Geschäftsobjekte (Gebäude, Räume, Mietve
 
 ## Domänengruppen
 
-| Domäne | Beschreibung |
-|--------|--------------|
-| [Architektonische Sicht](Architektonische%20Sicht.md) | Physische Strukturen (Grundstücke, Gebäude, Räume) |
-| [Baumanagement](Baumanagement.md) | Baumanagement-Prozesse |
-| [Controlling & Reporting](Controlling%2C%20Analytics%20und%20Reporting%20%28MIS%29.md) | Management Information System |
-| [Dokumentenmanagement](Dokumentenmanagement.md) | Strukturierte Erfassung und Verwaltung von Dokumenten |
-| [Energie und Ressourcen](Energie%20und%20Ressourcen.md) | Verbrauchsdaten, Emissionen, Nachhaltigkeit |
-| [Finanzen](Finanzen.md) | Buchhalterische und wirtschaftliche Perspektive |
-| [Investitionen und Verkäufe](Investitionen%20und%20Verk%C3%A4ufe.md) | Investment Management |
-| [Marktdaten](Marktdaten.md) | Externe Marktdaten |
-| [Metadaten](Metadaten.md) | Metadaten-Definitionen |
-| [Mietermanagement](Mietermanagement%20%28Nutzungssicht%29.md) | Nutzungs- und vermietungsbezogene Aspekte |
-| [Organisatorische Daten](Organisatorische%20Daten%20%28MDM%29.md) | Master Data Management |
-| [Portfoliomanagement](Portfoliomanagement.md) | Strategische Sicht auf das Immobilienportfolio |
-| [Projektmanagement](Projektmanagement.md) | Planung und Realisierung von Bauvorhaben |
-| [Workspace Management](Workspace%20Management.md) | Benutzer- und Kundenerfahrung |
+| Domäne | Beschreibung | Status |
+|--------|--------------|--------|
+| [Architektonische Sicht](Architektonische%20Sicht.md) | Physische Strukturen (Grundstücke, Gebäude, Räume) | Entwurf |
+| [Dokumentenmanagement](Dokumentenmanagement.md) | Strukturierte Erfassung und Verwaltung von Dokumenten | Entwurf |
+| [Energie und Ressourcen](Energie%20und%20Ressourcen.md) | Verbrauchsdaten, Emissionen, Nachhaltigkeit | Entwurf |
+| [Finanzen](Finanzen.md) | Buchhalterische und wirtschaftliche Perspektive | Entwurf |
+| [Metadaten](Metadaten.md) | Metadaten-Definitionen | Entwurf |
+| [Mietermanagement](Mietermanagement%20%28Nutzungssicht%29.md) | Nutzungs- und vermietungsbezogene Aspekte | Entwurf |
+| [Organisatorische Daten](Organisatorische%20Daten%20%28MDM%29.md) | Master Data Management | Entwurf |
+| [Portfoliomanagement](Portfoliomanagement.md) | Strategische Sicht auf das Immobilienportfolio | Entwurf |
+| [Projektmanagement](Projektmanagement.md) | Planung und Realisierung von Bauvorhaben | Entwurf |
+| [Workspace Management](Workspace%20Management.md) | Benutzer- und Kundenerfahrung | Entwurf |
 
 ## Weitere Dokumentation
 
