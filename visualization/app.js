@@ -160,6 +160,17 @@
 
         pack(root);
 
+        // Calculate total concepts
+        let totalConcepts = 0;
+        domainData.domains.forEach(d => {
+            if (d.groups) {
+                d.groups.forEach(g => {
+                    if (g.concepts) totalConcepts += g.concepts.length;
+                });
+            }
+        });
+        document.getElementById('legendTotal').textContent = totalConcepts + ' Konzepte';
+
         // Create container group with offset for header
         const g = zoomGroup.append('g')
             .attr('transform', 'translate(20, 70)');
@@ -190,25 +201,47 @@
         const labels = domainGroups.append('g')
             .attr('transform', d => `translate(0, ${-d.r - 18})`);
 
-        // Label background - sized to fit full text
+        // Helper to count concepts in domain
+        function countDomainConcepts(domain) {
+            let count = 0;
+            if (domain.groups) {
+                domain.groups.forEach(g => {
+                    if (g.concepts) count += g.concepts.length;
+                });
+            }
+            return count;
+        }
+
+        // Label background - sized to fit text with count
         labels.append('rect')
-            .attr('x', d => -(d.data.name.length * 4.5 + 12))
+            .attr('x', d => {
+                const count = countDomainConcepts(d.data.domain);
+                const text = d.data.name + ' (' + count + ')';
+                return -(text.length * 4 + 12);
+            })
             .attr('y', -14)
-            .attr('width', d => d.data.name.length * 9 + 24)
+            .attr('width', d => {
+                const count = countDomainConcepts(d.data.domain);
+                const text = d.data.name + ' (' + count + ')';
+                return text.length * 8 + 24;
+            })
             .attr('height', 28)
             .attr('rx', 6)
             .attr('fill', d => getDomainColor(d.data.id))
             .attr('opacity', 0.95);
 
-        // Label text - full name, bigger font
+        // Label text - full name with count
         labels.append('text')
             .attr('y', 5)
             .attr('text-anchor', 'middle')
             .attr('fill', 'white')
-            .attr('font-size', '14px')
+            .attr('font-size', '13px')
             .attr('font-weight', 'bold')
             .style('pointer-events', 'none')
-            .text(d => d.data.name);
+            .text(d => {
+                const count = countDomainConcepts(d.data.domain);
+                return d.data.name + ' (' + count + ')';
+            });
 
         // Draw group circles (depth 2)
         const groupNodes = root.descendants().filter(d => d.depth === 2);
@@ -234,15 +267,22 @@
             .attr('class', 'group-label')
             .attr('transform', d => `translate(0, ${-d.r + 12})`);
 
+        // Helper to get group label text with count
+        function getGroupLabelText(d) {
+            const count = d.data.children ? d.data.children.length : 0;
+            const baseName = d.data.name.length > 14 ? d.data.name.substring(0, 12) + '..' : d.data.name;
+            return baseName + ' (' + count + ')';
+        }
+
         // Label background pill
         groupLabels.append('rect')
             .attr('x', d => {
-                const text = d.data.name.length > 18 ? d.data.name.substring(0, 16) + '..' : d.data.name;
+                const text = getGroupLabelText(d);
                 return -(text.length * 3.5 + 8);
             })
             .attr('y', -9)
             .attr('width', d => {
-                const text = d.data.name.length > 18 ? d.data.name.substring(0, 16) + '..' : d.data.name;
+                const text = getGroupLabelText(d);
                 return text.length * 7 + 16;
             })
             .attr('height', 18)
@@ -259,12 +299,7 @@
             .attr('font-size', '9px')
             .attr('font-weight', '500')
             .style('pointer-events', 'none')
-            .text(d => {
-                if (d.data.name.length > 18) {
-                    return d.data.name.substring(0, 16) + '..';
-                }
-                return d.data.name;
-            });
+            .text(d => getGroupLabelText(d));
 
         // Draw concept circles (depth 3)
         const conceptNodes = root.descendants().filter(d => d.depth === 3);
