@@ -1,3 +1,3 @@
-# Detailstudie - Investitionen und Verkäufe⚪
+# Investitionen und Verkäufe
 
 - TBD

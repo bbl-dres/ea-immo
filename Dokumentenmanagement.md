@@ -1,25 +1,4 @@
-# Detailstudie - Dokumentenmanagement 🟢
-
-**Arbeitsdokument**
-
-- Inhalte werden als PDFs im Anhang versioniert (nur Meilensteine)
-- Zugang zum Dokument ist auf Mitarbeiter der Bundesverwaltung eingeschränkt (open by default)
-- Inhalte können mit Abstimmung [Rasner David BBL](https://confluence.bbl.admin.ch/display/~U80865084) extern geteilt werden
-
-**Inhalt:**
-
-- [1. Ziel dieses Dokuments](#DetailstudieDokumentenmanagement🟢-1.ZieldiesesDokuments)
-- [2. Dokumentenmanagement – Aufgaben und Bedeutung](#DetailstudieDokumentenmanagement🟢-2.Dokumentenmanagement–AufgabenundBedeutung)
-- [3. Empfehlung Geschäftsobjekte (Konsolidiert)](#DetailstudieDokumentenmanagement🟢-3.EmpfehlungGeschäftsobjekte(Konsolidiert))
-- [4. Übersicht der relevanten Standards](#DetailstudieDokumentenmanagement🟢-4.ÜbersichtderrelevantenStandards)
-- [5. Wichtigste Standards im Detail (schrittweise Ergänzung)](#DetailstudieDokumentenmanagement🟢-5.WichtigsteStandardsimDetail(schrittweiseErgänzung))
-  - [5.1. Bundesgesetz über die Archivierung (ArchG), SR 152.1](#DetailstudieDokumentenmanagement🟢-5.1.BundesgesetzüberdieArchivierung(ArchG),SR152.1)
-  - [5.2. eCH-0039 E-Government-Schnittstelle für Dossiers und Dokumente](#DetailstudieDokumentenmanagement🟢-5.2.eCH-0039E-Government-SchnittstellefürDossiersundDokumente)
-  - [5.3 KBOB Bauwerksdokumentation im Hochbau - Dokumentationsmodell BWD](#DetailstudieDokumentenmanagement🟢-5.3KBOBBauwerksdokumentationimHochbau-DokumentationsmodellBWD)
-  - [5.4. SIA 112 Modell Bauplanung](#DetailstudieDokumentenmanagement🟢-5.4.SIA112ModellBauplanung)
-- [6. Verweise und Anhang](#DetailstudieDokumentenmanagement🟢-6.VerweiseundAnhang)
-
----
+# Dokumentenmanagement 
 
 # 1. Ziel dieses Dokuments
 
@@ -304,33 +283,3 @@ Tabelle: Begriffe SIA 112 Modell Bauplanung
 ![](assets/Dokumentenmanagement/225346095.png)
 
 Bild: Phasen, Teilphasen und Teilphasenziele nach SIA 112. [Quelle](https://object.gever.admin.ch:443/web/?ObjectToOpenID=%24ActaNovaDocument%7c51BB6F95-8ACB-4CDB-A4FA-BE97F7E5CAA4&TenantID=169)
-
-# 6. Verweise und Anhang
-
-### 6.1 Verweise
-
-- TBD
-
-### 6.2 Anhang
-
-|  | [Datei](/spaces/IMMO/pages/225345943/Detailstudie+-+Dokumentenmanagement+%F0%9F%9F%A2?sortBy=name&sortOrder=ascending) | [Geändert](/spaces/IMMO/pages/225345943/Detailstudie+-+Dokumentenmanagement+%F0%9F%9F%A2?sortBy=date&sortOrder=descending) |
-| --- | --- | --- |
-|  | PNG-Datei [image-20230625181419617-4ac4204a7a22c06927aa87335ab17a79.png](/download/Dokumentenmanagement/image-20230625181419617-4ac4204a7a22c06927aa87335ab17a79.png "Herunterladen") | 22.07.2025 by [Rasner David BBL](    /display/~U80865084 ) |
-|  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl) [$itemLabel]($itemRenderedUrl) [$itemLabel]($itemRenderedUrl&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true) |
-|  | PNG-Datei [image-2025-5-22\_12-46-7.png](/download/Dokumentenmanagement/image-2025-5-22_12-46-7.png "Herunterladen") | 22.07.2025 by [Rasner David BBL](    /display/~U80865084 ) |
-|  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true) |
-|  | PNG-Datei [image-2025-7-23\_19-26-25.png](/download/Dokumentenmanagement/image-2025-7-23_19-26-25.png "Herunterladen") | 23.07.2025 by [Rasner David BBL](    /display/~U80865084 ) |
-|  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true) |
-|  | PNG-Datei [Dokumentenmanagement (Vereinfachte Darst \_ Mermaid Chart-2025-07-24-165853.png](/download/Dokumentenmanagement/Dokumentenmanagement%20%28Vereinfachte%20Darst%20_%20Mermaid%20Chart-2025-07-24-165853.png "Herunterladen") | 24.07.2025 by [Rasner David BBL](    /display/~U80865084 ) |
-|  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) |
-|  | Datei [Dokumentenmanagement (Vereinfachte Darst \_ Mermaid Chart-2025-07-24-165858.mmd](/download/Dokumentenmanagement/Dokumentenmanagement%20%28Vereinfachte%20Darst%20_%20Mermaid%20Chart-2025-07-24-165858.mmd "Herunterladen") | 24.07.2025 by [Rasner David BBL](    /display/~U80865084 ) |
-|  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) |
-
-- Ziehen Sie Dateien an diese Stelle, um sie hochzuladen, oder Dateien suchen
-  ![](images/icons/wait.gif)
-
-Datei hochladen
-
-Dateibeschreibung
-
-[Alle herunterladen](/pages/downloadallattachments.action?pageId=225345943 "Alle neuesten Versionen von Anhängen auf dieser Seite als einzelne zip-Datei herunterladen.")

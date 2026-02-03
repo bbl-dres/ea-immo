@@ -1,21 +1,4 @@
-# Detailstudie - Portfoliomanagement🟡
-
-**Arbeitsdokument**
-
-- Inhalte werden als PDFs im Anhang versioniert (nur Meilensteine)
-- Zugang zum Dokument ist auf Mitarbeiter der Bundesverwaltung eingeschränkt (open by default)
-- Inhalte können mit Abstimmung [Rasner David BBL](https://confluence.bbl.admin.ch/display/~U80865084) extern geteilt werden
-
-**Inhalt:**
-
-- [1. Ziel dieses Dokuments](#DetailstudiePortfoliomanagement🟡-1.ZieldiesesDokuments)
-- [2. Portfoliomanagement – Aufgaben und Bedeutung](#DetailstudiePortfoliomanagement🟡-2.Portfoliomanagement–AufgabenundBedeutung)
-- [3. Empfehlung Geschäftsobjekte (Konsolidiert)](#DetailstudiePortfoliomanagement🟡-3.EmpfehlungGeschäftsobjekte(Konsolidiert))
-- [4. Übersicht der relevanten Standards](#DetailstudiePortfoliomanagement🟡-4.ÜbersichtderrelevantenStandards)
-- [5. Wichtigste Standards im Detail (schrittweise Ergänzung)](#DetailstudiePortfoliomanagement🟡-5.WichtigsteStandardsimDetail(schrittweiseErgänzung))
-- [6. Verweise und Anhang](#DetailstudiePortfoliomanagement🟡-6.VerweiseundAnhang)
-
----
+# Portfoliomanagement
 
 # 1. Ziel dieses Dokuments
 
@@ -151,13 +134,3 @@ Die Standards und Use Cases lassen sich in folgende strategische Kategorien eino
 # 5. Wichtigste Standards im Detail (schrittweise Ergänzung)
 
 *[Dieser Abschnitt wird schrittweise mit detaillierten Beschreibungen der wichtigsten Standards ergänzt, analog zur Struktur im Dokumentenmanagement mit Tabellen der relevanten Begriffe, Kategorien und BBL-Relevanz]*
-
-# 6. Verweise und Anhang
-
-### 6.1 Verweise
-
-- TBD
-
-### 6.2 Anhang
-
-*[Wird bei Bedarf mit relevanten Dokumenten und Grafiken ergänzt]*

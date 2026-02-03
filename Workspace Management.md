@@ -1,21 +1,4 @@
-# Detailstudie - Workspace Management🟡
-
-**Arbeitsdokument**
-
-- Inhalte werden als PDFs im Anhang versioniert (nur Meilensteine)
-- Zugang zum Dokument ist auf Mitarbeiter der Bundesverwaltung eingeschränkt (open by default)
-- Inhalte können mit Abstimmung [Rasner David BBL](https://confluence.bbl.admin.ch/display/~U80865084) extern geteilt werden
-
-**Inhalt:**
-
-- [1. Ziel dieses Dokuments](#DetailstudieWorkspaceManagement🟡-1.ZieldiesesDokuments)
-- [2. Workspace Management – Aufgaben und Bedeutung](#DetailstudieWorkspaceManagement🟡-2.WorkspaceManagement–AufgabenundBedeutung)
-- [3. Empfehlung Geschäftsobjekte (Konsolidiert)](#DetailstudieWorkspaceManagement🟡-3.EmpfehlungGeschäftsobjekte(Konsolidiert))
-- [4. Übersicht der relevanten Standards](#DetailstudieWorkspaceManagement🟡-4.ÜbersichtderrelevantenStandards)
-- [5. Wichtigste Standards im Detail (schrittweise Ergänzung)](#DetailstudieWorkspaceManagement🟡-5.WichtigsteStandardsimDetail(schrittweiseErgänzung))
-- [6. Verweise und Anhang](#DetailstudieWorkspaceManagement🟡-6.VerweiseundAnhang)
-
----
+# Workspace Management
 
 # 1. Ziel dieses Dokuments
 
@@ -194,13 +177,3 @@ Zur einheitlichen Klassifizierung der Begriffe und Standards werden folgende Kat
 | 2 |  |  |  |  |
 | 3 |  |  |  |  |
 | 4 |  |  |  |  |
-
-# 6. Verweise und Anhang
-
-### 6.1 Verweise
-
-- TBD
-
-### 6.2 Anhang
-
-[Platzhalter für Anhänge]

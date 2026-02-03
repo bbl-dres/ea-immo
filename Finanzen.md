@@ -1,21 +1,4 @@
-# Detailstudie - Finanzen🟡
-
-**Arbeitsdokument**
-
-- Inhalte werden als PDFs im Anhang versioniert (nur Meilensteine)
-- Zugang zum Dokument ist auf Mitarbeiter der Bundesverwaltung eingeschränkt (open by default)
-- Inhalte können mit Abstimmung [Rasner David BBL](https://confluence.bbl.admin.ch/display/~U80865084) extern geteilt werden
-
-**Inhalt:**
-
-- [1. Ziel dieses Dokuments](#DetailstudieFinanzen🟡-1.ZieldiesesDokuments)
-- [2. Finanzen – Aufgaben und Bedeutung](#DetailstudieFinanzen🟡-2.Finanzen–AufgabenundBedeutung)
-- [3. Empfehlung Geschäftsobjekte (Konsolidiert)](#DetailstudieFinanzen🟡-3.EmpfehlungGeschäftsobjekte(Konsolidiert))
-- [4. Übersicht der relevanten Standards](#DetailstudieFinanzen🟡-4.ÜbersichtderrelevantenStandards)
-- [5. Wichtigste Standards im Detail (Schrittweise Ergänzung)](#DetailstudieFinanzen🟡-5.WichtigsteStandardsimDetail(SchrittweiseErgänzung))
-- [6. Verweise und Anhang](#DetailstudieFinanzen🟡-6.VerweiseundAnhang)
-
----
+# Finanzen
 
 # 1. Ziel dieses Dokuments
 
@@ -148,19 +131,3 @@ Tabelle: Übersicht der relevanten Standards
 # 5. Wichtigste Standards im Detail (Schrittweise Ergänzung)
 
 [Dieser Abschnitt wird schrittweise mit detaillierten Beschreibungen der wichtigsten Standards ergänzt]
-
-# 6. Verweise und Anhang
-
-### 6.1 Verweise
-
-- Bundesgesetz über den eidgenössischen Finanzhaushalt (FHG), SR 611.0
-- Finanzhaushaltverordnung (FHV), SR 611.01
-- IPSAS-Standards: <http://www.ipsasb.org>
-- KBOB-Publikationen: <http://www.kbob.admin.ch>
-- eCH-Standards: <http://www.ech.ch>
-- SIA-Normenwerk: <http://www.sia.ch>
-- CRB-Standards: <http://www.crb.ch>
-
-### 6.2 Anhang
-
-[Platzhalter für UML-Diagramme, Detailbeschreibungen und weitere Dokumentation]

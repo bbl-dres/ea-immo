@@ -1,27 +1,4 @@
-# Detailstudie - Projektmanagement🟢
-
-**Arbeitsdokument**
-
-- Inhalte werden als PDFs im Anhang versioniert (nur Meilensteine)
-- Zugang zum Dokument ist auf Mitarbeiter der Bundesverwaltung eingeschränkt (open by default)
-- Inhalte können mit Abstimmung [Rasner David BBL](https://confluence.bbl.admin.ch/display/~U80865084) extern geteilt werden
-
-**Inhalt:**
-
-- [1. Ziel dieses Dokuments](#DetailstudieProjektmanagement🟢-1.ZieldiesesDokuments)
-- [2. Projektmanagement – Aufgaben und Bedeutung](#DetailstudieProjektmanagement🟢-2.Projektmanagement–AufgabenundBedeutung)
-- [3. Empfehlung Geschäftsobjekte (Konsolidiert)](#DetailstudieProjektmanagement🟢-3.EmpfehlungGeschäftsobjekte(Konsolidiert))
-- [4. Übersicht der relevanten Standards](#DetailstudieProjektmanagement🟢-4.ÜbersichtderrelevantenStandards)
-- [5. Wichtigste Standards im Detail (Schrittweise Ergänzung)](#DetailstudieProjektmanagement🟢-5.WichtigsteStandardsimDetail(SchrittweiseErgänzung))
-  - [5.1 Bundesgesetz über das öffentliche Beschaffungswesen (BöB)](#DetailstudieProjektmanagement🟢-5.1BundesgesetzüberdasöffentlicheBeschaffungswesen(BöB))
-  - [5.2 Verordnung über das öffentliche Beschaffungswesen (VöB)](#DetailstudieProjektmanagement🟢-5.2VerordnungüberdasöffentlicheBeschaffungswesen(VöB))
-  - [5.3 SIA 112:2014 - Modell Bauplanung](#DetailstudieProjektmanagement🟢-5.3SIA112:2014-ModellBauplanung)
-  - [5.X SAP PS (Project System)](#DetailstudieProjektmanagement🟢-5.XSAPPS(ProjectSystem))
-  - [5.X SAP EPPM (Enterprise Portfolio Project Management)](#DetailstudieProjektmanagement🟢-5.XSAPEPPM(EnterprisePortfolioProjectManagement))
-  - [5.X SIMAP (Beschaffungsplattform von Bund und bundesnahen Organisationen)](#DetailstudieProjektmanagement🟢-5.XSIMAP(BeschaffungsplattformvonBundundbundesnahenOrganisationen))
-- [6. Verweise und Anhang](#DetailstudieProjektmanagement🟢-6.VerweiseundAnhang)
-
----
+# Projektmanagement
 
 # 1. Ziel dieses Dokuments
 
@@ -487,32 +464,3 @@ Bild: Konzeptuelles Datenmodell SAP EPPM
 | 108 | LegalFormCode | Rechtsformcode | Geschäftsobjekt | Code für die Rechtsform von Unternehmen |  |  |
 
 Tabelle: Geschäftsobjekte SIMAP
-
-# 6. Verweise und Anhang
-
-### 6.1 Verweise
-
-- SIA-Normenwerk: <http://www.sia.ch>
-- KBOB-Publikationen: <http://www.kbob.admin.ch>
-- HERMES: <http://www.hermes.admin.ch>
-- Beschaffungsrecht: <http://www.beschaffung.admin.ch>
-
-### 6.2 Anhang
-
-|  | [Datei](/spaces/IMMO/pages/225346383/Detailstudie+-+Projektmanagement%F0%9F%9F%A2?sortBy=name&sortOrder=ascending) | [Geändert](/spaces/IMMO/pages/225346383/Detailstudie+-+Projektmanagement%F0%9F%9F%A2?sortBy=date&sortOrder=descending) |
-| --- | --- | --- |
-|  | PNG-Datei [image-2025-11-6\_13-34-34.png](/download/attachments/225346383/image-2025-11-6_13-34-34.png "Herunterladen") | 06.11.2025 by [Rasner David BBL](    /display/~U80865084 ) |
-|  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl) [$itemLabel]($itemRenderedUrl) [$itemLabel]($itemRenderedUrl&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true) |
-|  | PNG-Datei [image-2025-11-6\_13-34-34-1.png](/download/attachments/225346383/image-2025-11-6_13-34-34-1.png "Herunterladen") | 06.11.2025 by [Rasner David BBL](    /display/~U80865084 ) |
-|  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true) |
-|  | PNG-Datei [image-2025-11-6\_13-34-34-2.png](/download/attachments/225346383/image-2025-11-6_13-34-34-2.png "Herunterladen") | 06.11.2025 by [Rasner David BBL](    /display/~U80865084 ) |
-|  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true) |
-
-- Ziehen Sie Dateien an diese Stelle, um sie hochzuladen, oder Dateien suchen
-  ![](images/icons/wait.gif)
-
-Datei hochladen
-
-Dateibeschreibung
-
-[Alle herunterladen](/pages/downloadallattachments.action?pageId=225346383 "Alle neuesten Versionen von Anhängen auf dieser Seite als einzelne zip-Datei herunterladen.")

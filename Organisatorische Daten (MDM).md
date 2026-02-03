@@ -1,25 +1,4 @@
-# Detailstudie - Organisatorische Daten (MDM)🟡
-
-**Arbeitsdokument**
-
-- Inhalte werden als PDFs im Anhang versioniert (nur Meilensteine)
-- Zugang zum Dokument ist auf Mitarbeiter der Bundesverwaltung eingeschränkt (open by default)
-- Inhalte können mit Abstimmung [Rasner David BBL](https://confluence.bbl.admin.ch/display/~U80865084) extern geteilt werden
-
-**Inhalt:**
-
-- [1. Ziel dieses Dokuments](#DetailstudieOrganisatorischeDaten(MDM)🟡-1.ZieldiesesDokuments)
-- [2. Organisatorische Daten – Aufgaben und Bedeutung](#DetailstudieOrganisatorischeDaten(MDM)🟡-2.OrganisatorischeDaten–AufgabenundBedeutung)
-- [3. Empfehlung Geschäftsobjekte (Konsolidiert)](#DetailstudieOrganisatorischeDaten(MDM)🟡-3.EmpfehlungGeschäftsobjekte(Konsolidiert))
-- [4. Übersicht der relevanten Standards](#DetailstudieOrganisatorischeDaten(MDM)🟡-4.ÜbersichtderrelevantenStandards)
-- [5. Wichtigste Standards im Detail (schrittweise Ergänzung)](#DetailstudieOrganisatorischeDaten(MDM)🟡-5.WichtigsteStandardsimDetail(schrittweiseErgänzung))
-  - [5.X. Beispiel Standard](#DetailstudieOrganisatorischeDaten(MDM)🟡-5.X.BeispielStandard)
-  - [5.1. Bundesgesetz über die Unternehmens-Identifikationsnummer (UIDG), SR 431.03](#DetailstudieOrganisatorischeDaten(MDM)🟡-5.1.BundesgesetzüberdieUnternehmens-Identifikationsnummer(UIDG),SR431.03)
-  - [5.2. Verordnung über die Unternehmens-Identifikationsnummer (UIDV), SR 431.031](#DetailstudieOrganisatorischeDaten(MDM)🟡-5.2.VerordnungüberdieUnternehmens-Identifikationsnummer(UIDV),SR431.031)
-  - [5.3. eCH-0108 – Datenstandard: Unternehmensstammdaten und Unternehmensregister](#DetailstudieOrganisatorischeDaten(MDM)🟡-5.3.eCH-0108–Datenstandard:UnternehmensstammdatenundUnternehmensregister)
-  - [5.4. IBPDI Common Data Model (Organizational Management Cluster)](#DetailstudieOrganisatorischeDaten(MDM)🟡-5.4.IBPDICommonDataModel(OrganizationalManagementCluster))
-
----
+# Organisatorische Daten (MDM)
 
 # 1. Ziel dieses Dokuments
 

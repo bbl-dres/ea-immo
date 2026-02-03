@@ -1,2 +1,1 @@
-# Detailstudie - Baumanagement⚪
-
+# Baumanagement

@@ -1,28 +1,4 @@
-# Detailstudie - Energie und Ressourcen🟡
-
-**Arbeitsdokument**
-
-- Inhalte werden als PDFs im Anhang versioniert (nur Meilensteine)
-- Zugang zum Dokument ist auf Mitarbeiter der Bundesverwaltung eingeschränkt (open by default)
-- Inhalte können mit Abstimmung [Rasner David BBL](https://confluence.bbl.admin.ch/display/~U80865084) extern geteilt werden
-
-**Inhalt:**
-
-- [1. Ziel dieses Dokuments](#DetailstudieEnergieundRessourcen🟡-1.ZieldiesesDokuments)
-- [2. Die Energie- und Ressourcensicht – Aufgaben und Bedeutung](#DetailstudieEnergieundRessourcen🟡-2.DieEnergie-undRessourcensicht–AufgabenundBedeutung)
-- [3. Empfehlung Geschäftsobjekte (Konsolidiert)](#DetailstudieEnergieundRessourcen🟡-3.EmpfehlungGeschäftsobjekte(Konsolidiert))
-- [4. Übersicht der relevanten Standards](#DetailstudieEnergieundRessourcen🟡-4.ÜbersichtderrelevantenStandards)
-- [5. Wichtigste Standards und Beispiele im Detail (Schrittweise Ergänzung)](#DetailstudieEnergieundRessourcen🟡-5.WichtigsteStandardsundBeispieleimDetail(SchrittweiseErgänzung))
-  - [5.1 Klima- und Innovationsgesetz (KlG)](#DetailstudieEnergieundRessourcen🟡-5.1Klima-undInnovationsgesetz(KlG))
-  - [5.2 Energiegesetz (EnG)](#DetailstudieEnergieundRessourcen🟡-5.2Energiegesetz(EnG))
-  - [5.3 CO2-Gesetz](#DetailstudieEnergieundRessourcen🟡-5.3CO2-Gesetz)
-  - [5.4 BAFU PACTA CO2-Rechner Methode (FPRE)](#DetailstudieEnergieundRessourcen🟡-5.4BAFUPACTACO2-RechnerMethode(FPRE))
-  - [5.5 The International Building Performance & Data Initiative (IBPDI)](#DetailstudieEnergieundRessourcen🟡-5.5TheInternationalBuildingPerformance&DataInitiative(IBPDI))
-  - [5.6 GHG Protocol Corporate Standard](#DetailstudieEnergieundRessourcen🟡-5.6GHGProtocolCorporateStandard)
-- [5.7 Carbon Risk Real Estate Monitor (CRREM)](#DetailstudieEnergieundRessourcen🟡-5.7CarbonRiskRealEstateMonitor(CRREM))
-- [6. Verweise und Anhang](#DetailstudieEnergieundRessourcen🟡-6.VerweiseundAnhang)
-
----
+# Energie und Ressourcen
 
 # 1. Ziel dieses Dokuments
 
@@ -611,49 +587,3 @@ Tabelle: Geschäftsobjekte und Fachbegriffe GHG Protocol Corporate Standard
 | 30 | Asset Stranding Risk | Objekt-Strandungsrisiko | Geschäftsobjekt | Bewertung der Wahrscheinlichkeit vorzeitiger wirtschaftlicher Obsoleszenz aufgrund von Klimafaktoren | Sehr hoch | Kernoutput der CRREM-Analyse |
 
 Tabelle: Geschäftsobjekte und Fachbegriffe CRREM
-
-# 6. Verweise und Anhang
-
-### 6.1 Verweise
-
-**Standards:**
-
-- Beispiel Standard: URL, Webseite mit weiteren Details
-- Beispiel Standard: URL, Webseite mit weiteren Details
-
-**Sonstiges**
-
-- Verweis, oder Beispiel: URL, Webseite mit weiteren Details
-- Verweis, oder Beispiel: URL, Webseite mit weiteren Details
-
-### 6.2 Anhang
-
-|  | [Datei](/spaces/IMMO/pages/225346467/Detailstudie+-+Energie+und+Ressourcen%F0%9F%9F%A1?sortBy=name&sortOrder=ascending) | [Geändert](/spaces/IMMO/pages/225346467/Detailstudie+-+Energie+und+Ressourcen%F0%9F%9F%A1?sortBy=date&sortOrder=descending) |
-| --- | --- | --- |
-|  | PNG-Datei [image-2025-8-13\_20-35-5.png](/download/Energie und Ressourcen/image-2025-8-13_20-35-5.png "Herunterladen") | 13.08.2025 by [Rasner David BBL](    /display/~U80865084 ) |
-|  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl) [$itemLabel]($itemRenderedUrl) [$itemLabel]($itemRenderedUrl&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true) |
-|  | Datei [Konsolidierte Tabelle Standards und Regelwerke - BBL Energie, Ressourcen und Emissionen.md](/download/Energie und Ressourcen/Konsolidierte%20Tabelle%20Standards%20und%20Regelwerke%20-%20BBL%20Energie%2C%20Ressourcen%20und%20Emissionen.md "Herunterladen") | 13.08.2025 by [Rasner David BBL](    /display/~U80865084 ) |
-|  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true) |
-|  | PDF-Datei [BAFU Methodenbericht 2024 zum erweiterten CO2-Rechner für Gebäude.pdf](/download/Energie und Ressourcen/BAFU%20Methodenbericht%202024%20zum%20erweiterten%20CO2-Rechner%20f%C3%BCr%20Geb%C3%A4ude.pdf "Herunterladen") | 13.08.2025 by [Rasner David BBL](    /display/~U80865084 ) |
-|  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true) |
-|  | PNG-Datei [BAFU CO2 Rechner - Scope 1 Berechnungsmethodik.PNG](/download/Energie und Ressourcen/BAFU%20CO2%20Rechner%20-%20Scope%201%20Berechnungsmethodik.PNG "Herunterladen") | 13.08.2025 by [Rasner David BBL](    /display/~U80865084 ) |
-|  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) |
-|  | PNG-Datei [BAFU CO2 Rechner - Scope 3 Berechnungsmethodik.PNG](/download/Energie und Ressourcen/BAFU%20CO2%20Rechner%20-%20Scope%203%20Berechnungsmethodik.PNG "Herunterladen") | 13.08.2025 by [Rasner David BBL](    /display/~U80865084 ) |
-|  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) |
-|  | PNG-Datei [BAFU CO2 Rechner - Scope 2 Variablen.PNG](/download/Energie und Ressourcen/BAFU%20CO2%20Rechner%20-%20Scope%202%20Variablen.PNG "Herunterladen") | 13.08.2025 by [Rasner David BBL](    /display/~U80865084 ) |
-|  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) |
-|  | PNG-Datei [BAFU CO2 Rechner - Scope 2 Berechnungsablauf.PNG](/download/Energie und Ressourcen/BAFU%20CO2%20Rechner%20-%20Scope%202%20Berechnungsablauf.PNG "Herunterladen") | 13.08.2025 by [Rasner David BBL](    /display/~U80865084 ) |
-|  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) |
-|  | PNG-Datei [BAFU CO2 Rechner - Scope 1 Variablen.PNG](/download/Energie und Ressourcen/BAFU%20CO2%20Rechner%20-%20Scope%201%20Variablen.PNG "Herunterladen") | 13.08.2025 by [Rasner David BBL](    /display/~U80865084 ) |
-|  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) |
-|  | PNG-Datei [IBPDI - Energy and Ressources \_ Mermaid Chart-2025-08-13-225152.png](/download/Energie und Ressourcen/IBPDI%20-%20Energy%20and%20Ressources%20_%20Mermaid%20Chart-2025-08-13-225152.png "Herunterladen") | 14.08.2025 by [Rasner David BBL](    /display/~U80865084 ) |
-|  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) |
-
-- Ziehen Sie Dateien an diese Stelle, um sie hochzuladen, oder Dateien suchen
-  ![](images/icons/wait.gif)
-
-Datei hochladen
-
-Dateibeschreibung
-
-[Alle herunterladen](/pages/downloadallattachments.action?pageId=225346467 "Alle neuesten Versionen von Anhängen auf dieser Seite als einzelne zip-Datei herunterladen.")

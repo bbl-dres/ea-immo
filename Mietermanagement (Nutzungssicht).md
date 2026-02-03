@@ -1,25 +1,4 @@
-# Detailstudie - Mietermanagement (Nutzungssicht)🟡
-
-**Arbeitsdokument**
-
-- Inhalte werden als PDFs im Anhang versioniert (nur Meilensteine)
-- Zugang zum Dokument ist auf Mitarbeiter der Bundesverwaltung eingeschränkt (open by default)
-- Inhalte können mit Abstimmung [Rasner David BBL](https://confluence.bbl.admin.ch/display/~U80865084) extern geteilt werden
-
-**Inhalt:**
-
-- [1. Ziel dieses Dokuments](#DetailstudieMietermanagement(Nutzungssicht)🟡-1.ZieldiesesDokuments)
-- [2. Das Mietermanagement – Aufgaben und Bedeutung](#DetailstudieMietermanagement(Nutzungssicht)🟡-2.DasMietermanagement–AufgabenundBedeutung)
-- [3. Empfehlung Geschäftsobjekte (Konsolidiert)](#DetailstudieMietermanagement(Nutzungssicht)🟡-3.EmpfehlungGeschäftsobjekte(Konsolidiert))
-- [4. Übersicht der relevanten Standards](#DetailstudieMietermanagement(Nutzungssicht)🟡-4.ÜbersichtderrelevantenStandards)
-- [5. Wichtigste Standards im Detail (schrittweise Ergänzung)](#DetailstudieMietermanagement(Nutzungssicht)🟡-5.WichtigsteStandardsimDetail(schrittweiseErgänzung))
-  - [5.1. Obligationenrecht (OR) Art. 253-274](#DetailstudieMietermanagement(Nutzungssicht)🟡-5.1.Obligationenrecht(OR)Art.253-274)
-  - [5.2. SAP RE-FX (Real Estate Flexible)](#DetailstudieMietermanagement(Nutzungssicht)🟡-5.2.SAPRE-FX(RealEstateFlexible))
-  - [5.3. IBPDI Property Management (CDM)](#DetailstudieMietermanagement(Nutzungssicht)🟡-5.3.IBPDIPropertyManagement(CDM))
-  - [5.4. RICS Data Standard (RDS)](#DetailstudieMietermanagement(Nutzungssicht)🟡-5.4.RICSDataStandard(RDS))
-- [6. Verweise und Anhang](#DetailstudieMietermanagement(Nutzungssicht)🟡-6.VerweiseundAnhang)
-
----
+# Mietermanagement (Nutzungssicht)
 
 # 1. Ziel dieses Dokuments
 
@@ -314,17 +293,3 @@ Tabelle: Begriffe IBPDI Cluster "Property Management"
 | 11 | Dunning | Mahnung | Geschäftsobjekt | Enthält Informationen über ausstehende Mietforderungen und den Mahnprozess. | Hoch - Wichtig für das Finanzmanagement und das Mahnwesen. | Unterstützt das interne Mahnwesen des BBL. |
 
 Tabelle: Begriffe RICS Data Standard (RDS) - Auswahl relevanter Entitäten für Mietermanagement
-
-# 6. Verweise und Anhang
-
-|  | [Datei](/spaces/IMMO/pages/225346216/Detailstudie+-+Mietermanagement+Nutzungssicht+%F0%9F%9F%A1?sortBy=name&sortOrder=ascending) | [Geändert](/spaces/IMMO/pages/225346216/Detailstudie+-+Mietermanagement+Nutzungssicht+%F0%9F%9F%A1?sortBy=date&sortOrder=descending) |
-| --- | --- | --- |
-|  | PNG-Datei [Studie - Mietermanagement, Empfehlung Ge \_ Mermaid Chart-2025-09-10-171149.png](/download/Mietermanagement (Nutzungssicht)/Studie%20-%20Mietermanagement%2C%20Empfehlung%20Ge%20_%20Mermaid%20Chart-2025-09-10-171149.png "Herunterladen") | 10.09.2025 by [Rasner David BBL](    /display/~U80865084 ) |
-|  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl) [$itemLabel]($itemRenderedUrl) [$itemLabel]($itemRenderedUrl&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true) |
-
-- Ziehen Sie Dateien an diese Stelle, um sie hochzuladen, oder Dateien suchen
-  ![](images/icons/wait.gif)
-
-Datei hochladen
-
-Dateibeschreibung

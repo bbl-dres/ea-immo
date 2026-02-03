@@ -1,21 +1,4 @@
-# Detailstudie - Metadaten🟡
-
-**Arbeitsdokument**
-
-- Inhalte werden als PDFs im Anhang versioniert (nur Meilensteine)
-- Zugang zum Dokument ist auf Mitarbeiter der Bundesverwaltung eingeschränkt (open by default)
-- Inhalte können mit Abstimmung [Rasner David BBL](https://confluence.bbl.admin.ch/display/~U80865084) extern geteilt werden
-
-**Inhalt:**
-
-- [1. Ziel dieses Dokuments](#DetailstudieMetadaten🟡-1.ZieldiesesDokuments)
-- [2. Metadatenmanagement – Aufgaben und Bedeutung](#DetailstudieMetadaten🟡-2.Metadatenmanagement–AufgabenundBedeutung)
-- [3. Empfehlung Geschäftsobjekte (Konsolidiert)](#DetailstudieMetadaten🟡-3.EmpfehlungGeschäftsobjekte(Konsolidiert))
-- [4. Übersicht der relevanten Standards für Metadatenmanagement (BBL-Fokus)](#DetailstudieMetadaten🟡-4.ÜbersichtderrelevantenStandardsfürMetadatenmanagement(BBL-Fokus))
-- [5. Wichtigste Standards im Detail (Schrittweise Ergänzung)](#DetailstudieMetadaten🟡-5.WichtigsteStandardsimDetail(SchrittweiseErgänzung))
-- [6. Verweise und Anhang](#DetailstudieMetadaten🟡-6.VerweiseundAnhang)
-
----
+# Metadaten
 
 # 1. Ziel dieses Dokuments
 
@@ -128,21 +111,3 @@ Die Standards und Use Cases lassen sich in folgende strategische Kategorien eino
 # 5. Wichtigste Standards im Detail (Schrittweise Ergänzung)
 
 *[Dieser Abschnitt wird schrittweise mit detaillierten Beschreibungen der wichtigsten Standards ergänzt]*
-
-# 6. Verweise und Anhang
-
-### 6.1 Verweise
-
-- Bundesgesetz über den Einsatz elektronischer Mittel zur Erfüllung von Behördenaufgaben (EMBAG), SR 172.019
-- Datenschutzgesetz (DSG), SR 235.1
-- Geoinformationsgesetz (GeoIG), SR 510.62
-- I14Y-Plattform: <https://www.i14y.admin.ch>
-- eCH-Standards: <https://www.ech.ch>
-- ISO-Standards: <https://www.iso.org>
-- buildingSMART: <https://www.buildingsmart.org>
-- DAMA-DMBOK: <https://www.dama.org>
-- KBOB-Publikationen: <https://www.kbob.admin.ch>
-
-### 6.2 Anhang
-
-*[Platzhalter für UML-Diagramme, Detailbeschreibungen und weitere Dokumentation]*
