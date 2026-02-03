@@ -4,7 +4,15 @@
       "Bash(ren:*)",
       "Bash(ls:*)",
       "Bash(powershell -Command \"Rename-Item -Path ''c:\\\\Users\\\\DavidRasner\\\\Documents\\\\GitHub\\\\ea-immo\\\\assets\\\\Dokumentenmanagement\\\\Dokumentenmanagement \\(Vereinfachte Darst _ Mermaid Chart-2025-07-24-165853.png'' -NewName ''01-dokumentenmanagement-geschaeftsobjekte.png''\")",
-      "Bash(powershell:*)"
+      "Bash(powershell:*)",
+      "Bash(python:*)",
+      "Bash(tree:*)",
+      "Bash(for dir in \"Dokumentenmanagement\" \"Energie und Ressourcen\" \"Mietermanagement \\(Nutzungssicht\\)\" \"Organisatorische Daten \\(MDM\\)\" \"Projektmanagement\" \"Studie - Fachliche Sicht IMMO \\(Archiv\\)\")",
+      "Bash(do if [ -d \"$dir\" ])",
+      "Bash(then mv \"$dir\" \"assets/\")",
+      "Bash(echo \"Moved: $dir -> assets/\")",
+      "Bash(fi)",
+      "Bash(done)"
     ]
   }
 }

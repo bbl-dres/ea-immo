@@ -1,0 +1,3 @@
+# Detailstudie - Marktdaten⚪
+
+- TBD
