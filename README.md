@@ -62,25 +62,29 @@ Diese Gruppierung ermöglicht es, zusammengehörige Konzepte aus fachlicher Pers
 
 ## 3. Detailstudien pro Domäne
 
-- [Detailstudie - Dokumentenmanagement](01-Dokumentenmanagement.md)
-- [Detailstudie - Architektonische Sicht](02-Architektonische-Sicht.md)
-- [Detailstudie - Mietermanagement (Nutzungssicht)](03-Mietermanagement.md)
-- [Detailstudie - Projektmanagement](04-Projektmanagement.md)
-- [Detailstudie - Objektmanagement](05-Objektmanagement.md)
-- [Detailstudie - Energie und Ressourcen](06-Energie-und-Ressourcen.md)
-- [Detailstudie - Portfoliomanagement](07-Portfoliomanagement.md)
-- [Detailstudie - Workspace Management](08-Workspace-Management.md)
-- [Detailstudie - Finanzen](09-Finanzen.md)
-- [Detailstudie - Organisatorische Daten (MDM)](10-Organisatorische-Daten.md)
-- [Detailstudie - Controlling, Analytics und Reporting (MIS)](11-Controlling-Analytics-Reporting.md)
-- [Detailstudie - Metadaten](12-Metadaten.md)
-- [Detailstudie - Investitionen und Verkäufe](13-Investitionen-Verkaufe.md)
-- [Detailstudie - Marktdaten](14-Marktdaten.md)
-- [Detailstudie - Baumanagement](15-Baumanagement.md)
-- [Analyse - Übersicht Standards IMMO](90-Uebersicht-Standards-IMMO.md)
-- [Oft gestellte Fragen](91-FAQ.md)
-- [Studie - Fachliche Sicht IMMO (Archiv)](99-Archiv.md)
+| Domäne | Status |
+|--------|--------|
+| [Dokumentenmanagement](Dokumentenmanagement.md) | ✅ |
+| [Architektonische Sicht](Architektonische%20Sicht.md) | ✅ |
+| [Mietermanagement (Nutzungssicht)](Mietermanagement%20(Nutzungssicht).md) | ✅ |
+| [Projektmanagement](Projektmanagement.md) | ✅ |
+| Objektmanagement (Facility Management) | 🚧 *Geplant* |
+| [Energie und Ressourcen](Energie%20und%20Ressourcen.md) | ✅ |
+| [Portfoliomanagement](Portfoliomanagement.md) | ✅ |
+| [Workspace Management](Workspace%20Management.md) | ✅ |
+| [Finanzen](Finanzen.md) | ✅ |
+| [Organisatorische Daten (MDM)](Organisatorische%20Daten%20(MDM).md) | ✅ |
+| Controlling, Analytics und Reporting (MIS) | 🚧 *Geplant* |
+| [Metadaten](Metadaten.md) | ✅ |
+| Investitions- und Transaktionsmanagement | 🚧 *Geplant* |
+| Marktdaten | 🚧 *Geplant* |
+| Baumanagement | 🚧 *Geplant* |
+
+### Referenzdokumente
+
+- [Analyse - Übersicht Standards IMMO](Analyse%20-%20Übersicht%20Standards%20IMMO.md)
+- [Studie - Fachliche Sicht IMMO (Vollständig)](Studie%20-%20Fachliche%20Sicht%20IMMO%20(Arbeitsdokument).md)
 
 ---
 
-*Letzte Aktualisierung: [Datum aus PDF extrahieren]*
+*Letzte Aktualisierung: Februar 2026*
