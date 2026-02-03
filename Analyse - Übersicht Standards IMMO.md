@@ -11,7 +11,7 @@ Arbeitsdokument
 
 Das Bundesamt für Bauten und Logistik (BBL) strebt im Rahmen seiner Unternehmensarchitektur die Etablierung eines ganzheitlichen fachlichen Datenmodells (eine fachliche Sicht) für das Immobilienmanagement an. Diese fachliche Sicht (Common Data Model) soll ein einheitliches Verständnis der Immobiliendaten über alle Fachbereiche und IT-Systeme hinweg sicherstellen (lösungsneutral, langlebig und stabil). Um dies zu erreichen, ist eine fundierte Kenntnis und Bewertung vorhandener "Best Practice"-Standards im Bereich des Immobilien-Datenmanagements unerlässlich. Der Fokus liegt dabei auf der "fachlichen Sicht" der Daten, die das "WAS" der Geschäftsanforderungen abbildet und langlebig sowie systemunabhängig sein soll.
 
-![](assets/Analyse_-_Übersicht_Standards_IMMO/224624812.png)
+![](assets/Analyse_-_Übersicht_Standards_IMMO/dreistufiges_metadatenmodell.png)
 
 Bild: Dreistufiges Metadatenmodell. [Quelle](https://confluence.bit.admin.ch/x/tiWPMg)
 
@@ -39,7 +39,7 @@ Die Standards werden basierend auf einer kombinierten Bewertung aus Prioritätss
 - **Priorität C (Mittel):** Standards, die für spezifische Aspekte oder Randbereiche relevant sind. Ihre Integration hat einen geringeren unmittelbaren Impact oder erfordert eine komplexere Anpassung an die BBL-Anforderungen.
 - **Priorität D (Niedrig/Optional):** Standards mit geringer direkter Relevanz für die BBL-Kernprozesse. Sie können in speziellen Nischenbereichen relevant sein oder als Referenz dienen.
 
-![](assets/Analyse_-_Übersicht_Standards_IMMO/224625430.jpg)
+![](assets/Analyse_-_Übersicht_Standards_IMMO/standards_-_priorisierung_vs.jpg)
 
 Bild: Standards - Priorisierung vs. Relevanz BBL
 

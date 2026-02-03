@@ -485,7 +485,7 @@ Tabelle: Geschäftsobjekte und Fachbegriffe PACTA CO2-Rechner Methode
 
 Tabelle: Übersicht relevante Geschäftsobjekte IBPDI
 
-![](assets/Energie_und_Ressourcen/229017443.png)
+![](assets/Energie_und_Ressourcen/uebersicht_relevante_geschaeftsobjekte_ibpdi.png)
 
 Bild: Übersicht relevante Geschäftsobjekte IBPDI. [Quelle](https://www.mermaidchart.com/app/projects/5ddada0a-47f7-43e6-87eb-a297e604e809/diagrams/ebc12cad-05a5-4798-9841-9664ae0ecb62/version/v0.1/edit)
 

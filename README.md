@@ -75,7 +75,7 @@ Die Geschäftsobjekte sind in thematische Domänengruppen organisiert, die den n
 
 Diese Gruppierung ermöglicht es, zusammengehörige Konzepte aus fachlicher Perspektive zu bündeln, unabhängig von konkreten Anwendungssystemen, und erleichtert so das Verständnis der komplexen Beziehungen im Immobilienmanagement.
 
-![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/211585697.png)
+![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/vorschlag_domaenengruppen_immo.png)
 
 Bild: Vorschlag Domänengruppen IMMO
 
@@ -95,7 +95,7 @@ Die Domänengruppe "Dokumentation" umfasst alle Prozesse und Standards zur struk
 - Frauenknecht, Isabel (Assistentin Programm SUPERB und Prozessmasterin, Amtsgeschäfte und Geschäftssteuerung)  (aufgrund möglicher Prozessüberschneidungen und GEVER-Kenntnisse)
 - Ein/e Vertreter/in aus "Kompetenzzentrum Beschaffungswesen Bund und Rechtsdienst BBL" zur Sicherstellung der rechtlichen Aspekte. (z.B. Gygi, Bruno; Remund, Michèle; Bernal, Moritz)
 
-![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/211586125.png)
+![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/geschaeftsobjekt_der_gruppe_dokumentation_als_uml.png)
 
 Bild: Geschäftsobjekt der Gruppe Dokumentation als UML
 
@@ -184,7 +184,7 @@ Die Domänengruppe "Mietermanagement" umfasst alle miet- und nutzungsbezogenen A
 - Ein/e Vertreter/in aus "Finanzen und Controlling" , insbesondere aus "Finanz- und Rechnungswesen" oder "Finanzwerteflüsse", für Aspekte der Mietzahlungsabwicklung. (z.B. Wyss, Simone; Vonlanthen, Nicole)
 - Ein/e Vertreter/in aus "Digital Real Estate und Support" mit Kenntnissen der relevanten IT-Systeme (SAP RE-FX). (z.B. Balaj, Mirëjeta; Rasner, David)
 
-![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/211586199.png)
+![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/uebersicht_wichtigster_geschaeftsobjekte_in_der_gruppe.png)
 
 Bild: Übersicht wichtigster Geschäftsobjekte in der Gruppe Mietermanagement
 
@@ -243,7 +243,7 @@ Die Domänengruppe "Projektmanagement" definiert alle zentralen Geschäftsobjekt
 - Feuz, Stefanie (Leiterin Prozesse QMS, Prozesse Qualitätsmanagementsysteme)
 - Ein/e Vertreter/in aus "Finanzen und Controlling" für Baukostenplanung und Projektcontrolling. (z.B. Bürgisser, Daniel; Caputo, Francesco)
 
-![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/211586189.png)
+![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/uebersicht_wichtigster_geschaeftsobjekte_in_der_gruppe_01.png)
 
 Bild: Übersicht wichtigster Geschäftsobjekte in der Gruppe Mietermanagement
 
@@ -280,7 +280,7 @@ Die Domänengruppe "Energie und Ressourcen" erfasst alle Geschäftsobjekte rund 
 - Ein/e Vertreter/in aus "Objektbewirtschaftung und -betrieb" für die Erfassung von Verbrauchsdaten. (z.B. Perrenoud, Danilo)
 - Schwarzentruber, Jörg (Fachberater Nachhaltigkeit, Fachberatung)
 
-![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/211586337.png)
+![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/uebersicht_wichtigster_geschaeftsobjekte_in_der_gruppe_02.png)
 
 Bild: Übersicht wichtigster Geschäftsobjekte in der Gruppe Mietermanagement
 
@@ -364,7 +364,7 @@ Die Domänengruppe "Controlling, Analytics und Reporting" umfasst alle Geschäft
 - Vidondo, Beatriz (Business- und Data-Analyst/in, Digital Real Estate und Support)
 - Ein/e Vertreter/in aus "Analyse, Prozesse und Architektur" (Bereich Geschäftsentwicklung) mit Fokus auf Unternehmensarchitektur
 
-![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/211586330.png)
+![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/uebersicht_wichtigster_geschaeftsobjekte_in_der_gruppe_03.png)
 
 Bild: Übersicht wichtigster Geschäftsobjekte in der Gruppe Controlling, Analytics und Reporting (Management Information System MIS)
 

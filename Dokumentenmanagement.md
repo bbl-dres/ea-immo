@@ -80,7 +80,7 @@ Die Verbindung zur Architektonischen Sicht erfolgt durch die systematische Verkn
 
 Tabelle: Empfehlung Geschäftsobjekte (Konsolidiert)
 
-![](assets/Dokumentenmanagement/225346211.png)
+![](assets/Dokumentenmanagement/empfehlung_geschaeftsobjekte_konsolidiert_-_vereinfachte.png)
 
 Bild: Empfehlung Geschäftsobjekte (Konsolidiert) - Vereinfachte Darstellung. [Quelle](https://www.mermaidchart.com/app/projects/5ddada0a-47f7-43e6-87eb-a297e604e809/diagrams/882e5edb-fe33-409b-8bf7-8c0743c89332/version/v0.1/edit)
 
@@ -280,6 +280,6 @@ Bild Rechts: Bauwerksdokumentation
 
 Tabelle: Begriffe SIA 112 Modell Bauplanung
 
-![](assets/Dokumentenmanagement/225346095.png)
+![](assets/Dokumentenmanagement/phasen_teilphasen_und_teilphasenziele_nach_sia_112.png)
 
 Bild: Phasen, Teilphasen und Teilphasenziele nach SIA 112. [Quelle](https://object.gever.admin.ch:443/web/?ObjectToOpenID=%24ActaNovaDocument%7c51BB6F95-8ACB-4CDB-A4FA-BE97F7E5CAA4&TenantID=169)

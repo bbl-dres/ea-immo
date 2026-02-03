@@ -77,6 +77,25 @@ Validates all image references in Markdown files and reports broken links.
 python check_images.py
 ```
 
+### 7. rename_images_by_caption.py
+Renames image files based on their "Bild:" captions in markdown. Converts numeric filenames (e.g., `224624812.png`) to descriptive names (e.g., `dreistufiges_metadatenmodell.png`).
+
+**Features:**
+- Finds image + caption pairs in markdown files
+- Creates clean filenames from descriptions (umlauts converted, spaces to underscores)
+- Renames actual image files
+- Updates markdown references
+- Dry-run mode by default
+
+**Usage:**
+```bash
+# Preview changes (dry run)
+python rename_images_by_caption.py
+
+# Execute rename
+python rename_images_by_caption.py --execute
+```
+
 ## Typical Migration Workflow
 
 1. Export Confluence space as HTML
@@ -85,4 +104,5 @@ python check_images.py
 4. Run `rename_files.py` to clean up file names
 5. Run `clean_markdown.py` to clean up content
 6. Run `fix_image_paths.py` to fix paths with parentheses
-7. Run `check_images.py` to verify all images work
+7. Run `rename_images_by_caption.py --execute` to give images descriptive names
+8. Run `check_images.py` to verify all images work

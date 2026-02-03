@@ -123,7 +123,7 @@ Die Architektonische Sicht umfasst vier zentrale Dimensionen:
 
 Tabelle: Empfehlung Geschäftsobjekte (Konsolidiert)
 
-![](assets/Architektonische_Sicht/236656222.png)
+![](assets/Architektonische_Sicht/vereinfachte_darstellung.png)
 
 Bild: Vereinfachte Darstellung. [Quelle](https://miro.com/app/board/uXjVLIX0YbY=/?share_link_id=899019639281)
 
@@ -339,7 +339,7 @@ Tabelle: Begriffe Grundbuchverordnung
 
 Tabelle: Begriffe in der Verordnung über das Gebäude- und Wohnungsregister
 
-![](assets/Architektonische_Sicht/225345782.png)
+![](assets/Architektonische_Sicht/datenmodell_und_beschreibung_der_entitaeten_im_gwr.png)
 
 Bild: Datenmodell und Beschreibung der Entitäten im GWR. [Quelle](https://www.housing-stat.ch/de/docs/index.html)
 
@@ -491,7 +491,7 @@ Bild: Austauschmodell ech-1029 Objektwesen
 - **Bauteil**: Physische Elemente mit eBKP-H-Klassifikation
 - **Komponente**: Elementare Bausteine mit NPK-Referenzierung
 
-![](assets/Architektonische_Sicht/225345801.png)
+![](assets/Architektonische_Sicht/beispiel_entitaeten.png)
 
 Bild: Beispiel Entitäten. [Quelle](https://bim2fm.bauen-digital.ch/)
 
@@ -537,7 +537,7 @@ Bild: Beispiel Entitäten. [Quelle](https://bim2fm.bauen-digital.ch/)
 
 Tabelle: Übersicht von wichtigsten Begriffen in Building Smart (IFC / ISO 16739)
 
-![](assets/Architektonische_Sicht/225346110.png)
+![](assets/Architektonische_Sicht/ifc_raeumliche_hierarchie_vereinfach.png)
 
 Bild: IFC Räumliche Hierarchie (vereinfach). [Quelle](https://www.researchgate.net/figure/Tree-structure-of-the-IFC-format-Source-own-elaboration-based-on-wwwbuildbimcl_fig7_368351581)
 
@@ -775,7 +775,7 @@ Tabelle: Begriffe IPDI, Domäne Digital Twin
 
 Tabelle: Begriffe Real Estate Core (REC)
 
-![](assets/Architektonische_Sicht/225345846.png)
+![](assets/Architektonische_Sicht/uebersicht_real_estate_core_entitaeten.png)
 
 Bild: Übersicht Real Estate Core Entitäten. [Quelle](https://dev.realestatecore.io/docs/structure/)
 
