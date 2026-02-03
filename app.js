@@ -659,30 +659,30 @@
             return 8;
         }
 
-        // Create force simulation
+        // Create force simulation with more spacing
         graphSimulation = d3.forceSimulation(nodes)
             .force('link', d3.forceLink(links)
                 .id(d => d.id)
                 .distance(d => {
-                    if (d.type === 'domain-domain') return 300;
-                    if (d.type === 'domain-group') return 80;
-                    return 40;
+                    if (d.type === 'domain-domain') return 400;
+                    if (d.type === 'domain-group') return 120;
+                    return 70;
                 })
                 .strength(d => {
-                    if (d.type === 'domain-domain') return 0.05;
-                    if (d.type === 'domain-group') return 0.3;
-                    return 0.5;
+                    if (d.type === 'domain-domain') return 0.03;
+                    if (d.type === 'domain-group') return 0.2;
+                    return 0.4;
                 }))
             .force('charge', d3.forceManyBody()
                 .strength(d => {
-                    if (d.type === 'domain') return -400;
-                    if (d.type === 'group') return -100;
-                    return -30;
+                    if (d.type === 'domain') return -800;
+                    if (d.type === 'group') return -200;
+                    return -80;
                 }))
             .force('center', d3.forceCenter(width / 2, height / 2))
-            .force('collision', d3.forceCollide().radius(d => getNodeRadius(d) + 5))
-            .force('x', d3.forceX(width / 2).strength(0.02))
-            .force('y', d3.forceY(height / 2).strength(0.02));
+            .force('collision', d3.forceCollide().radius(d => getNodeRadius(d) + 25))
+            .force('x', d3.forceX(width / 2).strength(0.01))
+            .force('y', d3.forceY(height / 2).strength(0.01));
 
         // Draw links
         const link = container.append('g')
@@ -731,19 +731,40 @@
             })
             .attr('stroke-width', d => d.type === 'domain' ? 3 : d.type === 'group' ? 2 : 1);
 
+        // Helper to get label text - show full name
+        function getLabelText(d) {
+            return d.name;
+        }
+
+        // Label backgrounds for group and concept nodes
+        node.filter(d => d.type !== 'domain')
+            .append('rect')
+            .attr('class', 'label-bg')
+            .attr('y', d => -getNodeRadius(d) - 16)
+            .attr('height', 14)
+            .attr('rx', 3)
+            .attr('fill', 'rgba(0, 0, 0, 0.75)')
+            .attr('x', function(d) {
+                const text = getLabelText(d);
+                const fontSize = d.type === 'group' ? 9 : 8;
+                const width = text.length * fontSize * 0.55 + 8;
+                return -width / 2;
+            })
+            .attr('width', function(d) {
+                const text = getLabelText(d);
+                const fontSize = d.type === 'group' ? 9 : 8;
+                return text.length * fontSize * 0.55 + 8;
+            });
+
         // Node labels
         node.append('text')
             .attr('class', 'graph-label')
-            .attr('dy', d => d.type === 'domain' ? 5 : -getNodeRadius(d) - 4)
+            .attr('dy', d => d.type === 'domain' ? 5 : -getNodeRadius(d) - 5)
             .attr('text-anchor', 'middle')
-            .attr('fill', d => d.type === 'domain' ? '#fff' : '#fff')
-            .attr('font-size', d => d.type === 'domain' ? '11px' : d.type === 'group' ? '9px' : '7px')
+            .attr('fill', '#fff')
+            .attr('font-size', d => d.type === 'domain' ? '11px' : d.type === 'group' ? '9px' : '8px')
             .attr('font-weight', d => d.type === 'domain' ? 'bold' : '500')
-            .text(d => {
-                const maxLen = d.type === 'domain' ? 12 : d.type === 'group' ? 14 : 12;
-                if (d.name.length > maxLen) return d.name.substring(0, maxLen - 2) + '..';
-                return d.name;
-            });
+            .text(d => getLabelText(d));
 
         // Node interactions
         node.on('mouseenter', function(event, d) {
