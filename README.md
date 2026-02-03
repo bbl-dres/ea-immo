@@ -34,7 +34,7 @@ Dieses Dokument schafft die Grundlagen für ein einheitliches Verständnis der I
 
 ## 1.1 Lösungsarchitektur IMMO
 
-![](assets/Studie - Fachliche Sicht IMMO (Archiv)/211585693.png)
+![](assets/Studie - Fachliche Sicht IMMO %28Archiv%29/211585693.png)
 
 Bild Links: Zielbild IT Architektur IMMO
 
@@ -42,7 +42,7 @@ Bild Links: Zielbild IT Architektur IMMO
 
 - Zu definieren
 
-![](assets/Studie - Fachliche Sicht IMMO (Archiv)/211585695.png)
+![](assets/Studie - Fachliche Sicht IMMO %28Archiv%29/211585695.png)
 
 Bild links: The Blind Men and the Elephant. [Quelle](https://www.researchgate.net/figure/The-Blind-Men-and-the-Elephant_fig1_290127733)
 
@@ -75,7 +75,7 @@ Die Geschäftsobjekte sind in thematische Domänengruppen organisiert, die den n
 
 Diese Gruppierung ermöglicht es, zusammengehörige Konzepte aus fachlicher Perspektive zu bündeln, unabhängig von konkreten Anwendungssystemen, und erleichtert so das Verständnis der komplexen Beziehungen im Immobilienmanagement.
 
-![](assets/Studie - Fachliche Sicht IMMO (Archiv)/211585697.png)
+![](assets/Studie - Fachliche Sicht IMMO %28Archiv%29/211585697.png)
 
 Bild: Vorschlag Domänengruppen IMMO
 
@@ -95,7 +95,7 @@ Die Domänengruppe "Dokumentation" umfasst alle Prozesse und Standards zur struk
 - Frauenknecht, Isabel (Assistentin Programm SUPERB und Prozessmasterin, Amtsgeschäfte und Geschäftssteuerung)  (aufgrund möglicher Prozessüberschneidungen und GEVER-Kenntnisse)
 - Ein/e Vertreter/in aus "Kompetenzzentrum Beschaffungswesen Bund und Rechtsdienst BBL" zur Sicherstellung der rechtlichen Aspekte. (z.B. Gygi, Bruno; Remund, Michèle; Bernal, Moritz)
 
-![](assets/Studie - Fachliche Sicht IMMO (Archiv)/211586125.png)
+![](assets/Studie - Fachliche Sicht IMMO %28Archiv%29/211586125.png)
 
 Bild: Geschäftsobjekt der Gruppe Dokumentation als UML
 
@@ -132,7 +132,7 @@ Die Architektur Sicht bildet die baulich-technische Perspektive auf Immobilienob
 - Ein/e Vertreter/in aus "Objektmanagement", z.B. Müller, Daniela; Zbinden, Rolf)
 - Ein/e Vertreter/in aus "Fachberatung" (Bereich Bauten) , insbesondere mit Expertise in Baustandards und technischen Aspekten. (z.B. Gamper, Felix)
 
-![](assets/Studie - Fachliche Sicht IMMO (Archiv)/211586314.png)![](assets/Studie - Fachliche Sicht IMMO (Archiv)/211586182.png)
+![](assets/Studie - Fachliche Sicht IMMO %28Archiv%29/211586314.png)![](assets/Studie - Fachliche Sicht IMMO %28Archiv%29/211586182.png)
 
 Bild Links: Übersicht wichtigster Geschäftsobjekte in der Gruppe Architektur Sicht
 
@@ -184,7 +184,7 @@ Die Domänengruppe "Mietermanagement" umfasst alle miet- und nutzungsbezogenen A
 - Ein/e Vertreter/in aus "Finanzen und Controlling" , insbesondere aus "Finanz- und Rechnungswesen" oder "Finanzwerteflüsse", für Aspekte der Mietzahlungsabwicklung. (z.B. Wyss, Simone; Vonlanthen, Nicole)
 - Ein/e Vertreter/in aus "Digital Real Estate und Support" mit Kenntnissen der relevanten IT-Systeme (SAP RE-FX). (z.B. Balaj, Mirëjeta; Rasner, David)
 
-![](assets/Studie - Fachliche Sicht IMMO (Archiv)/211586199.png)
+![](assets/Studie - Fachliche Sicht IMMO %28Archiv%29/211586199.png)
 
 Bild: Übersicht wichtigster Geschäftsobjekte in der Gruppe Mietermanagement
 
@@ -243,7 +243,7 @@ Die Domänengruppe "Projektmanagement" definiert alle zentralen Geschäftsobjekt
 - Feuz, Stefanie (Leiterin Prozesse QMS, Prozesse Qualitätsmanagementsysteme)
 - Ein/e Vertreter/in aus "Finanzen und Controlling" für Baukostenplanung und Projektcontrolling. (z.B. Bürgisser, Daniel; Caputo, Francesco)
 
-![](assets/Studie - Fachliche Sicht IMMO (Archiv)/211586189.png)
+![](assets/Studie - Fachliche Sicht IMMO %28Archiv%29/211586189.png)
 
 Bild: Übersicht wichtigster Geschäftsobjekte in der Gruppe Mietermanagement
 
@@ -280,7 +280,7 @@ Die Domänengruppe "Energie und Ressourcen" erfasst alle Geschäftsobjekte rund 
 - Ein/e Vertreter/in aus "Objektbewirtschaftung und -betrieb" für die Erfassung von Verbrauchsdaten. (z.B. Perrenoud, Danilo)
 - Schwarzentruber, Jörg (Fachberater Nachhaltigkeit, Fachberatung)
 
-![](assets/Studie - Fachliche Sicht IMMO (Archiv)/211586337.png)
+![](assets/Studie - Fachliche Sicht IMMO %28Archiv%29/211586337.png)
 
 Bild: Übersicht wichtigster Geschäftsobjekte in der Gruppe Mietermanagement
 
@@ -333,7 +333,7 @@ Die Domänengruppe "Portfolio- und Asset-Management" definiert die strategische 
 - Pedrini, Oliver (Wirtschaftswissenschaftler Portfoliomanagement, Portfoliomanagement)
 - Ein/e Vertreter/in aus "Finanzen und Controlling" für Bewertungs- und Finanzaspekte. (z.B. Stauffer, Ernst)
 
-![](assets/Studie - Fachliche Sicht IMMO (Archiv)/211586215.png)
+![](assets/Studie - Fachliche Sicht IMMO %28Archiv%29/211586215.png)
 
 Tabelle: Domänengruppe Energie und Ressourcen
 
@@ -364,7 +364,7 @@ Die Domänengruppe "Controlling, Analytics und Reporting" umfasst alle Geschäft
 - Vidondo, Beatriz (Business- und Data-Analyst/in, Digital Real Estate und Support)
 - Ein/e Vertreter/in aus "Analyse, Prozesse und Architektur" (Bereich Geschäftsentwicklung) mit Fokus auf Unternehmensarchitektur
 
-![](assets/Studie - Fachliche Sicht IMMO (Archiv)/211586330.png)
+![](assets/Studie - Fachliche Sicht IMMO %28Archiv%29/211586330.png)
 
 Bild: Übersicht wichtigster Geschäftsobjekte in der Gruppe Controlling, Analytics und Reporting (Management Information System MIS)
 
@@ -394,7 +394,7 @@ Die Domänengruppe "Workspace Management" fokussiert auf die nutzerorientierte P
 - Gieske, Petra (Daten- und Flächenbewirtschaftung, Digital Real Estate und Support)
 - Ein/e Vertreter/in aus "Portfoliomanagement" (Bereich Bauten) für die strategische Planung von Arbeitsraumkonzepten. (z.B. Spring, Walter)
 
-![](assets/Studie - Fachliche Sicht IMMO (Archiv)/211586263.png)
+![](assets/Studie - Fachliche Sicht IMMO %28Archiv%29/211586263.png)
 
 Tabelle: Workspace Management (Benutzer- und Kundenerfahrung)
 
@@ -505,7 +505,7 @@ Tabelle: Domänengruppe Organisatorische Daten
 |  | Stichwörter  - Keine Stichwörter - [Stichwörter bearbeiten](# "Stichwörter bearbeiten")  Preview [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) [$itemLabel]($itemRenderedUrl&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true&isFromPageView=true) |
 
 - Ziehen Sie Dateien an diese Stelle, um sie hochzuladen, oder Dateien suchen
-  ![](images/icons/wait.gif)
+  
 
 Datei hochladen
 

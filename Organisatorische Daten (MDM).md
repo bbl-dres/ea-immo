@@ -102,7 +102,7 @@ Die Domäne "Organisatorische Daten" ist von strategischer Bedeutung für das BB
 
 Tabelle: Empfehlung Geschäftsobjekte (Konsolidiert)
 
-![](assets/Organisatorische Daten (MDM)/236653798.png)
+![](assets/Organisatorische Daten %28MDM%29/236653798.png)
 
 Bild: Empfehlung Geschäftsobjekte (Konsolidiert). [Quelle](https://www.mermaidchart.com/d/905967c4-04c3-4169-86f3-e12efa075417)
 

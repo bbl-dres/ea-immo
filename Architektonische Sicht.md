@@ -809,7 +809,7 @@ Bild: Übersicht Real Estate Core Entitäten. [Quelle](https://dev.realestatecor
 
 Tabelle: Begriffe SIA 416
 
-[![](rest/documentConversion/latest/conversion/thumbnail/225345812/1)](/download/assets/Architektonische Sicht/flaechenbaum-sia.pdf?version=1&modificationDate=1753126131987&api=v2)
+[](/download/assets/Architektonische Sicht/flaechenbaum-sia.pdf?version=1&modificationDate=1753126131987&api=v2)
 
 PDF: SIA 416 Flächenbaum. [Quelle](https://www.stadt-zuerich.ch/de/planen-und-bauen/portfolio/eigentuemerin/standards-und-richtlinien.html)
 
