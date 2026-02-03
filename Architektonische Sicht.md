@@ -123,11 +123,11 @@ Die Architektonische Sicht umfasst vier zentrale Dimensionen:
 
 Tabelle: Empfehlung Geschäftsobjekte (Konsolidiert)
 
-![](assets/Architektonische Sicht/236656222.png)
+![](assets/Architektonische_Sicht/236656222.png)
 
 Bild: Vereinfachte Darstellung. [Quelle](https://miro.com/app/board/uXjVLIX0YbY=/?share_link_id=899019639281)
 
-![](assets/Architektonische Sicht/225346069.png)
+![](assets/Architektonische_Sicht/225346069.png)
 
 Bild Links: Flowchart Darstellung von Geschäftsobjekten (konsolidiert). [Quelle](https://www.mermaidchart.com/app/projects/5ddada0a-47f7-43e6-87eb-a297e604e809/diagrams/1d91ffc4-5320-465a-bf40-ceb3ebc4fa40/version/v0.1/edit)
 
@@ -339,7 +339,7 @@ Tabelle: Begriffe Grundbuchverordnung
 
 Tabelle: Begriffe in der Verordnung über das Gebäude- und Wohnungsregister
 
-![](assets/Architektonische Sicht/225345782.png)
+![](assets/Architektonische_Sicht/225345782.png)
 
 Bild: Datenmodell und Beschreibung der Entitäten im GWR. [Quelle](https://www.housing-stat.ch/de/docs/index.html)
 
@@ -390,7 +390,7 @@ Bild: Datenmodell und Beschreibung der Entitäten im GWR. [Quelle](https://www.h
 
 Tabelle: Begriffe in der Amtlichen Vermessung
 
-![Ab 1993: Neue Grundlagen für das Katasterwesen](https://prod-cadastrech-hcms-sdweb.imgix.net/2024/04/10/94848c26-875f-4eb1-bd9f-5af15cbf4e60.png?auto=format)![](assets/Architektonische Sicht/225346098.png)
+![Ab 1993: Neue Grundlagen für das Katasterwesen](https://prod-cadastrech-hcms-sdweb.imgix.net/2024/04/10/94848c26-875f-4eb1-bd9f-5af15cbf4e60.png?auto=format)![](assets/Architektonische_Sicht/225346098.png)
 
 Bild Links: Darstellung der Entitäten als Schichten. [Quelle](https://www.cadastre.ch/de/ab-1993-neue-grundlagen-fuer-das-katasterwesen)
 
@@ -434,7 +434,7 @@ Bild Rechts: UML Darstellung der Entität Bodenabdeckung. [Quelle](https://www.c
 
 Tabelle: Begriffe im eCH-0129 Objektwesen
 
-**![](assets/Architektonische Sicht/225345786.jpg)**
+**![](assets/Architektonische_Sicht/225345786.jpg)**
 
 Bild: Austauschmodell ech-1029 Objektwesen
 
@@ -491,7 +491,7 @@ Bild: Austauschmodell ech-1029 Objektwesen
 - **Bauteil**: Physische Elemente mit eBKP-H-Klassifikation
 - **Komponente**: Elementare Bausteine mit NPK-Referenzierung
 
-![](assets/Architektonische Sicht/225345801.png)
+![](assets/Architektonische_Sicht/225345801.png)
 
 Bild: Beispiel Entitäten. [Quelle](https://bim2fm.bauen-digital.ch/)
 
@@ -537,7 +537,7 @@ Bild: Beispiel Entitäten. [Quelle](https://bim2fm.bauen-digital.ch/)
 
 Tabelle: Übersicht von wichtigsten Begriffen in Building Smart (IFC / ISO 16739)
 
-![](assets/Architektonische Sicht/225346110.png)
+![](assets/Architektonische_Sicht/225346110.png)
 
 Bild: IFC Räumliche Hierarchie (vereinfach). [Quelle](https://www.researchgate.net/figure/Tree-structure-of-the-IFC-format-Source-own-elaboration-based-on-wwwbuildbimcl_fig7_368351581)
 
@@ -775,7 +775,7 @@ Tabelle: Begriffe IPDI, Domäne Digital Twin
 
 Tabelle: Begriffe Real Estate Core (REC)
 
-![](assets/Architektonische Sicht/225345846.png)
+![](assets/Architektonische_Sicht/225345846.png)
 
 Bild: Übersicht Real Estate Core Entitäten. [Quelle](https://dev.realestatecore.io/docs/structure/)
 
@@ -809,7 +809,7 @@ Bild: Übersicht Real Estate Core Entitäten. [Quelle](https://dev.realestatecor
 
 Tabelle: Begriffe SIA 416
 
-[](/download/assets/Architektonische Sicht/flaechenbaum-sia.pdf?version=1&modificationDate=1753126131987&api=v2)
+[](/download/assets/Architektonische_Sicht/flaechenbaum-sia.pdf?version=1&modificationDate=1753126131987&api=v2)
 
 PDF: SIA 416 Flächenbaum. [Quelle](https://www.stadt-zuerich.ch/de/planen-und-bauen/portfolio/eigentuemerin/standards-und-richtlinien.html)
 
@@ -865,7 +865,7 @@ Tabelle: Begriffe CRB eBKP-H
 
 **Hinweis:** Die vollständige Elementstruktur umfasst über 400 Elemente. Diese Übersicht zeigt nur die wichtigsten strukturellen Begriffe und Hauptgruppen für das Datenmodell.
 
-![](assets/Architektonische Sicht/225346843.png)![](assets/Architektonische Sicht/225346844.png)
+![](assets/Architektonische_Sicht/225346843.png)![](assets/Architektonische_Sicht/225346844.png)
 
 Bild Links: Stufen- und phasengerechte Anwendung. [Quelle](https://www.crb.ch/de/normen-standards/baukostenplane/baukostenplan-hochbau-ebkp-h)
 

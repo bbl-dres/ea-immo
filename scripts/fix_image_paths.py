@@ -1,5 +1,5 @@
 """
-Fix image paths with parentheses by URL-encoding them
+Fix image paths by URL-encoding spaces and parentheses
 """
 
 import re
@@ -9,37 +9,25 @@ TARGET_DIR = r"c:\Users\DavidRasner\Documents\GitHub\ea-immo"
 
 
 def fix_image_paths(content):
-    """Fix image paths that contain parentheses"""
+    """Fix image paths that contain spaces or parentheses"""
 
-    # Function to encode parentheses in a path
     def encode_path(match):
-        full_match = match.group(0)
         alt = match.group(1)
         path = match.group(2)
 
-        # URL-encode parentheses in the path
-        fixed_path = path.replace('(', '%28').replace(')', '%29')
+        # Skip external URLs
+        if path.startswith('http'):
+            return match.group(0)
+
+        # URL-encode spaces and parentheses
+        fixed_path = path.replace(' ', '%20').replace('(', '%28').replace(')', '%29')
 
         return f'![{alt}]({fixed_path})'
 
-    # Find all image references and fix paths with parentheses
+    # Find all image references and fix paths
     content = re.sub(
-        r'!\[(.*?)\]\(([^)]*\([^)]*\)[^)]*)\)',
+        r'!\[(.*?)\]\(([^)]+)\)',
         encode_path,
-        content
-    )
-
-    # Also remove Confluence API references that weren't converted
-    content = re.sub(
-        r'!\[.*?\]\(rest/documentConversion/[^)]+\)',
-        '',
-        content
-    )
-
-    # Remove images/icons references that don't exist
-    content = re.sub(
-        r'!\[.*?\]\(images/icons/[^)]+\)',
-        '',
         content
     )
 
@@ -64,7 +52,7 @@ def process_file(filepath):
 
 def main():
     print("=" * 70)
-    print("Fixing image paths")
+    print("Fixing image paths (encoding spaces and parentheses)")
     print("=" * 70)
 
     target_path = Path(TARGET_DIR)

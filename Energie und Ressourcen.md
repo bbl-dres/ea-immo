@@ -339,7 +339,7 @@ Tabelle: Geschäftsobjekte und Fachbegriffe CO2-Gesetz
 - **Beschreibung:** Der PACTA CO2-Rechner ist ein vom Bundesamt für Umwelt (BAFU) beauftragtes Analyse-Tool, das von Fahrländer Partner Raumentwicklung (FPRE) entwickelt wurde. Es dient der standardisierten Abschätzung von Energiebedarf und Treibhausgasemissionen (THGE) für einzelne Gebäude sowie ganze Immobilien- und Hypothekenportfolios. Die Methode ermöglicht es, mit wenigen zentralen Gebäudemerkmalen eine umfassende Emissionsbilanz zu erstellen und die Klimaverträglichkeit zu bewerten. Für den PACTA Klimatest 2024 wurde das Tool wesentlich erweitert und erfasst nun den gesamten Lebenszyklus eines Gebäudes nach dem Greenhouse Gas (GHG) Protocol.
 - **Dokumentation:**
   - BAFU Webseite (CO2-Rechner Gebäude): <https://www.bafu.admin.ch/bafu/de/home/themen/klima/fachinformationen/verminderungsmassnahmen/gebaeude/co2-rechner-gebaeude.html>
-  - Original Dokument im Anhang: [BAFU Methodenbericht 2024 zum erweiterten CO2-Rechner für Gebäude.pdf](assets/Energie und Ressourcen/229017434.pdf)
+  - Original Dokument im Anhang: [BAFU Methodenbericht 2024 zum erweiterten CO2-Rechner für Gebäude.pdf](assets/Energie_und_Ressourcen/229017434.pdf)
 
 ### Drei Emissionsbereiche (Scopes):
 
@@ -418,7 +418,7 @@ Das Scope-3-Modul berechnet verschiedene Szenarien, die bei der Entscheidung zwi
 
 Tabelle: Geschäftsobjekte und Fachbegriffe PACTA CO2-Rechner Methode
 
-![](assets/Energie und Ressourcen/229017435.png)![](assets/Energie und Ressourcen/229017436.png)![](assets/Energie und Ressourcen/229017437.png)![](assets/Energie und Ressourcen/229017438.png)![](assets/Energie und Ressourcen/229017439.png)
+![](assets/Energie_und_Ressourcen/229017435.png)![](assets/Energie_und_Ressourcen/229017436.png)![](assets/Energie_und_Ressourcen/229017437.png)![](assets/Energie_und_Ressourcen/229017438.png)![](assets/Energie_und_Ressourcen/229017439.png)
 
 ## 5.5 The International Building Performance & Data Initiative (IBPDI)
 
@@ -485,7 +485,7 @@ Tabelle: Geschäftsobjekte und Fachbegriffe PACTA CO2-Rechner Methode
 
 Tabelle: Übersicht relevante Geschäftsobjekte IBPDI
 
-![](assets/Energie und Ressourcen/229017443.png)
+![](assets/Energie_und_Ressourcen/229017443.png)
 
 Bild: Übersicht relevante Geschäftsobjekte IBPDI. [Quelle](https://www.mermaidchart.com/app/projects/5ddada0a-47f7-43e6-87eb-a297e604e809/diagrams/ebc12cad-05a5-4798-9841-9664ae0ecb62/version/v0.1/edit)
 
