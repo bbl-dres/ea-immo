@@ -90,15 +90,31 @@
         return getComputedStyle(document.body).getPropertyValue(varName).trim();
     }
 
-    // Get theme-aware colors
+    // Design tokens (fallbacks if CSS vars not available)
+    const tokens = {
+        slate: {
+            50: '#f8fafc',
+            100: '#f1f5f9',
+            200: '#e2e8f0',
+            300: '#cbd5e1',
+            400: '#94a3b8',
+            500: '#64748b',
+            600: '#475569',
+            700: '#334155',
+            800: '#1e293b',
+            900: '#0f172a'
+        }
+    };
+
+    // Get theme-aware colors from CSS tokens
     function getThemeColors() {
         return {
-            textPrimary: getCSSVar('--text-primary') || (isLightMode ? '#0f172a' : '#f8fafc'),
-            textSecondary: getCSSVar('--text-secondary') || (isLightMode ? '#475569' : '#cbd5e1'),
+            textPrimary: getCSSVar('--text-primary') || (isLightMode ? tokens.slate[900] : tokens.slate[50]),
+            textSecondary: getCSSVar('--text-secondary') || (isLightMode ? tokens.slate[600] : tokens.slate[300]),
             chartLabelBg: getCSSVar('--chart-label-bg') || (isLightMode ? 'rgba(255,255,255,0.95)' : 'rgba(0,0,0,0.75)'),
-            chartLabelText: getCSSVar('--chart-label-text') || (isLightMode ? '#0f172a' : '#ffffff'),
-            domainStroke: isLightMode ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.15)',
-            conceptText: isLightMode ? '#1e293b' : '#1e293b'
+            chartLabelText: getCSSVar('--chart-label-text') || (isLightMode ? tokens.slate[900] : '#ffffff'),
+            chartConceptStroke: getCSSVar('--chart-concept-stroke') || (isLightMode ? tokens.slate[400] : tokens.slate[600]),
+            borderSubtle: isLightMode ? tokens.slate[200] : 'rgba(255,255,255,0.06)'
         };
     }
 
@@ -393,9 +409,9 @@
             return baseName + ' (' + count + ')';
         }
 
-        // Theme-aware group label colors
+        // Theme-aware group label colors (using tokens)
         const groupLabelBg = isLightMode ? 'rgba(255, 255, 255, 0.92)' : 'rgba(0, 0, 0, 0.6)';
-        const groupLabelText = isLightMode ? '#0f172a' : 'white';
+        const groupLabelText = isLightMode ? tokens.slate[900] : 'white';
 
         // Label background pill
         groupLabels.append('rect')
@@ -435,8 +451,9 @@
             .attr('transform', d => `translate(${d.x}, ${d.y})`)
             .style('cursor', d => d.data.placeholder ? 'default' : 'pointer');
 
-        // Theme-aware concept circle stroke
-        const conceptStroke = isLightMode ? '#94a3b8' : '#555';
+        // Theme-aware concept circle stroke (using tokens)
+        const themeColors = getThemeColors();
+        const conceptStroke = themeColors.chartConceptStroke;
 
         // Concept circles
         conceptGroups.append('circle')
@@ -948,10 +965,11 @@
             return d.name;
         }
 
-        // Theme-aware label colors
-        const labelBgColor = isLightMode ? 'rgba(255, 255, 255, 0.95)' : 'rgba(0, 0, 0, 0.75)';
-        const labelTextColor = isLightMode ? '#0f172a' : '#ffffff';
-        const labelStroke = isLightMode ? 'rgba(0, 0, 0, 0.1)' : 'none';
+        // Theme-aware label colors (using tokens)
+        const graphThemeColors = getThemeColors();
+        const labelBgColor = graphThemeColors.chartLabelBg;
+        const labelTextColor = graphThemeColors.chartLabelText;
+        const labelStroke = isLightMode ? tokens.slate[200] : 'none';
 
         // Label backgrounds for group and concept nodes
         node.filter(d => d.type !== 'domain')
