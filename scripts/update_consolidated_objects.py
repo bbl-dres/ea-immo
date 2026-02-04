@@ -13,9 +13,9 @@ EXCEL_FILE = Path(__file__).parent.parent / "Konsolidierte_Geschaeftsobjekte.xls
 
 # Files to process with their domain names
 FILES_TO_PROCESS = [
-    ("GFB6_Garantiemanagement.md", "Objektmanagement - GFB6 (Garantiemanagement)"),
-    ("GFW9_Instandhaltung.md", "Objektmanagement - GFW9 (Instandhaltung)"),
-    ("GFW12_Reinigung.md", "Objektmanagement - GFW12 (Reinigung)"),
+    ("Objektmanagement - GFB6 Garantiemanagement.md", "Objektmanagement - GFB6 (Garantiemanagement)"),
+    ("Objektmanagement - GFW9 Instandhaltung.md", "Objektmanagement - GFW9 (Instandhaltung)"),
+    ("Objektmanagement - GFW12 Reinigung.md", "Objektmanagement - GFW12 (Reinigung)"),
     ("Reinigungsmanagement_Archiv.md", "Objektmanagement - Reinigungsmanagement (Archiv)"),
 ]
 

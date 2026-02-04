@@ -28,7 +28,7 @@ Dieses Repository definiert zentrale Geschäftsobjekte (Gebäude, Räume, Mietve
 | [Finanzen](docs/Finanzen.md) | Buchhalterische und wirtschaftliche Perspektive | Sollte | – | Zu definieren |
 | Controlling, Analytics und Reporting | Berichtswesen und Analysen | Sollte | – | Zu definieren |
 | [Portfoliomanagement](docs/Portfoliomanagement.md) | Strategische Sicht auf das Immobilienportfolio | Könnte | – | Zu definieren |
-| Objektmanagement | Technisches Gebäudemanagement | Könnte | – | Zu definieren |
+| Objektmanagement | Technisches Gebäudemanagement ([GFB6](docs/Objektmanagement%20-%20GFB6%20Garantiemanagement.md), [GFW9](docs/Objektmanagement%20-%20GFW9%20Instandhaltung.md), [GFW12](docs/Objektmanagement%20-%20GFW12%20Reinigung.md)) | Könnte | – | Entwurf |
 | Baustellenmanagement | Bauausführung und Bauüberwachung | Könnte | – | Zu definieren |
 | [Metadaten](docs/Metadaten.md) | Metadaten-Definitionen | – | – | Zu definieren |
 
