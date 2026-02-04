@@ -57,15 +57,30 @@
     // Responsive scaling system - adjusts sizes based on screen width
     const BASELINE_WIDTH = 1920; // Reference width for "large screen"
     const MIN_SCALE = 0.6; // Minimum scale to prevent things from getting too small
+    const MAX_INVERSE_SCALE = 1.5; // Maximum boost for small screens
 
     function getScale() {
         const scale = Math.min(window.innerWidth, BASELINE_WIDTH) / BASELINE_WIDTH;
         return Math.max(scale, MIN_SCALE);
     }
 
+    // Inverse scale - returns higher values on smaller screens
+    // Used for bubble sizes to make them larger on small screens
+    function getInverseScale() {
+        const scale = getScale();
+        // Invert: small screen (scale=0.6) → 1.4, large screen (scale=1.0) → 1.0
+        const inverse = 1 + (1 - scale) * 0.8;
+        return Math.min(inverse, MAX_INVERSE_SCALE);
+    }
+
     // Responsive sizing helpers
     function scaledSize(baseSize) {
         return Math.round(baseSize * getScale());
+    }
+
+    // Inverse scaled size - larger on smaller screens (for bubbles)
+    function inverseScaledSize(baseSize) {
+        return Math.round(baseSize * getInverseScale());
     }
 
     // Font size tokens in rem (relative to root font size)
@@ -522,12 +537,14 @@
         };
 
         // Create pack layout with padding for each level (responsive)
+        // On smaller screens: less padding = more space for bubbles = larger bubbles
+        const paddingScale = getScale() * getScale(); // Quadratic reduction for more aggressive padding decrease
         const pack = d3.pack()
-            .size([width - scaledSize(40), height - scaledSize(100)])
+            .size([width - Math.round(40 * paddingScale), height - Math.round(100 * paddingScale)])
             .padding(d => {
-                if (d.depth === 0) return scaledSize(40);  // Between domains
-                if (d.depth === 1) return scaledSize(8);   // Between groups in domain
-                return scaledSize(3);                       // Between concepts in group
+                if (d.depth === 0) return Math.max(15, Math.round(40 * paddingScale));  // Between domains
+                if (d.depth === 1) return Math.max(4, Math.round(8 * paddingScale));    // Between groups in domain
+                return Math.max(2, Math.round(3 * paddingScale));                        // Between concepts in group
             });
 
         const root = d3.hierarchy(hierarchyData)
@@ -588,17 +605,25 @@
             return count;
         }
 
+        // Get truncated domain label text based on screen size
+        function getDomainLabelText(d) {
+            const count = countDomainConcepts(d.data.domain);
+            const name = d.data.name;
+            // Truncate domain names more on smaller screens
+            const maxLen = isMobile ? 12 : (width < 1200 ? 18 : 30);
+            const truncatedName = name.length > maxLen ? name.substring(0, maxLen - 2) + '..' : name;
+            return truncatedName + ' (' + count + ')';
+        }
+
         // Label background - sized to fit text with count
         labels.append('rect')
             .attr('x', d => {
-                const count = countDomainConcepts(d.data.domain);
-                const text = d.data.name + ' (' + count + ')';
+                const text = getDomainLabelText(d);
                 return -(text.length * 4 + 12);
             })
             .attr('y', -14)
             .attr('width', d => {
-                const count = countDomainConcepts(d.data.domain);
-                const text = d.data.name + ' (' + count + ')';
+                const text = getDomainLabelText(d);
                 return text.length * 8 + 24;
             })
             .attr('height', 28)
@@ -606,7 +631,7 @@
             .attr('fill', d => getDomainColor(d.data.id))
             .attr('opacity', 0.95);
 
-        // Label text - full name with count
+        // Label text - full name with count (truncated on small screens)
         labels.append('text')
             .attr('y', 5)
             .attr('text-anchor', 'middle')
@@ -614,10 +639,7 @@
             .attr('font-size', fontSizes.domainLabel)
             .attr('font-weight', 'bold')
             .style('pointer-events', 'none')
-            .text(d => {
-                const count = countDomainConcepts(d.data.domain);
-                return d.data.name + ' (' + count + ')';
-            });
+            .text(d => getDomainLabelText(d));
 
         // Leader lines connecting domain labels to circles
         domainGroups.append('line')
@@ -648,15 +670,18 @@
             .attr('stroke-width', stroke.group)
             .attr('stroke-dasharray', '4,2');
 
-        // Helper to get group label text with count
+        // Helper to get group label text with count (truncated more on mobile)
         function getGroupLabelText(d) {
             const count = d.data.children ? d.data.children.length : 0;
-            const baseName = d.data.name.length > 14 ? d.data.name.substring(0, 12) + '..' : d.data.name;
+            const maxLen = isMobile ? 8 : 14;
+            const baseName = d.data.name.length > maxLen ? d.data.name.substring(0, maxLen - 2) + '..' : d.data.name;
             return baseName + ' (' + count + ')';
         }
 
         // Store group nodes for label rendering later (to ensure z-order)
-        const groupLabelNodes = groupNodes.filter(d => !d.data.placeholder && d.r > 35);
+        // On mobile, require larger groups to show labels
+        const minGroupRadius = isMobile ? 50 : 35;
+        const groupLabelNodes = groupNodes.filter(d => !d.data.placeholder && d.r > minGroupRadius);
 
         // Draw concept circles (depth 3)
         const conceptNodes = root.descendants().filter(d => d.depth === 3);
@@ -771,8 +796,12 @@
             .text(d => getGroupLabelText(d));
 
         // Concept labels (rendered last, on top of everything)
+        // On smaller screens, hide labels for very small bubbles to reduce clutter
+        const minRadiusForLabel = isMobile ? 12 : 8;
+        const labelNodes = realConceptNodes.filter(d => d.r >= minRadiusForLabel);
+
         labelsLayer.selectAll('.concept-label')
-            .data(realConceptNodes)
+            .data(labelNodes)
             .enter()
             .append('text')
             .attr('class', 'concept-label')
@@ -784,7 +813,12 @@
             .attr('font-size', fontSizes.conceptLabel)
             .attr('font-weight', '500')
             .style('pointer-events', 'none')
-            .text(d => d.data.name);
+            .text(d => {
+                // Truncate labels more aggressively on small screens
+                const maxLen = isMobile ? 8 : 15;
+                const name = d.data.name;
+                return name.length > maxLen ? name.substring(0, maxLen - 1) + '…' : name;
+            });
 
         // Concept interactions - with touch support
         conceptGroups.filter(d => !d.data.placeholder)
