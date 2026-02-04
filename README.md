@@ -1,5 +1,7 @@
 # EA-IMMO – Konzeptionelles Datenmodell Immobilien BBL
 
+> **Hinweis:** Diese Visualisierung enthält Mockup- und Test-/Arbeitsdaten.
+
 Enterprise Architecture Immobilien (EA-IMMO) – Einheitliches Datenmodell und Geschäftsobjekte für das Immobilienmanagement des BBL (Bundesamt für Bauten und Logistik).
 
 [![Konzeptionelles Datenmodell - Bubble Chart](assets/Preview.JPG)](https://bbl-dres.github.io/ea-immo/)
