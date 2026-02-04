@@ -84,3 +84,5 @@ ea-immo/
 ## Migration
 
 Confluence-Export zu Markdown: siehe [scripts/README.md](scripts/README.md)
+
+> **Hinweis:** Diese Visualisierung enthält Mockup- und Test-/Arbeitsdaten.
