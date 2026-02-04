@@ -46,6 +46,23 @@ Dieses Repository definiert zentrale Geschäftsobjekte (Gebäude, Räume, Mietve
 3. **Einheitliche Terminologie** - Verbindliche Fachsprache
 4. **Prozessorientierung** - Unterstützung realer Geschäftsprozesse
 
+## Referenzen und Standards
+
+Dieses Repository orientiert sich am **DMBOK** (Data Management Body of Knowledge) und dessen Drei-Schema-Architektur (ANSI/SPARC Three-Schema Architecture):
+
+| Ebene | Beschreibung | Einordnung |
+|-------|--------------|------------|
+| **Konzeptionelles Schema** | Fachliche Sicht auf die Daten, unabhängig von Technologie | **← Dieses Repository** |
+| Logisches Schema | Strukturierte Darstellung, z.B. als relationales Modell | Systemspezifisch |
+| Physisches Schema | Technische Implementierung in einer konkreten Datenbank | Systemspezifisch |
+
+Das konzeptionelle Datenmodell bildet die Grundlage für ein einheitliches Verständnis der Immobiliendaten im BBL – unabhängig von den eingesetzten IT-Systemen.
+
+**Weitere Referenzen:**
+- **TOGAF** (The Open Group Architecture Framework) – Enterprise Architecture Standard
+- **[BK DTI Vorgaben](https://www.bk.admin.ch/bk/de/home/digitale-transformation-ikt-lenkung/vorgaben.html)** – Vorgaben der Bundeskanzlei für Digitale Transformation und IKT-Lenkung
+- **[eCH-0122](https://www.ech.ch/de/ech/ech-0122/2.0.0)** – Architektur E-Government Schweiz
+
 ## Migration
 
 Confluence-Export zu Markdown: siehe [scripts/README.md](scripts/README.md)
