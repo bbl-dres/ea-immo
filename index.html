@@ -78,7 +78,7 @@
            =========================================== */
         .warning-banner {
             position: fixed;
-            top: 0;
+            top: calc(60px + 1rem);
             left: 50%;
             transform: translateX(-50%);
             background: #dc2626;
@@ -88,9 +88,8 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            z-index: 1000;
-            border-bottom-left-radius: var(--radius-sm);
-            border-bottom-right-radius: var(--radius-sm);
+            z-index: 50;
+            border-radius: var(--radius-sm);
             box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);
             white-space: nowrap;
         }
