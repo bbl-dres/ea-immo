@@ -499,7 +499,7 @@
                                 domainName: domain.name,
                                 children: g.concepts.map(c => ({
                                     name: c.name,
-                                    value: 1,
+                                    value: getInverseScale(), // Bigger bubbles on smaller screens
                                     priority: c.priority,
                                     concept: c,
                                     domainName: domain.name,
@@ -519,7 +519,7 @@
                         domainName: domain.name,
                         children: [{
                             name: '-',
-                            value: 1,
+                            value: getInverseScale(), // Consistent with other bubbles
                             priority: 'default',
                             placeholder: true,
                             domainName: domain.name
@@ -670,18 +670,15 @@
             .attr('stroke-width', stroke.group)
             .attr('stroke-dasharray', '4,2');
 
-        // Helper to get group label text with count (truncated more on mobile)
+        // Helper to get group label text with count
         function getGroupLabelText(d) {
             const count = d.data.children ? d.data.children.length : 0;
-            const maxLen = isMobile ? 8 : 14;
-            const baseName = d.data.name.length > maxLen ? d.data.name.substring(0, maxLen - 2) + '..' : d.data.name;
+            const baseName = d.data.name.length > 14 ? d.data.name.substring(0, 12) + '..' : d.data.name;
             return baseName + ' (' + count + ')';
         }
 
         // Store group nodes for label rendering later (to ensure z-order)
-        // On mobile, require larger groups to show labels
-        const minGroupRadius = isMobile ? 50 : 35;
-        const groupLabelNodes = groupNodes.filter(d => !d.data.placeholder && d.r > minGroupRadius);
+        const groupLabelNodes = groupNodes.filter(d => !d.data.placeholder && d.r > 35);
 
         // Draw concept circles (depth 3)
         const conceptNodes = root.descendants().filter(d => d.depth === 3);
@@ -796,12 +793,8 @@
             .text(d => getGroupLabelText(d));
 
         // Concept labels (rendered last, on top of everything)
-        // On smaller screens, hide labels for very small bubbles to reduce clutter
-        const minRadiusForLabel = isMobile ? 12 : 8;
-        const labelNodes = realConceptNodes.filter(d => d.r >= minRadiusForLabel);
-
         labelsLayer.selectAll('.concept-label')
-            .data(labelNodes)
+            .data(realConceptNodes)
             .enter()
             .append('text')
             .attr('class', 'concept-label')
@@ -813,12 +806,7 @@
             .attr('font-size', fontSizes.conceptLabel)
             .attr('font-weight', '500')
             .style('pointer-events', 'none')
-            .text(d => {
-                // Truncate labels more aggressively on small screens
-                const maxLen = isMobile ? 8 : 15;
-                const name = d.data.name;
-                return name.length > maxLen ? name.substring(0, maxLen - 1) + '…' : name;
-            });
+            .text(d => d.data.name);
 
         // Concept interactions - with touch support
         conceptGroups.filter(d => !d.data.placeholder)
