@@ -58,19 +58,19 @@
     const BASELINE_WIDTH = 1920; // Reference width for "large screen"
     const MIN_SCALE = 0.6; // Minimum scale to prevent things from getting too small
     const MAX_INVERSE_SCALE = 1.5; // Maximum boost for small screens
+    const BASE_CONCEPT_SIZE = 2.5; // Base size for concept bubbles (increase for bigger bubbles)
 
     function getScale() {
         const scale = Math.min(window.innerWidth, BASELINE_WIDTH) / BASELINE_WIDTH;
         return Math.max(scale, MIN_SCALE);
     }
 
-    // Inverse scale - returns higher values on smaller screens
-    // Used for bubble sizes to make them larger on small screens
-    function getInverseScale() {
+    // Returns concept bubble value - bigger by default, even bigger on small screens
+    function getConceptValue() {
         const scale = getScale();
-        // Invert: small screen (scale=0.6) → 1.4, large screen (scale=1.0) → 1.0
+        // Inverse: small screen gets boost, large screen stays at base
         const inverse = 1 + (1 - scale) * 0.8;
-        return Math.min(inverse, MAX_INVERSE_SCALE);
+        return BASE_CONCEPT_SIZE * Math.min(inverse, MAX_INVERSE_SCALE);
     }
 
     // Responsive sizing helpers
@@ -499,7 +499,7 @@
                                 domainName: domain.name,
                                 children: g.concepts.map(c => ({
                                     name: c.name,
-                                    value: getInverseScale(), // Bigger bubbles on smaller screens
+                                    value: getConceptValue(), // Bigger bubbles by default, even bigger on small screens
                                     priority: c.priority,
                                     concept: c,
                                     domainName: domain.name,
@@ -519,7 +519,7 @@
                         domainName: domain.name,
                         children: [{
                             name: '-',
-                            value: getInverseScale(), // Consistent with other bubbles
+                            value: getConceptValue(), // Consistent with other bubbles
                             priority: 'default',
                             placeholder: true,
                             domainName: domain.name

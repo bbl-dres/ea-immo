@@ -38,7 +38,8 @@
       "Bash(netstat:*)",
       "Bash(taskkill:*)",
       "Bash(cmd /c \"taskkill /PID 7592 /F\")",
-      "Bash(for img in 211585693.png 211585695.png vorschlag_domaenengruppen_immo.png geschaeftsobjekt_der_gruppe_dokumentation_als_uml.png)"
+      "Bash(for img in 211585693.png 211585695.png vorschlag_domaenengruppen_immo.png geschaeftsobjekt_der_gruppe_dokumentation_als_uml.png)",
+      "Bash(ping:*)"
     ]
   }
 }
