@@ -33,7 +33,11 @@
       "Bash(echo:*)",
       "Bash(else)",
       "Bash(test:*)",
-      "Bash(node --check:*)"
+      "Bash(node --check:*)",
+      "Bash(tasklist:*)",
+      "Bash(netstat:*)",
+      "Bash(taskkill:*)",
+      "Bash(cmd /c \"taskkill /PID 7592 /F\")"
     ]
   }
 }

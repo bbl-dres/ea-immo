@@ -548,6 +548,17 @@
                 return d.data.name + ' (' + count + ')';
             });
 
+        // Leader lines connecting domain labels to circles
+        domainGroups.append('line')
+            .attr('x1', 0)
+            .attr('y1', d => -d.r + 4)  // Just inside the circle top edge
+            .attr('x2', 0)
+            .attr('y2', d => -d.r - 4)  // Bottom of label (18 offset - 14 half height)
+            .attr('stroke', d => getDomainColor(d.data.id))
+            .attr('stroke-width', 2)
+            .attr('stroke-dasharray', '4,3')
+            .attr('opacity', 0.7);
+
         // Draw group circles (depth 2)
         const groupNodes = root.descendants().filter(d => d.depth === 2);
 
@@ -561,16 +572,10 @@
         // Group background circles
         groupGroups.append('circle')
             .attr('r', d => d.r)
-            .attr('fill', d => d.data.placeholder ? 'rgba(100,100,100,0.1)' : getDomainColor(d.data.domainId, 0.25))
-            .attr('stroke', d => d.data.placeholder ? 'transparent' : getDomainColor(d.data.domainId, 0.5))
+            .attr('fill', d => d.data.placeholder ? 'rgba(100,100,100,0.1)' : getDomainColor(d.data.domainId, 0.2))
+            .attr('stroke', d => d.data.placeholder ? 'transparent' : getDomainColor(d.data.domainId, 0.4))
             .attr('stroke-width', 1.5)
             .attr('stroke-dasharray', '4,2');
-
-        // Group labels - with background badge for readability
-        const groupLabels = groupGroups.filter(d => !d.data.placeholder && d.r > 35)
-            .append('g')
-            .attr('class', 'group-label')
-            .attr('transform', d => `translate(0, ${-d.r + 12})`);
 
         // Helper to get group label text with count
         function getGroupLabelText(d) {
@@ -579,32 +584,8 @@
             return baseName + ' (' + count + ')';
         }
 
-        // Label background pill
-        groupLabels.append('rect')
-            .attr('x', d => {
-                const text = getGroupLabelText(d);
-                return -(text.length * 3.5 + 8);
-            })
-            .attr('y', -9)
-            .attr('width', d => {
-                const text = getGroupLabelText(d);
-                return text.length * 7 + 16;
-            })
-            .attr('height', 18)
-            .attr('rx', 9)
-            .attr('fill', 'rgba(0, 0, 0, 0.6)')
-            .attr('stroke', d => getDomainColor(d.data.domainId, 0.6))
-            .attr('stroke-width', 1);
-
-        // Label text
-        groupLabels.append('text')
-            .attr('y', 4)
-            .attr('text-anchor', 'middle')
-            .attr('fill', 'white')
-            .attr('font-size', '9px')
-            .attr('font-weight', '500')
-            .style('pointer-events', 'none')
-            .text(d => getGroupLabelText(d));
+        // Store group nodes for label rendering later (to ensure z-order)
+        const groupLabelNodes = groupNodes.filter(d => !d.data.placeholder && d.r > 35);
 
         // Draw concept circles (depth 3)
         const conceptNodes = root.descendants().filter(d => d.depth === 3);
@@ -625,27 +606,114 @@
             .attr('stroke-width', 1)
             .attr('opacity', d => d.data.placeholder ? 0.5 : 0.9);
 
-        // Concept labels - scale font to fit circle
-        conceptGroups.append('text')
+        // ── Concept labels: resolve overlaps with bidirectional offsets ──
+        const realConceptNodes = conceptNodes.filter(d => !d.data.placeholder);
+
+        // Step 1: Build label metadata (all centered by default)
+        const labelInfo = realConceptNodes.map(d => ({
+            node: d,
+            x: d.x,
+            y: d.y,
+            width: d.data.name.length * 5.4 + 6, // ~9px font avg char width + padding
+            height: 12,
+            offset: 0,   // 0 = centered on circle; negative = above; positive = below
+            radius: d.r
+        }));
+
+        // Step 2: Overlap test using current offset positions
+        function labelsOverlap(a, b, padding) {
+            padding = padding || 2;
+            var dx = Math.abs(a.x - b.x);
+            var ay = a.y + a.offset;
+            var by = b.y + b.offset;
+            var dy = Math.abs(ay - by);
+            return dx < (a.width + b.width) / 2 + padding
+                && dy < (a.height + b.height) / 2 + padding;
+        }
+
+        // Step 3: Iteratively resolve overlaps (max 5 passes)
+        // Key insight: offset by label height, not circle radius
+        var halfLabelHeight = 1; // nudge amount per collision
+
+        for (var iter = 0; iter < 5; iter++) {
+            var anyOverlap = false;
+
+            for (var i = 0; i < labelInfo.length; i++) {
+                for (var j = i + 1; j < labelInfo.length; j++) {
+                    var a = labelInfo[i];
+                    var b = labelInfo[j];
+
+                    if (!labelsOverlap(a, b)) continue;
+                    anyOverlap = true;
+
+                    // Nudge labels apart by half label height each
+                    // Higher label goes up, lower label goes down
+                    if ((a.y + a.offset) <= (b.y + b.offset)) {
+                        a.offset -= halfLabelHeight;
+                        b.offset += halfLabelHeight;
+                    } else {
+                        a.offset += halfLabelHeight;
+                        b.offset -= halfLabelHeight;
+                    }
+                }
+            }
+
+            if (!anyOverlap) break;
+        }
+
+        // Step 4: Build offset lookup
+        var offsetMap = new Map();
+        labelInfo.forEach(function(info) {
+            offsetMap.set(info.node, info.offset);
+        });
+
+        // Render all labels in a separate layer on top of all circles
+        var labelsLayer = g.append('g').attr('class', 'labels-layer');
+
+        // Group labels (rendered first, so concept labels appear on top)
+        var groupLabels = labelsLayer.selectAll('.group-label')
+            .data(groupLabelNodes)
+            .enter()
+            .append('g')
+            .attr('class', 'group-label')
+            .attr('transform', d => `translate(${d.x}, ${d.y - d.r + 12})`);
+
+        // Group label background pill
+        groupLabels.append('rect')
+            .attr('x', d => -(getGroupLabelText(d).length * 3.5 + 8))
+            .attr('y', -9)
+            .attr('width', d => getGroupLabelText(d).length * 7 + 16)
+            .attr('height', 18)
+            .attr('rx', 9)
+            .attr('fill', 'rgba(0, 0, 0, 0.6)')
+            .attr('stroke', d => getDomainColor(d.data.domainId, 0.6))
+            .attr('stroke-width', 1);
+
+        // Group label text
+        groupLabels.append('text')
+            .attr('y', 4)
             .attr('text-anchor', 'middle')
-            .attr('dy', '0.35em')
-            .attr('fill', '#2c3e50')
-            .attr('font-size', d => {
-                if (d.data.placeholder) return '8px';
-                const maxWidth = d.r * 1.8;
-                const idealSize = maxWidth / (d.data.name.length * 0.55);
-                return Math.max(5, Math.min(9, idealSize)) + 'px';
-            })
+            .attr('fill', 'white')
+            .attr('font-size', '9px')
             .attr('font-weight', '500')
             .style('pointer-events', 'none')
-            .text(d => {
-                if (d.data.placeholder) return '';
-                const maxChars = Math.floor(d.r / 2.5);
-                if (d.data.name.length > maxChars && maxChars > 3) {
-                    return d.data.name.substring(0, maxChars - 2) + '..';
-                }
-                return d.data.name;
-            });
+            .text(d => getGroupLabelText(d));
+
+        // Concept labels (rendered last, on top of everything)
+        labelsLayer.selectAll('.concept-label')
+            .data(realConceptNodes)
+            .enter()
+            .append('text')
+            .attr('class', 'concept-label')
+            .attr('transform', d => `translate(${d.x}, ${d.y})`)
+            .attr('text-anchor', 'middle')
+            .attr('y', d => offsetMap.get(d) || 0)
+            .attr('dy', '0.35em')
+            .attr('fill', '#2c3e50')
+            .attr('font-size', '8px')
+            .attr('font-weight', '500')
+            .style('pointer-events', 'none')
+            .text(d => d.data.name);
 
         // Concept interactions - with touch support
         conceptGroups.filter(d => !d.data.placeholder)
