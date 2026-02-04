@@ -2,7 +2,7 @@
 
 Einheitliches Datenmodell und Geschäftsobjekte für das Immobilienmanagement des BBL (Bundesamt für Bauten und Logistik).
 
-[![Konzeptuelles Datenmodell - Bubble Chart](docs/Preview.JPG)](https://bbl-dres.github.io/ea-immo/)
+[![Konzeptuelles Datenmodell - Bubble Chart](assets/Preview.JPG)](https://bbl-dres.github.io/ea-immo/)
 
 **[Interaktive Visualisierung öffnen](https://bbl-dres.github.io/ea-immo/)**
 
@@ -10,11 +10,11 @@ Einheitliches Datenmodell und Geschäftsobjekte für das Immobilienmanagement de
 
 Dieses Repository definiert zentrale Geschäftsobjekte (Gebäude, Räume, Mietverträge, etc.) in einer standardkonformen, systemunabhängigen Sprache. Es dient als verbindliche Referenz für Fach- und IT-Bereiche.
 
-![The Blind Men and the Elephant](docs/Studie_-_Fachliche_Sicht_IMMO__Archiv/211585695.png)
+![The Blind Men and the Elephant](assets/211585695.png)
 
 ## Domänengruppen
 
-![Domänengruppen IMMO](docs/Studie_-_Fachliche_Sicht_IMMO__Archiv/vorschlag_domaenengruppen_immo.png)
+![Domänengruppen IMMO](assets/vorschlag_domaenengruppen_immo.png)
 
 | Domäne | Beschreibung | Priorität | Konzepte | Status |
 |--------|--------------|-----------|----------|--------|

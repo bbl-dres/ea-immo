@@ -14,7 +14,7 @@ Bild Links: Zielbild IT Architektur IMMO
 
 - Zu definieren
 
-![](Studie_-_Fachliche_Sicht_IMMO__Archiv/211585695.png)
+![](../assets/211585695.png)
 
 Bild links: The Blind Men and the Elephant. [Quelle](https://www.researchgate.net/figure/The-Blind-Men-and-the-Elephant_fig1_290127733)
 
@@ -47,7 +47,7 @@ Die Geschäftsobjekte sind in thematische Domänengruppen organisiert, die den n
 
 Diese Gruppierung ermöglicht es, zusammengehörige Konzepte aus fachlicher Perspektive zu bündeln, unabhängig von konkreten Anwendungssystemen, und erleichtert so das Verständnis der komplexen Beziehungen im Immobilienmanagement.
 
-![](Studie_-_Fachliche_Sicht_IMMO__Archiv/vorschlag_domaenengruppen_immo.png)
+![](../assets/vorschlag_domaenengruppen_immo.png)
 
 Bild: Vorschlag Domänengruppen IMMO
 
