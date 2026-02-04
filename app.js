@@ -51,6 +51,7 @@
 
     async function init() {
         try {
+            initTheme();
             const response = await fetch('data/Konzepte.json');
             domainData = await response.json();
             setupChart();
@@ -69,8 +70,12 @@
             .attr('height', height);
 
         window.addEventListener('resize', () => {
+            const wasMobile = isMobile;
             width = window.innerWidth;
             height = window.innerHeight;
+            detectMobile();
+            // Update legend visibility on screen size change
+            if (wasMobile !== isMobile) {
             d3.select('#chart').attr('width', width).attr('height', height);
             render();
         });
@@ -169,7 +174,7 @@
                 });
             }
         });
-        document.getElementById('legendTotal').textContent = totalConcepts + ' Konzepte';
+        document.getElementById('legendTotal').textContent = totalConcepts;
 
         // Create container group with offset for header
         const g = zoomGroup.append('g')
@@ -342,7 +347,7 @@
                 return d.data.name;
             });
 
-        // Concept interactions
+        // Concept interactions - with touch support
         conceptGroups.filter(d => !d.data.placeholder)
             .on('mouseenter', function(event, d) {
                 d3.select(this).select('circle')
@@ -360,7 +365,9 @@
             .on('click', (event, d) => {
                 event.stopPropagation();
                 showConceptPopup(d.data.concept, d.data.domainName);
-            });
+            })
+            .on('touchstart', function(event, d) {
+                event.preventDefault();
 
         // Domain hover
         domainGroups
@@ -369,7 +376,9 @@
             })
             .on('mouseleave', function() {
                 d3.select(this).select('circle').attr('stroke-width', 3);
-            });
+            })
+            .on('touchstart', function(event) {
+                event.preventDefault();
 
         // Group hover - show tooltip with group name
         groupGroups.filter(d => !d.data.placeholder)
@@ -382,26 +391,36 @@
             .on('mouseleave', function() {
                 d3.select(this).select('circle').attr('stroke-width', 1.5);
                 hideTooltip();
-            });
+            })
+            .on('touchstart', function(event) {
+                event.preventDefault();
     }
 
     // Tooltip functions
+    let tooltipTimeout = null;
+
     function showTooltip(event, title, subtitle) {
+        }
         const tooltip = document.getElementById('tooltip');
         document.getElementById('tooltipTitle').textContent = title;
         document.getElementById('tooltipDomain').textContent = subtitle;
         tooltip.classList.add('visible');
         moveTooltip(event);
+
+        // Auto-hide tooltip on touch after 2 seconds
+        if (isTouchDevice) {
+            clearTimeout(tooltipTimeout);
     }
 
     function moveTooltip(event) {
         const tooltip = document.getElementById('tooltip');
-        tooltip.style.left = (event.clientX + 15) + 'px';
-        tooltip.style.top = (event.clientY + 15) + 'px';
+        let x, y;
+
     }
 
     function hideTooltip() {
         document.getElementById('tooltip').classList.remove('visible');
+        clearTimeout(tooltipTimeout);
     }
 
     // Popup functions
@@ -516,7 +535,8 @@
         const chartEl = document.getElementById('chart');
         const graphEl = document.getElementById('graphView');
         const tableEl = document.getElementById('tableView');
-        const legendEl = document.querySelector('.legend');
+        const legendEl = document.getElementById('legend');
+        const legendToggle = document.getElementById('legendToggle');
         const zoomEl = document.querySelector('.zoom-controls');
         const buttons = document.querySelectorAll('.toggle-btn');
 
@@ -529,21 +549,28 @@
         if (view === 'chart') {
             chartEl.style.display = 'block';
             legendEl.style.display = 'block';
+            legendToggle.style.display = isMobile ? 'block' : 'none';
             zoomEl.style.display = 'flex';
             buttons[0].classList.add('active');
         } else if (view === 'graph') {
             graphEl.style.display = 'block';
             legendEl.style.display = 'block';
+            legendToggle.style.display = isMobile ? 'block' : 'none';
             zoomEl.style.display = 'flex';
             buttons[1].classList.add('active');
             renderGraph();
         } else {
             tableEl.style.display = 'block';
             legendEl.style.display = 'none';
+            legendToggle.style.display = 'none';
             zoomEl.style.display = 'none';
             buttons[2].classList.add('active');
             renderTable();
         }
+
+        // Hide legend on mobile when switching views
+        if (isMobile && view !== 'table') {
+            legendVisible = false;
     };
 
     let graphSvg = null;
@@ -766,7 +793,7 @@
             .attr('font-weight', d => d.type === 'domain' ? 'bold' : '500')
             .text(d => getLabelText(d));
 
-        // Node interactions
+        // Node interactions - with touch support
         node.on('mouseenter', function(event, d) {
             const r = getNodeRadius(d);
             d3.select(this).select('circle')
@@ -797,6 +824,10 @@
             }
         });
 
+        // Touch-specific interactions for nodes (tap to show popup)
+        node.on('touchend', function(event, d) {
+            // Only trigger if it's a tap, not a drag
+            if (event.defaultPrevented) return;
         // Tick function
         graphSimulation.on('tick', () => {
             link

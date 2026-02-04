@@ -32,7 +32,8 @@
       "Bash(then)",
       "Bash(echo:*)",
       "Bash(else)",
-      "Bash(test:*)"
+      "Bash(test:*)",
+      "Bash(node --check:*)"
     ]
   }
 }
