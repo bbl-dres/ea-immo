@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BBL Immobilienmanagement - Domänenmodell</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         /* ===========================================
            DESIGN SYSTEM - Variables & Base
@@ -77,8 +78,11 @@
            =========================================== */
         header {
             background: var(--surface-glass);
-            padding: 0.625rem 2rem 0.875rem;
-            text-align: center;
+            padding: 0.625rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 1rem;
             position: fixed;
             top: 0;
             left: 0;
@@ -93,9 +97,12 @@
             font-size: 1.125rem;
             font-weight: 500;
             letter-spacing: -0.01em;
-            margin-bottom: 0.375rem;
             color: var(--text-primary);
+            white-space: nowrap;
+            margin: 0;
+            justify-self: start;
         }
+
 
         #chart, #graphView {
             position: fixed;
@@ -148,8 +155,8 @@
            =========================================== */
         .legend {
             position: fixed;
-            top: calc(90px + 1rem);
-            left: 1rem;
+            top: calc(60px + 1rem);
+            right: 1rem;
             background: var(--surface-solid);
             padding: 1.125rem;
             border-radius: var(--radius-lg);
@@ -158,6 +165,161 @@
             color: #1e293b;
             box-shadow: var(--shadow-lg);
             min-width: 150px;
+        }
+
+        /* ===========================================
+           SEARCH & FILTER WIDGET
+           =========================================== */
+        .search-filter {
+            position: fixed;
+            top: calc(60px + 1rem);
+            left: 1rem;
+            background: var(--surface-solid);
+            padding: 1rem;
+            border-radius: var(--radius-lg);
+            z-index: 50;
+            color: #1e293b;
+            box-shadow: var(--shadow-lg);
+            width: 280px;
+        }
+
+        .search-input-wrapper {
+            position: relative;
+            margin-bottom: 0.75rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.625rem 0.875rem 0.625rem 2.25rem;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
+            color: #1e293b;
+            background: #f8fafc;
+            transition: var(--transition-fast);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1);
+        }
+
+        .search-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .search-filter .search-icon {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            pointer-events: none;
+            width: 16px;
+            height: 16px;
+        }
+
+        .search-clear {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #94a3b8;
+            cursor: pointer;
+            padding: 0.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition-fast);
+        }
+
+        .search-clear:hover {
+            background: #f1f5f9;
+            color: #64748b;
+        }
+
+        .search-clear i {
+            width: 14px;
+            height: 14px;
+        }
+
+        .filter-section {
+            margin-bottom: 0.75rem;
+        }
+
+        .filter-label {
+            font-size: 0.7rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .filter-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.375rem;
+        }
+
+        .filter-chip {
+            padding: 0.35rem 0.625rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            color: #475569;
+            background: #f8fafc;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .filter-chip:hover {
+            border-color: #cbd5e1;
+            background: #f1f5f9;
+        }
+
+        .filter-chip.active {
+            background: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+        }
+
+        .chip-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 0.375rem;
+            flex-shrink: 0;
+        }
+
+        .filter-chip.active .chip-dot {
+            background: white !important;
+        }
+
+        .filter-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+            margin: 0.75rem 0;
+        }
+
+        .filter-results {
+            font-size: 0.75rem;
+            color: #64748b;
+            text-align: center;
+        }
+
+        .filter-results strong {
+            color: #0f172a;
         }
 
         .legend-total {
@@ -479,7 +641,6 @@
             display: flex;
             gap: 0.375rem;
             justify-content: center;
-            margin-top: 0.5rem;
         }
 
         .toggle-btn {
@@ -620,6 +781,26 @@
             display: none;
             position: fixed;
             top: 92px;
+            right: 1rem;
+            z-index: 51;
+            background: var(--surface-solid);
+            border: none;
+            border-radius: var(--radius-sm);
+            padding: 0.5rem 0.875rem;
+            font-size: 0.75rem;
+            cursor: pointer;
+            color: #1e293b;
+            box-shadow: var(--shadow-md);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            transition: var(--transition-fast);
+        }
+
+        .search-toggle {
+            display: none;
+            position: fixed;
+            bottom: 1rem;
             left: 1rem;
             z-index: 51;
             background: var(--surface-solid);
@@ -636,6 +817,11 @@
             transition: var(--transition-fast);
         }
 
+        .search-toggle:hover {
+            background: #f8fafc;
+            box-shadow: var(--shadow-lg);
+        }
+
         .legend-toggle:hover {
             background: #f8fafc;
             box-shadow: var(--shadow-lg);
@@ -645,10 +831,6 @@
            THEME TOGGLE
            =========================================== */
         .theme-toggle {
-            position: absolute;
-            right: 1.25rem;
-            top: 50%;
-            transform: translateY(-50%);
             background: var(--surface-glass);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: var(--radius-md);
@@ -660,16 +842,19 @@
             justify-content: center;
             transition: var(--transition-fast);
             padding: 0;
+            flex-shrink: 0;
+            justify-self: end;
         }
 
         .theme-toggle:hover {
             background: var(--surface-glass-hover);
-            transform: translateY(-50%) scale(1.05);
+            transform: scale(1.05);
         }
 
         .theme-icon {
-            font-size: 1.125rem;
-            line-height: 1;
+            width: 18px;
+            height: 18px;
+            stroke-width: 2;
         }
 
         .theme-icon.dark-icon {
@@ -745,6 +930,16 @@
             box-shadow: var(--shadow-md);
         }
 
+        body.light-mode .search-filter {
+            background: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        body.light-mode .search-toggle {
+            background: white;
+            box-shadow: var(--shadow-md);
+        }
+
         body.light-mode .zoom-btn {
             background: white;
             box-shadow: var(--shadow-md);
@@ -781,11 +976,12 @@
         /* Tablet and smaller (max-width: 1024px) */
         @media (max-width: 1024px) {
             header {
-                padding: 0.4rem 1rem 0.6rem;
+                padding: 0.5rem 1rem;
+                gap: 0.75rem;
             }
 
             header h1 {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
 
             .legend {
@@ -816,29 +1012,37 @@
         /* Mobile Landscape and smaller tablets (max-width: 768px) */
         @media (max-width: 768px) {
             header {
-                padding: 0.4rem 0.75rem 0.5rem;
+                padding: 0.5rem 0.75rem;
+                grid-template-columns: 1fr auto;
+                grid-template-rows: auto auto;
+                gap: 0.5rem;
             }
 
             header h1 {
-                font-size: 0.9rem;
-                margin-bottom: 0.4rem;
-                padding-right: 2.5rem;
+                font-size: 0.85rem;
+                white-space: normal;
+                grid-column: 1;
+                grid-row: 1;
             }
 
             .theme-toggle {
                 width: 32px;
                 height: 32px;
-                right: 0.75rem;
+                grid-column: 2;
+                grid-row: 1;
+                justify-self: end;
             }
 
             .theme-icon {
-                font-size: 1rem;
+                width: 16px;
+                height: 16px;
             }
 
             .view-toggle {
                 gap: 0.25rem;
-                margin-top: 0.3rem;
-                flex-wrap: wrap;
+                grid-column: 1 / -1;
+                grid-row: 2;
+                justify-content: center;
             }
 
             .toggle-btn {
@@ -851,18 +1055,37 @@
                 display: block;
             }
 
+            .search-toggle {
+                display: block;
+            }
+
             .legend {
                 top: 115px;
-                left: 1rem;
+                right: 1rem;
+                left: auto;
                 max-width: 150px;
                 padding: 0.6rem;
                 font-size: 0.7rem;
-                transform: translateX(-120%);
+                transform: translateX(120%);
                 transition: transform 0.3s ease;
             }
 
             .legend.visible {
                 transform: translateX(0);
+            }
+
+            .search-filter {
+                top: auto;
+                bottom: 5rem;
+                left: 1rem;
+                right: 1rem;
+                width: auto;
+                transform: translateY(150%);
+                transition: transform 0.3s ease;
+            }
+
+            .search-filter.visible {
+                transform: translateY(0);
             }
 
             .legend-total {
@@ -965,23 +1188,23 @@
             }
 
             header {
-                padding: 0.3rem 0.5rem 0.4rem;
+                padding: 0.4rem 0.5rem;
+                gap: 0.4rem;
             }
 
             header h1 {
-                font-size: 0.75rem;
-                line-height: 1.2;
-                padding-right: 2rem;
+                font-size: 0.7rem;
+                line-height: 1.3;
             }
 
             .theme-toggle {
                 width: 28px;
                 height: 28px;
-                right: 0.5rem;
             }
 
             .theme-icon {
-                font-size: 0.85rem;
+                width: 14px;
+                height: 14px;
             }
 
             .view-toggle {
@@ -999,10 +1222,19 @@
                 padding: 0.4rem 0.6rem;
             }
 
+            .search-toggle {
+                font-size: 0.7rem;
+                padding: 0.4rem 0.6rem;
+            }
+
             .legend {
                 top: 105px;
                 max-width: 130px;
                 padding: 0.5rem;
+            }
+
+            .search-filter {
+                padding: 0.75rem;
             }
 
             .legend-total {
@@ -1156,16 +1388,26 @@
         /* Landscape mode on mobile */
         @media (max-height: 500px) and (orientation: landscape) {
             header {
-                padding: 0.2rem 1rem 0.3rem;
+                padding: 0.2rem 1rem;
+                gap: 0.5rem;
+                grid-template-columns: 1fr auto 1fr;
+                grid-template-rows: auto;
             }
 
             header h1 {
-                font-size: 0.8rem;
-                margin-bottom: 0.2rem;
+                font-size: 0.75rem;
+                grid-column: 1;
+                grid-row: 1;
             }
 
             .view-toggle {
-                margin-top: 0.2rem;
+                grid-column: 2;
+                grid-row: 1;
+            }
+
+            .theme-toggle {
+                grid-column: 3;
+                grid-row: 1;
             }
 
             .toggle-btn {
@@ -1177,10 +1419,19 @@
                 top: 55px;
             }
 
+            .search-toggle {
+                bottom: 0.5rem;
+            }
+
             .legend {
                 top: 85px;
+                right: 1rem;
                 max-height: calc(100vh - 100px);
                 overflow-y: auto;
+            }
+
+            .search-filter {
+                bottom: 3rem;
             }
 
             .popup {
@@ -1212,7 +1463,8 @@
             }
 
             .theme-icon {
-                font-size: 0.85rem;
+                width: 14px;
+                height: 14px;
             }
         }
 
@@ -1224,7 +1476,7 @@
             }
 
             .theme-toggle:hover {
-                transform: translateY(-50%);
+                transform: none;
             }
 
             .toggle-btn.active:hover {
@@ -1247,15 +1499,15 @@
 <body>
     <header>
         <h1>BBL Immobilienmanagement - Konzeptuelles Datenmodell</h1>
-        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Theme wechseln">
-            <span class="theme-icon light-icon">☀️</span>
-            <span class="theme-icon dark-icon">🌙</span>
-        </button>
         <div class="view-toggle">
             <button class="toggle-btn active" onclick="setView('chart')">Bubble Chart</button>
             <button class="toggle-btn" onclick="setView('graph')">Graph</button>
             <button class="toggle-btn" onclick="setView('table')">Tabelle</button>
         </div>
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Theme wechseln">
+            <i data-lucide="sun" class="theme-icon light-icon"></i>
+            <i data-lucide="moon" class="theme-icon dark-icon"></i>
+        </button>
     </header>
 
     <svg id="chart"></svg>
@@ -1285,6 +1537,37 @@
     </div>
 
     <button class="legend-toggle" id="legendToggle" onclick="toggleLegend()">Legende</button>
+    <button class="search-toggle" id="searchToggle" onclick="toggleSearch()">Suche</button>
+
+    <div class="search-filter" id="searchFilter">
+        <div class="search-input-wrapper">
+            <i data-lucide="search" class="search-icon"></i>
+            <input type="text" class="search-input" id="searchInput" placeholder="Konzept suchen...">
+            <button class="search-clear" id="searchClear" style="display: none;">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="filter-section">
+            <span class="filter-label">Priorität</span>
+            <div class="filter-chips">
+                <button class="filter-chip active" data-filter="all">Alle</button>
+                <button class="filter-chip" data-filter="muss">Muss</button>
+                <button class="filter-chip" data-filter="soll">Soll</button>
+                <button class="filter-chip" data-filter="kann">Kann</button>
+            </div>
+        </div>
+        <div class="filter-divider"></div>
+        <div class="filter-section">
+            <span class="filter-label">Domäne</span>
+            <div class="filter-chips" id="domainFilters">
+                <button class="filter-chip active" data-domain="all">Alle</button>
+            </div>
+        </div>
+        <div class="filter-divider"></div>
+        <div class="filter-results">
+            <strong id="filteredCount">227</strong> von <strong id="totalCount">227</strong> Konzepte
+        </div>
+    </div>
 
     <div class="legend" id="legend">
         <div class="legend-total" id="legendTotal">0</div>

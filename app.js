@@ -120,15 +120,227 @@
         }
     };
 
+    // Search filter state
+    let searchVisible = false;
+    let currentSearchTerm = '';
+    let currentPriorityFilter = 'all';
+    let currentDomainFilter = 'all';
+    let filteredData = null;
+
+    // Toggle search filter visibility (for mobile)
+    window.toggleSearch = function() {
+        const searchFilter = document.getElementById('searchFilter');
+        searchVisible = !searchVisible;
+
+        if (searchVisible) {
+            searchFilter.classList.add('visible');
+        } else {
+            searchFilter.classList.remove('visible');
+        }
+    };
+
+    // Initialize search and filter functionality
+    function initSearchFilter() {
+        // Populate domain filter chips
+        populateDomainFilters();
+
+        // Search input listener
+        const searchInput = document.getElementById('searchInput');
+        const searchClear = document.getElementById('searchClear');
+
+        searchInput.addEventListener('input', debounce((e) => {
+            currentSearchTerm = e.target.value.toLowerCase().trim();
+            searchClear.style.display = currentSearchTerm ? 'flex' : 'none';
+            applyFilters();
+        }, 200));
+
+        // Clear search button
+        searchClear.addEventListener('click', () => {
+            searchInput.value = '';
+            currentSearchTerm = '';
+            searchClear.style.display = 'none';
+            applyFilters();
+        });
+
+        // Priority filter chip listeners
+        const priorityChips = document.querySelectorAll('.filter-chip[data-filter]');
+        priorityChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                priorityChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                currentPriorityFilter = chip.dataset.filter;
+                applyFilters();
+            });
+        });
+
+        // Domain filter chip listeners (delegated)
+        document.getElementById('domainFilters').addEventListener('click', (e) => {
+            const chip = e.target.closest('.filter-chip');
+            if (!chip) return;
+
+            const domainChips = document.querySelectorAll('#domainFilters .filter-chip');
+            domainChips.forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            currentDomainFilter = chip.dataset.domain;
+            applyFilters();
+        });
+
+        // Initialize search filter visibility for desktop
+        const searchFilter = document.getElementById('searchFilter');
+        const searchToggle = document.getElementById('searchToggle');
+        if (!isMobile) {
+            searchFilter.classList.add('visible');
+            searchToggle.style.display = 'none';
+        } else {
+            searchFilter.classList.remove('visible');
+            searchToggle.style.display = 'block';
+        }
+    }
+
+    // Populate domain filter chips dynamically
+    function populateDomainFilters() {
+        const container = document.getElementById('domainFilters');
+        let html = '<button class="filter-chip active" data-domain="all">Alle</button>';
+
+        domainData.domains.forEach(domain => {
+            const shortName = domain.shortName || domain.name.split(' ')[0];
+            const color = getDomainColor(domain.id);
+            html += `<button class="filter-chip" data-domain="${domain.id}" style="--chip-color: ${color}">
+                <span class="chip-dot" style="background: ${color}"></span>${shortName}
+            </button>`;
+        });
+
+        container.innerHTML = html;
+    }
+
+    // Debounce helper
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    // Apply all filters and update visualization
+    function applyFilters() {
+        // Create filtered data structure
+        filteredData = {
+            domains: domainData.domains.map(domain => {
+                // Check domain filter
+                if (currentDomainFilter !== 'all' && domain.id !== currentDomainFilter) {
+                    return { ...domain, groups: [] };
+                }
+
+                const filteredGroups = (domain.groups || []).map(group => {
+                    const filteredConcepts = (group.concepts || []).filter(concept => {
+                        // Priority filter
+                        if (currentPriorityFilter !== 'all') {
+                            const priority = concept.priority.toLowerCase();
+                            if (currentPriorityFilter === 'muss' && priority !== 'muss') return false;
+                            if (currentPriorityFilter === 'soll' && !priority.includes('soll')) return false;
+                            if (currentPriorityFilter === 'kann' && !priority.includes('kann') && !priority.includes('könn')) return false;
+                        }
+
+                        // Search filter
+                        if (currentSearchTerm) {
+                            const searchableText = [
+                                concept.name,
+                                concept.description || '',
+                                concept.standards || '',
+                                group.name,
+                                domain.name
+                            ].join(' ').toLowerCase();
+
+                            if (!searchableText.includes(currentSearchTerm)) return false;
+                        }
+
+                        return true;
+                    });
+
+                    return { ...group, concepts: filteredConcepts };
+                }).filter(group => group.concepts.length > 0);
+
+                return { ...domain, groups: filteredGroups };
+            })
+        };
+
+        // Update counts
+        updateFilterCounts();
+
+        // Re-render current view
+        rerenderCurrentView();
+    }
+
+    // Update filter result counts
+    function updateFilterCounts() {
+        let totalConcepts = 0;
+        let filteredConcepts = 0;
+
+        domainData.domains.forEach(d => {
+            if (d.groups) {
+                d.groups.forEach(g => {
+                    if (g.concepts) totalConcepts += g.concepts.length;
+                });
+            }
+        });
+
+        filteredData.domains.forEach(d => {
+            if (d.groups) {
+                d.groups.forEach(g => {
+                    if (g.concepts) filteredConcepts += g.concepts.length;
+                });
+            }
+        });
+
+        document.getElementById('filteredCount').textContent = filteredConcepts;
+        document.getElementById('totalCount').textContent = totalConcepts;
+        document.getElementById('legendTotal').textContent = filteredConcepts;
+    }
+
+    // Re-render the current view with filtered data
+    function rerenderCurrentView() {
+        const chartEl = document.getElementById('chart');
+        const graphEl = document.getElementById('graphView');
+        const tableEl = document.getElementById('tableView');
+
+        if (chartEl.style.display !== 'none') {
+            render();
+        } else if (graphEl.style.display !== 'none') {
+            // Clear and re-render graph
+            graphSvg.selectAll('*').remove();
+            renderGraph();
+        } else if (tableEl.style.display !== 'none') {
+            // Clear and re-render table
+            document.getElementById('tableBody').innerHTML = '';
+            renderTable();
+        }
+    }
+
+    // Get data for rendering (filtered or original)
+    function getRenderData() {
+        return filteredData || domainData;
+    }
+
     async function init() {
         try {
             detectMobile();
             initTheme();
             const response = await fetch('data/Konzepte.json');
             domainData = await response.json();
+            filteredData = domainData; // Initialize filtered data
             setupChart();
             render();
             initLegend();
+            initSearchFilter();
+            // Initialize Lucide icons
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
         } catch (error) {
             console.error('Error loading data:', error);
         }
@@ -148,9 +360,19 @@
             height = window.innerHeight;
             detectMobile();
 
-            // Update legend visibility on screen size change
+            // Update legend and search visibility on screen size change
             if (wasMobile !== isMobile) {
                 initLegend();
+                // Update search filter visibility
+                const searchFilter = document.getElementById('searchFilter');
+                const searchToggle = document.getElementById('searchToggle');
+                if (!isMobile) {
+                    searchFilter.classList.add('visible');
+                    searchToggle.style.display = 'none';
+                } else {
+                    searchFilter.classList.remove('visible');
+                    searchToggle.style.display = 'block';
+                }
             }
 
             d3.select('#chart').attr('width', width).attr('height', height);
@@ -176,9 +398,10 @@
             .attr('class', 'zoom-group');
 
         // Build hierarchy data with 3 levels: domain > group > concept
+        const renderData = getRenderData();
         const hierarchyData = {
             name: 'root',
-            children: domainData.domains.map(domain => {
+            children: renderData.domains.map(domain => {
                 const groups = [];
                 if (domain.groups && domain.groups.length > 0) {
                     domain.groups.forEach(g => {
@@ -244,7 +467,7 @@
 
         // Calculate total concepts
         let totalConcepts = 0;
-        domainData.domains.forEach(d => {
+        renderData.domains.forEach(d => {
             if (d.groups) {
                 d.groups.forEach(g => {
                     if (g.concepts) totalConcepts += g.concepts.length;
@@ -673,6 +896,8 @@
         const tableEl = document.getElementById('tableView');
         const legendEl = document.getElementById('legend');
         const legendToggle = document.getElementById('legendToggle');
+        const searchFilterEl = document.getElementById('searchFilter');
+        const searchToggle = document.getElementById('searchToggle');
         const zoomEl = document.querySelector('.zoom-controls');
         const buttons = document.querySelectorAll('.toggle-btn');
 
@@ -686,12 +911,16 @@
             chartEl.style.display = 'block';
             legendEl.style.display = 'block';
             legendToggle.style.display = isMobile ? 'block' : 'none';
+            searchFilterEl.style.display = 'block';
+            searchToggle.style.display = isMobile ? 'block' : 'none';
             zoomEl.style.display = 'flex';
             buttons[0].classList.add('active');
         } else if (view === 'graph') {
             graphEl.style.display = 'block';
             legendEl.style.display = 'block';
             legendToggle.style.display = isMobile ? 'block' : 'none';
+            searchFilterEl.style.display = 'block';
+            searchToggle.style.display = isMobile ? 'block' : 'none';
             zoomEl.style.display = 'flex';
             buttons[1].classList.add('active');
             renderGraph();
@@ -699,15 +928,19 @@
             tableEl.style.display = 'block';
             legendEl.style.display = 'none';
             legendToggle.style.display = 'none';
+            searchFilterEl.style.display = 'none';
+            searchToggle.style.display = 'none';
             zoomEl.style.display = 'none';
             buttons[2].classList.add('active');
             renderTable();
         }
 
-        // Hide legend on mobile when switching views
+        // Hide legend and search on mobile when switching views
         if (isMobile && view !== 'table') {
             legendVisible = false;
             legendEl.classList.remove('visible');
+            searchVisible = false;
+            searchFilterEl.classList.remove('visible');
         }
     };
 
@@ -738,11 +971,12 @@
             .attr('class', 'graph-container');
 
         // Build nodes and links for 3 levels: domain > group > concept
+        const renderData = getRenderData();
         const nodes = [];
         const links = [];
 
         // Create domain nodes
-        domainData.domains.forEach(domain => {
+        renderData.domains.forEach(domain => {
             nodes.push({
                 id: 'domain:' + domain.id,
                 name: domain.shortName || domain.name,
@@ -754,7 +988,7 @@
         });
 
         // Create group and concept nodes
-        domainData.domains.forEach(domain => {
+        renderData.domains.forEach(domain => {
             if (!domain.groups) return;
 
             domain.groups.forEach(group => {
@@ -1009,11 +1243,12 @@
 
     function renderTable() {
         const tbody = document.getElementById('tableBody');
-        if (tbody.children.length > 0) return; // Already rendered
+        // Don't skip re-render when filtering
+        const renderData = getRenderData();
 
         let html = '';
 
-        domainData.domains.forEach(domain => {
+        renderData.domains.forEach(domain => {
             if (!domain.groups || domain.groups.length === 0) {
                 html += `<tr>
                     <td class="domain-cell" style="color: ${getDomainColor(domain.id)}">${domain.name}</td>
