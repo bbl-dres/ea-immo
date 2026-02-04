@@ -1,8 +1,8 @@
-# EA-IMMO – Konzeptionelles Datenmodell Immobilien BBL
+# EA-IMMO – Konzeptionelles Datenmodell Immobilien
 
 > **Hinweis:** Diese Visualisierung enthält Mockup- und Test-/Arbeitsdaten.
 
-Enterprise Architecture Immobilien (EA-IMMO) – Einheitliches Datenmodell und Geschäftsobjekte für das Immobilienmanagement des BBL (Bundesamt für Bauten und Logistik).
+Enterprise Architecture Immobilien (EA-IMMO) – Einheitliches Datenmodell und Geschäftsobjekte für das Immobilienmanagement.
 
 [![Konzeptionelles Datenmodell - Bubble Chart](assets/Preview.JPG)](https://bbl-dres.github.io/ea-immo/)
 
@@ -62,7 +62,7 @@ Dieses Repository orientiert sich am **DMBOK** (Data Management Body of Knowledg
 | Logisches Modell | Strukturierte Darstellung, z.B. als relationales Modell | Lösungsneutral (nicht Ziel dieses Repos) |
 | Physisches Modell | Technische Implementierung in einer konkreten Datenbank oder System | Systemspezifisch |
 
-Das konzeptionelle Datenmodell bildet die Grundlage für ein einheitliches Verständnis der Immobiliendaten im BBL – unabhängig von den eingesetzten IT-Systemen.
+Das konzeptionelle Datenmodell bildet die Grundlage für ein einheitliches Verständnis der Immobiliendaten – unabhängig von den eingesetzten IT-Systemen.
 
 **Weitere Referenzen:**
 - **TOGAF** (The Open Group Architecture Framework) – Enterprise Architecture Standard
