@@ -80,7 +80,7 @@ Die Verbindung zur Architektonischen Sicht erfolgt durch die systematische Verkn
 
 Tabelle: Empfehlung Geschäftsobjekte (Konsolidiert)
 
-![](assets/Dokumentenmanagement/empfehlung_geschaeftsobjekte_konsolidiert_-_vereinfachte.png)
+![](Dokumentenmanagement/empfehlung_geschaeftsobjekte_konsolidiert_-_vereinfachte.png)
 
 Bild: Empfehlung Geschäftsobjekte (Konsolidiert) - Vereinfachte Darstellung. [Quelle](https://www.mermaidchart.com/app/projects/5ddada0a-47f7-43e6-87eb-a297e604e809/diagrams/882e5edb-fe33-409b-8bf7-8c0743c89332/version/v0.1/edit)
 
@@ -252,7 +252,7 @@ Tabelle: Begriffe eCH-0039 E-Government-Schnittstelle
 
 Tabelle: Begriffe KBOB Bauwerksdokumentation im Hochbau
 
-![](assets/Dokumentenmanagement/225345968.png)![](assets/Dokumentenmanagement/225345969.png)
+![](Dokumentenmanagement/225345968.png)![](Dokumentenmanagement/225345969.png)
 
 Bild Links: Begriff Bauwerksdokumentation. [Quelle](https://fachglossar.platinus.at/docs/Glossar/B-Glossar/Bauwerksdokumentation/)
 
@@ -280,6 +280,6 @@ Bild Rechts: Bauwerksdokumentation
 
 Tabelle: Begriffe SIA 112 Modell Bauplanung
 
-![](assets/Dokumentenmanagement/phasen_teilphasen_und_teilphasenziele_nach_sia_112.png)
+![](Dokumentenmanagement/phasen_teilphasen_und_teilphasenziele_nach_sia_112.png)
 
 Bild: Phasen, Teilphasen und Teilphasenziele nach SIA 112. [Quelle](https://object.gever.admin.ch:443/web/?ObjectToOpenID=%24ActaNovaDocument%7c51BB6F95-8ACB-4CDB-A4FA-BE97F7E5CAA4&TenantID=169)

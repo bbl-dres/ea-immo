@@ -106,7 +106,7 @@ Die Integration des Mietermanagements in die Gesamtstrategie des BBL ermöglicht
 
 Tabelle: Empfehlung Geschäftsobjekte (Konsolidiert)
 
-![](assets/Mietermanagement__Nutzungssicht/uebersicht_entitaeten.png)
+![](Mietermanagement__Nutzungssicht/uebersicht_entitaeten.png)
 
 Bild: Übersicht Entitäten. [Quelle](https://www.mermaidchart.com/app/projects/5ddada0a-47f7-43e6-87eb-a297e604e809/diagrams/fc69894c-6bd4-49c2-b546-948e4a31703c/version/v0.1/edit)
 

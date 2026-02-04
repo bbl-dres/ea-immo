@@ -11,7 +11,7 @@ Arbeitsdokument
 
 Das Bundesamt für Bauten und Logistik (BBL) strebt im Rahmen seiner Unternehmensarchitektur die Etablierung eines ganzheitlichen fachlichen Datenmodells (eine fachliche Sicht) für das Immobilienmanagement an. Diese fachliche Sicht (Common Data Model) soll ein einheitliches Verständnis der Immobiliendaten über alle Fachbereiche und IT-Systeme hinweg sicherstellen (lösungsneutral, langlebig und stabil). Um dies zu erreichen, ist eine fundierte Kenntnis und Bewertung vorhandener "Best Practice"-Standards im Bereich des Immobilien-Datenmanagements unerlässlich. Der Fokus liegt dabei auf der "fachlichen Sicht" der Daten, die das "WAS" der Geschäftsanforderungen abbildet und langlebig sowie systemunabhängig sein soll.
 
-![](assets/Analyse_-_Übersicht_Standards_IMMO/dreistufiges_metadatenmodell.png)
+![](Analyse_-_Übersicht_Standards_IMMO/dreistufiges_metadatenmodell.png)
 
 Bild: Dreistufiges Metadatenmodell. [Quelle](https://confluence.bit.admin.ch/x/tiWPMg)
 
@@ -39,7 +39,7 @@ Die Standards werden basierend auf einer kombinierten Bewertung aus Prioritätss
 - **Priorität C (Mittel):** Standards, die für spezifische Aspekte oder Randbereiche relevant sind. Ihre Integration hat einen geringeren unmittelbaren Impact oder erfordert eine komplexere Anpassung an die BBL-Anforderungen.
 - **Priorität D (Niedrig/Optional):** Standards mit geringer direkter Relevanz für die BBL-Kernprozesse. Sie können in speziellen Nischenbereichen relevant sein oder als Referenz dienen.
 
-![](assets/Analyse_-_Übersicht_Standards_IMMO/standards_-_priorisierung_vs.jpg)
+![](Analyse_-_Übersicht_Standards_IMMO/standards_-_priorisierung_vs.jpg)
 
 Bild: Standards - Priorisierung vs. Relevanz BBL
 
@@ -87,7 +87,7 @@ Im Folgenden wird jeder Standard aus der ursprünglichen Liste kurz vorgestellt 
 - **Kurzbeschreibung:** Real Estate Core ist eine offene Datenmodell-Initiative, die ein standardisiertes, interoperables Datenmodell für die Immobilienbranche auf Basis von Linked Data und Ontologien entwickelt. Ziel ist die semantische Interoperabilität zwischen verschiedenen Systemen über den gesamten Lebenszyklus.
 - **Relevanz für das BBL (fachliche Sicht):** Dieser Standard ist explizit auf ein "Common Data Model" und die semantische Interoperabilität ausgerichtet. Er kann eine robuste, technologieunabhängige Grundlage für die fachliche Datenmodellierung im BBL bieten, indem er zentrale Immobilienkonzepte (Gebäude, Grundstücke, Organisationen, Verträge, Sensoren, Räume) über Domänengrenzen hinweg einheitlich definiert.
 
-![](assets/Analyse_-_Übersicht_Standards_IMMO/224624717.png)
+![](Analyse_-_Übersicht_Standards_IMMO/224624717.png)
 
 Bild Links: Zusammenhänge mit weiteren Standards. [Quelle](https://www.realestatecore.io/)
 
@@ -127,7 +127,7 @@ Bild Rechts: Übersicht von Physischen Immobilienmodell als ein UML
 - **Kurzbeschreibung:** Die IBPDI ist eine Initiative zur Standardisierung von Gebäudedaten, die zur Messung und Verbesserung der Gebäudeeffizienz (Performance) über den Lebenszyklus hinweg relevant sind.
 - **Relevanz für das BBL (fachliche Sicht):** IBPDI definiert Datenpunkte und Metadaten für die Erfassung von Gebäudedaten, die für Performance-Messung, Energieverbrauch, Umweltleistung und Betriebsdaten entscheidend sind. Dies ist von höchster Relevanz für die Domäne "Energie und Ressourcen" und unterstützt das BBL bei seinen Nachhaltigkeitszielen.
 
-![](assets/Analyse_-_Übersicht_Standards_IMMO/224624663.png)
+![](Analyse_-_Übersicht_Standards_IMMO/224624663.png)
 
 Bild Links: IBPDI Datendomänen. [Quelle](https://ibpdi.org/)
 
@@ -135,7 +135,7 @@ Bild Mitte: Status pro Datendomäne. [Quelle](https://ibpdi.org/)
 
 Bild Rechts: Übersicht Datendomäne Digital Twin. [Quelle](https://miro.com/app/board/uXjVLIX0YbY=/?share_link_id=899564476397)
 
-![](assets/Analyse_-_Übersicht_Standards_IMMO/224624668.png)
+![](Analyse_-_Übersicht_Standards_IMMO/224624668.png)
 
 Bild Links: Beschreibung der Datendomäne Energie und Ressourcen. [Quelle](https://miro.com/app/board/uXjVLIX0YbY=/?share_link_id=899564476397)
 
@@ -148,7 +148,7 @@ Bild Rechts: Beschreibung der Datendomäne Finanzen. [Quelle](https://miro.com/a
 - **Kurzbeschreibung:** Das Open Standards Consortium for Real Estate (OSCRE) ist eine globale Organisation, die offene Standards und Best Practices für den Datenaustausch und die Integration in der kommerziellen Immobilienbranche entwickelt.
 - **Relevanz für das BBL (fachliche Sicht):** OSCRE-Standards definieren Datenmodelle für Immobilientransaktionen und -prozesse (z.B. Leasing, Asset Management, Finanzberichterstattung). Sie sind relevant für das "Portfolio- und Asset-Management" und das "Mietermanagement", insbesondere wenn es um die Interaktion mit externen Partnern geht.
 
-![](assets/Analyse_-_Übersicht_Standards_IMMO/224624679.png)
+![](Analyse_-_Übersicht_Standards_IMMO/224624679.png)
 
 ## 3.5. Bauen Digital Schweiz (Datenfeldkataloge)
 
@@ -157,7 +157,7 @@ Bild Rechts: Beschreibung der Datendomäne Finanzen. [Quelle](https://miro.com/a
 - **Kurzbeschreibung:** Bauen Digital Schweiz ist die zentrale Initiative in der Schweiz zur Förderung der Digitalisierung im Bauwesen. Sie entwickelt und veröffentlicht unter anderem Datenfeldkataloge und Richtlinien, die auf die spezifischen Bedürfnisse und Normen der Schweizer Baubranche zugeschnitten sind.
 - **Relevanz für das BBL (fachliche Sicht):** Diese Kataloge definieren spezifische Datenfelder und deren Bedeutung, die für die digitale Bauabwicklung und den Betrieb im Schweizer Kontext relevant sind (z.B. in Bezug auf eBKP-H, NPK). Sie sind von herausragender Bedeutung für die Anpassung an Schweizer Gesetze und Normen in den Domänen "Architektur Sicht" und "Projektmanagement".
 
-![](assets/Analyse_-_Übersicht_Standards_IMMO/225345545.png)
+![](Analyse_-_Übersicht_Standards_IMMO/225345545.png)
 
 Bild Links: BIM2FM Datenfeldkatalog
 
@@ -165,7 +165,7 @@ Bild Mitte: Beschreibung von BIM2FM
 
 Bild Rechts: BIM2FM Datenfeldkatalog als UML
 
-![](assets/Analyse_-_Übersicht_Standards_IMMO/225345683.png)
+![](Analyse_-_Übersicht_Standards_IMMO/225345683.png)
 
 ## 3.6. GEFMA
 
@@ -174,7 +174,7 @@ Bild Rechts: BIM2FM Datenfeldkatalog als UML
 - **Kurzbeschreibung:** Die German Facility Management Association (gefma) entwickelt Richtlinien, Standards und Kennzahlen für ein professionelles Facility Management (FM) im deutschsprachigen Raum.
 - **Relevanz für das BBL (fachliche Sicht):** gefma-Richtlinien (z.B. gefma 100-1, gefma 444) sind wichtig für die fachliche Definition von FM-Prozessen, Datenstrukturen und Kennzahlen. Dies ist besonders relevant für das "Objektmanagement" und "Controlling, Analytics und Reporting". Eine Abstimmung mit Schweizer FM-Standards (ProLeMo) ist jedoch notwendig.
 
-![](assets/Analyse_-_Übersicht_Standards_IMMO/225345540.png)
+![](Analyse_-_Übersicht_Standards_IMMO/225345540.png)
 
 Bild Links: Ontologie GEFMA 924 - 000 BAUWERKSTYPEN
 
@@ -189,7 +189,7 @@ Bild Rechts: Ontologie GEFMA 924 - 400 BAUWERK - TECHNISCHE ANLAGEN
 - **Kurzbeschreibung:** SAREF ist ein ETSI-Standard, der eine Referenz-Ontologie für Smart Applications und IoT-Geräte bereitstellt. Der Standard definiert semantische Modelle für die Interoperabilität zwischen verschiedenen IoT-Anwendungen, Geräten und Diensten in Smart Buildings und Smart Cities.
 - **Relevanz für das BBL (fachliche Sicht):** SAREF definiert standardisierte Ontologien für Sensoren, Aktoren, Messungen und Geräteeigenschaften in intelligenten Gebäuden. Dies ist relevant für die semantische Integration von Gebäudeautomationssystemen und IoT-Daten in die Domänen "Energie und Ressourcen" und "Objektmanagement". SAREF ergänzt Standards wie Brick Schema und Project Haystack und bietet eine europäische Perspektive für die einheitliche Beschreibung von Smart Building-Komponenten und deren Datenströmen.
 
-![](assets/Analyse_-_Übersicht_Standards_IMMO/225345752.png)
+![](Analyse_-_Übersicht_Standards_IMMO/225345752.png)
 
 Bild Links: Übersicht SAREF Bereiche
 
@@ -202,13 +202,13 @@ Bild Rechts: Übersicht Entitäten im Bereich SAREF Core
 - **Kurzbeschreibung:** buildingSMART International ist eine globale Non-Profit-Organisation, die offene Standards für Building Information Modeling (BIM) entwickelt, um den Informationsaustausch und die Interoperabilität im Bau- und Betriebslebenszyklus zu verbessern. Dies umfasst IFC (Industry Foundation Classes, ein offenes Datenmodell), MVD (Model View Definitionen), IDM (Information Delivery Manuals) und BCF (BIM Collaboration Format).
 - **Relevanz für das BBL (fachliche Sicht):** IFC ist der de-facto Standard für offene Bauwerksdaten und definiert fachlich, welche Objekte (Gebäude, Räume, Bauteile, Systeme) und Attribute sie haben können. MVDs und IDMs sind entscheidend, um die fachlichen Informationsbedarfe für spezifische BBL-Anwendungsfälle (z.B. Übergabe an FM) zu definieren. Building Smart ist fundamental für die "Architektur Sicht" und das "Projektmanagement". Dieser Standards deckt aber nicht Alle Datendomänen ab.
 
-![](assets/Analyse_-_Übersicht_Standards_IMMO/224625175.png)
+![](Analyse_-_Übersicht_Standards_IMMO/224625175.png)
 
 Bild Links: Open BIM Workflow. [Quelle](https://www.buildingsmart.org/clarifying-the-openbim-workflow/)
 
 Bild Rechts: IFC Datendomänen. [Quelle](https://standards.buildingsmart.org/IFC/RELEASE/IFC4/FINAL/HTML/schema/chapter-5.htm)
 
-![](assets/Analyse_-_Übersicht_Standards_IMMO/224625211.png)
+![](Analyse_-_Übersicht_Standards_IMMO/224625211.png)
 
 Bild Links: IFC Räumliche Hierarchie (vereinfach). [Quelle](https://www.researchgate.net/figure/Tree-structure-of-the-IFC-format-Source-own-elaboration-based-on-wwwbuildbimcl_fig7_368351581)
 
@@ -311,7 +311,7 @@ Bild Rechts: IFC Räumliche Hierarchie (als UML)
 - **Kurzbeschreibung:** Das gif IDA Modell ist ein Modell zur Standardisierung von Immobiliendaten, primär für Portfolioanalysen und Bewertungen im DACH-Raum.
 - **Relevanz für das BBL (fachliche Sicht):** Das IDA Modell definiert eine Baumstruktur von Datenfeldern für Immobilienobjekte, die für die Bewertung und das Reporting von Portfolios relevant sind. Es ist relevant für das "Portfolio- und Asset-Management" und "Finanzen", wobei die Übertragbarkeit auf Schweizer Rechnungslegungsnormen zu prüfen ist.
 
-![](assets/Analyse_-_Übersicht_Standards_IMMO/224624673.png)
+![](Analyse_-_Übersicht_Standards_IMMO/224624673.png)
 
 Bild Links: Vorgesehener Anwendungsfall für das IDA Modell
 

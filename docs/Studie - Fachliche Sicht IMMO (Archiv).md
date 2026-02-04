@@ -6,7 +6,7 @@ Dieses Dokument schafft die Grundlagen für ein einheitliches Verständnis der I
 
 ## 1.1 Lösungsarchitektur IMMO
 
-![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/211585693.png)
+![](Studie_-_Fachliche_Sicht_IMMO__Archiv/211585693.png)
 
 Bild Links: Zielbild IT Architektur IMMO
 
@@ -14,7 +14,7 @@ Bild Links: Zielbild IT Architektur IMMO
 
 - Zu definieren
 
-![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/211585695.png)
+![](Studie_-_Fachliche_Sicht_IMMO__Archiv/211585695.png)
 
 Bild links: The Blind Men and the Elephant. [Quelle](https://www.researchgate.net/figure/The-Blind-Men-and-the-Elephant_fig1_290127733)
 
@@ -47,7 +47,7 @@ Die Geschäftsobjekte sind in thematische Domänengruppen organisiert, die den n
 
 Diese Gruppierung ermöglicht es, zusammengehörige Konzepte aus fachlicher Perspektive zu bündeln, unabhängig von konkreten Anwendungssystemen, und erleichtert so das Verständnis der komplexen Beziehungen im Immobilienmanagement.
 
-![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/vorschlag_domaenengruppen_immo.png)
+![](Studie_-_Fachliche_Sicht_IMMO__Archiv/vorschlag_domaenengruppen_immo.png)
 
 Bild: Vorschlag Domänengruppen IMMO
 
@@ -67,7 +67,7 @@ Die Domänengruppe "Dokumentation" umfasst alle Prozesse und Standards zur struk
 - Frauenknecht, Isabel (Assistentin Programm SUPERB und Prozessmasterin, Amtsgeschäfte und Geschäftssteuerung)  (aufgrund möglicher Prozessüberschneidungen und GEVER-Kenntnisse)
 - Ein/e Vertreter/in aus "Kompetenzzentrum Beschaffungswesen Bund und Rechtsdienst BBL" zur Sicherstellung der rechtlichen Aspekte. (z.B. Gygi, Bruno; Remund, Michèle; Bernal, Moritz)
 
-![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/geschaeftsobjekt_der_gruppe_dokumentation_als_uml.png)
+![](Studie_-_Fachliche_Sicht_IMMO__Archiv/geschaeftsobjekt_der_gruppe_dokumentation_als_uml.png)
 
 Bild: Geschäftsobjekt der Gruppe Dokumentation als UML
 
@@ -104,7 +104,7 @@ Die Architektur Sicht bildet die baulich-technische Perspektive auf Immobilienob
 - Ein/e Vertreter/in aus "Objektmanagement", z.B. Müller, Daniela; Zbinden, Rolf)
 - Ein/e Vertreter/in aus "Fachberatung" (Bereich Bauten) , insbesondere mit Expertise in Baustandards und technischen Aspekten. (z.B. Gamper, Felix)
 
-![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/211586314.png)![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/211586182.png)
+![](Studie_-_Fachliche_Sicht_IMMO__Archiv/211586314.png)![](Studie_-_Fachliche_Sicht_IMMO__Archiv/211586182.png)
 
 Bild Links: Übersicht wichtigster Geschäftsobjekte in der Gruppe Architektur Sicht
 
@@ -156,7 +156,7 @@ Die Domänengruppe "Mietermanagement" umfasst alle miet- und nutzungsbezogenen A
 - Ein/e Vertreter/in aus "Finanzen und Controlling" , insbesondere aus "Finanz- und Rechnungswesen" oder "Finanzwerteflüsse", für Aspekte der Mietzahlungsabwicklung. (z.B. Wyss, Simone; Vonlanthen, Nicole)
 - Ein/e Vertreter/in aus "Digital Real Estate und Support" mit Kenntnissen der relevanten IT-Systeme (SAP RE-FX). (z.B. Balaj, Mirëjeta; Rasner, David)
 
-![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/uebersicht_wichtigster_geschaeftsobjekte_in_der_gruppe.png)
+![](Studie_-_Fachliche_Sicht_IMMO__Archiv/uebersicht_wichtigster_geschaeftsobjekte_in_der_gruppe.png)
 
 Bild: Übersicht wichtigster Geschäftsobjekte in der Gruppe Mietermanagement
 
@@ -215,7 +215,7 @@ Die Domänengruppe "Projektmanagement" definiert alle zentralen Geschäftsobjekt
 - Feuz, Stefanie (Leiterin Prozesse QMS, Prozesse Qualitätsmanagementsysteme)
 - Ein/e Vertreter/in aus "Finanzen und Controlling" für Baukostenplanung und Projektcontrolling. (z.B. Bürgisser, Daniel; Caputo, Francesco)
 
-![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/uebersicht_wichtigster_geschaeftsobjekte_in_der_gruppe_01.png)
+![](Studie_-_Fachliche_Sicht_IMMO__Archiv/uebersicht_wichtigster_geschaeftsobjekte_in_der_gruppe_01.png)
 
 Bild: Übersicht wichtigster Geschäftsobjekte in der Gruppe Mietermanagement
 
@@ -252,7 +252,7 @@ Die Domänengruppe "Energie und Ressourcen" erfasst alle Geschäftsobjekte rund 
 - Ein/e Vertreter/in aus "Objektbewirtschaftung und -betrieb" für die Erfassung von Verbrauchsdaten. (z.B. Perrenoud, Danilo)
 - Schwarzentruber, Jörg (Fachberater Nachhaltigkeit, Fachberatung)
 
-![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/uebersicht_wichtigster_geschaeftsobjekte_in_der_gruppe_02.png)
+![](Studie_-_Fachliche_Sicht_IMMO__Archiv/uebersicht_wichtigster_geschaeftsobjekte_in_der_gruppe_02.png)
 
 Bild: Übersicht wichtigster Geschäftsobjekte in der Gruppe Mietermanagement
 
@@ -305,7 +305,7 @@ Die Domänengruppe "Portfolio- und Asset-Management" definiert die strategische 
 - Pedrini, Oliver (Wirtschaftswissenschaftler Portfoliomanagement, Portfoliomanagement)
 - Ein/e Vertreter/in aus "Finanzen und Controlling" für Bewertungs- und Finanzaspekte. (z.B. Stauffer, Ernst)
 
-![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/211586215.png)
+![](Studie_-_Fachliche_Sicht_IMMO__Archiv/211586215.png)
 
 Tabelle: Domänengruppe Energie und Ressourcen
 
@@ -336,7 +336,7 @@ Die Domänengruppe "Controlling, Analytics und Reporting" umfasst alle Geschäft
 - Vidondo, Beatriz (Business- und Data-Analyst/in, Digital Real Estate und Support)
 - Ein/e Vertreter/in aus "Analyse, Prozesse und Architektur" (Bereich Geschäftsentwicklung) mit Fokus auf Unternehmensarchitektur
 
-![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/uebersicht_wichtigster_geschaeftsobjekte_in_der_gruppe_03.png)
+![](Studie_-_Fachliche_Sicht_IMMO__Archiv/uebersicht_wichtigster_geschaeftsobjekte_in_der_gruppe_03.png)
 
 Bild: Übersicht wichtigster Geschäftsobjekte in der Gruppe Controlling, Analytics und Reporting (Management Information System MIS)
 
@@ -366,7 +366,7 @@ Die Domänengruppe "Workspace Management" fokussiert auf die nutzerorientierte P
 - Gieske, Petra (Daten- und Flächenbewirtschaftung, Digital Real Estate und Support)
 - Ein/e Vertreter/in aus "Portfoliomanagement" (Bereich Bauten) für die strategische Planung von Arbeitsraumkonzepten. (z.B. Spring, Walter)
 
-![](assets/Studie_-_Fachliche_Sicht_IMMO__Archiv/211586263.png)
+![](Studie_-_Fachliche_Sicht_IMMO__Archiv/211586263.png)
 
 Tabelle: Workspace Management (Benutzer- und Kundenerfahrung)
 

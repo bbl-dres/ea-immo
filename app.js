@@ -51,7 +51,7 @@
 
     async function init() {
         try {
-            const response = await fetch('data/geschaeftsobjekte.json');
+            const response = await fetch('data/Konzepte.json');
             domainData = await response.json();
             setupChart();
             render();

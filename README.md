@@ -2,7 +2,7 @@
 
 Einheitliches Datenmodell und Geschäftsobjekte für das Immobilienmanagement des BBL (Bundesamt für Bauten und Logistik).
 
-[![Konzeptuelles Datenmodell - Bubble Chart](assets/Preview.JPG)](https://bbl-dres.github.io/ea-immo/)
+[![Konzeptuelles Datenmodell - Bubble Chart](docs/Preview.JPG)](https://bbl-dres.github.io/ea-immo/)
 
 **[Interaktive Visualisierung öffnen](https://bbl-dres.github.io/ea-immo/)**
 
