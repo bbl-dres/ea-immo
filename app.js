@@ -58,7 +58,20 @@
     const BASELINE_WIDTH = 1920; // Reference width for "large screen"
     const MIN_SCALE = 0.6; // Minimum scale to prevent things from getting too small
     const MAX_INVERSE_SCALE = 1.5; // Maximum boost for small screens
+
+    // Minimum canvas dimensions to ensure labels remain readable
+    const MIN_CANVAS_WIDTH = 1400;
+    const MIN_CANVAS_HEIGHT = 900;
     const BASE_CONCEPT_SIZE = 2.5; // Base size for concept bubbles (increase for bigger bubbles)
+
+    // Get effective canvas dimensions (never smaller than minimums)
+    function getEffectiveWidth() {
+        return Math.max(window.innerWidth, MIN_CANVAS_WIDTH);
+    }
+
+    function getEffectiveHeight() {
+        return Math.max(window.innerHeight, MIN_CANVAS_HEIGHT);
+    }
 
     function getScale() {
         const scale = Math.min(window.innerWidth, BASELINE_WIDTH) / BASELINE_WIDTH;
@@ -81,6 +94,32 @@
     // Inverse scaled size - larger on smaller screens (for bubbles)
     function inverseScaledSize(baseSize) {
         return Math.round(baseSize * getInverseScale());
+    }
+
+    // Calculate optimal transform to fit the chart in the viewport
+    // Used for auto-fit on smaller screens and zoom reset
+    function getFitToScreenTransform() {
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        const canvasWidth = getEffectiveWidth();
+        const canvasHeight = getEffectiveHeight();
+
+        // If viewport is larger than or equal to canvas, use identity transform
+        if (viewportWidth >= canvasWidth && viewportHeight >= canvasHeight) {
+            return d3.zoomIdentity;
+        }
+
+        // Calculate scale to fit canvas in viewport with some padding
+        const padding = 20;
+        const scaleX = (viewportWidth - padding) / canvasWidth;
+        const scaleY = (viewportHeight - padding) / canvasHeight;
+        const scale = Math.min(scaleX, scaleY, 1); // Never scale up beyond 1
+
+        // Center the chart in the viewport
+        const translateX = (viewportWidth - canvasWidth * scale) / 2;
+        const translateY = (viewportHeight - canvasHeight * scale) / 2;
+
+        return d3.zoomIdentity.translate(translateX, translateY).scale(scale);
     }
 
     // Font size tokens in rem (relative to root font size)
@@ -433,8 +472,9 @@
     }
 
     function setupChart() {
-        width = window.innerWidth;
-        height = window.innerHeight;
+        // Use effective dimensions to ensure minimum canvas size for readability
+        width = getEffectiveWidth();
+        height = getEffectiveHeight();
 
         d3.select('#chart')
             .attr('width', width)
@@ -442,8 +482,9 @@
 
         window.addEventListener('resize', () => {
             const wasMobile = isMobile;
-            width = window.innerWidth;
-            height = window.innerHeight;
+            // Use effective dimensions to ensure minimum canvas size
+            width = getEffectiveWidth();
+            height = getEffectiveHeight();
             detectMobile();
 
             // Update legend and search visibility on screen size change
@@ -605,14 +646,12 @@
             return count;
         }
 
-        // Get truncated domain label text based on screen size
+        // Get domain label text with full name (no truncation for readability)
         function getDomainLabelText(d) {
             const count = countDomainConcepts(d.data.domain);
             const name = d.data.name;
-            // Truncate domain names more on smaller screens
-            const maxLen = isMobile ? 12 : (width < 1200 ? 18 : 30);
-            const truncatedName = name.length > maxLen ? name.substring(0, maxLen - 2) + '..' : name;
-            return truncatedName + ' (' + count + ')';
+            // Full text always - no truncation
+            return name + ' (' + count + ')';
         }
 
         // Label background - sized to fit text with count
@@ -670,15 +709,16 @@
             .attr('stroke-width', stroke.group)
             .attr('stroke-dasharray', '4,2');
 
-        // Helper to get group label text with count
+        // Helper to get group label text with count (full name, no truncation)
         function getGroupLabelText(d) {
             const count = d.data.children ? d.data.children.length : 0;
-            const baseName = d.data.name.length > 14 ? d.data.name.substring(0, 12) + '..' : d.data.name;
-            return baseName + ' (' + count + ')';
+            // Full text always - no truncation
+            return d.data.name + ' (' + count + ')';
         }
 
         // Store group nodes for label rendering later (to ensure z-order)
-        const groupLabelNodes = groupNodes.filter(d => !d.data.placeholder && d.r > 35);
+        // Show all group labels - no radius filtering
+        const groupLabelNodes = groupNodes.filter(d => !d.data.placeholder);
 
         // Draw concept circles (depth 3)
         const conceptNodes = root.descendants().filter(d => d.depth === 3);
@@ -882,6 +922,15 @@
                 const touch = event.changedTouches[0];
                 showTooltip({ clientX: touch.clientX, clientY: touch.clientY }, d.data.name, d.data.domainName);
             }, { passive: false });
+
+        // Auto-fit chart to viewport on smaller screens
+        // Apply initial transform to fit the chart in the visible area
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        if (viewportWidth < MIN_CANVAS_WIDTH || viewportHeight < MIN_CANVAS_HEIGHT) {
+            const initialTransform = getFitToScreenTransform();
+            svg.call(zoom.transform, initialTransform);
+        }
     }
 
     // Tooltip functions with touch support
@@ -1758,7 +1807,9 @@
         const chartVisible = document.getElementById('chart').style.display !== 'none';
         const treeVisible = document.getElementById('treeView').style.display !== 'none';
         if (chartVisible) {
-            svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity);
+            // Fit to screen when resetting on smaller viewports
+            const transform = getFitToScreenTransform();
+            svg.transition().duration(300).call(zoom.transform, transform);
         } else if (treeVisible && treeSvg && treeZoom) {
             treeSvg.transition().duration(300).call(treeZoom.transform, d3.zoomIdentity.translate(50, 0));
         } else if (graphSvg && graphZoom) {
