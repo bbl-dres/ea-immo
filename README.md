@@ -53,8 +53,8 @@ Dieses Repository orientiert sich am **DMBOK** (Data Management Body of Knowledg
 | Ebene | Beschreibung | Einordnung |
 |-------|--------------|------------|
 | **Konzeptionelles Schema** | Fachliche Sicht auf die Daten, unabhängig von Technologie | **← Dieses Repository** |
-| Logisches Schema | Strukturierte Darstellung, z.B. als relationales Modell | Systemspezifisch |
-| Physisches Schema | Technische Implementierung in einer konkreten Datenbank | Systemspezifisch |
+| Logisches Schema | Strukturierte Darstellung, z.B. als relationales Modell | Lösungsneutral (nicht Ziel dieses Repos) |
+| Physisches Schema | Technische Implementierung in einer konkreten Datenbank oder System | Systemspezifisch |
 
 Das konzeptionelle Datenmodell bildet die Grundlage für ein einheitliches Verständnis der Immobiliendaten im BBL – unabhängig von den eingesetzten IT-Systemen.
 
