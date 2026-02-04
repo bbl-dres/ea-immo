@@ -54,6 +54,39 @@
         leaderLine: 1.5
     };
 
+    // Responsive scaling system - adjusts sizes based on screen width
+    const BASELINE_WIDTH = 1920; // Reference width for "large screen"
+    const MIN_SCALE = 0.6; // Minimum scale to prevent things from getting too small
+
+    function getScale() {
+        const scale = Math.min(window.innerWidth, BASELINE_WIDTH) / BASELINE_WIDTH;
+        return Math.max(scale, MIN_SCALE);
+    }
+
+    // Responsive sizing helpers
+    function scaledSize(baseSize) {
+        return Math.round(baseSize * getScale());
+    }
+
+    // Font size tokens in rem (relative to root font size)
+    // These scale automatically with the document's base font size
+    const fontSizes = {
+        // Bubble chart
+        domainLabel: '0.8125rem',   // ~13px at 16px base
+        groupLabel: '0.5625rem',    // ~9px at 16px base
+        conceptLabel: '0.5rem',     // ~8px at 16px base
+        // Graph view
+        graphDomain: '0.6875rem',   // ~11px at 16px base
+        graphGroup: '0.5625rem',    // ~9px at 16px base
+        graphConcept: '0.5rem',     // ~8px at 16px base
+        // Tree view
+        treeRoot: '0.8125rem',      // ~13px at 16px base
+        treeDomain: '0.75rem',      // ~12px at 16px base
+        treeGroup: '0.625rem',      // ~10px at 16px base
+        treeConcept: '0.5625rem',   // ~9px at 16px base
+        treeExpand: '0.625rem'      // ~10px at 16px base
+    };
+
     function getColor(priority) {
         const p = priority.toLowerCase();
         return colors[p] || colors.default;
@@ -488,13 +521,13 @@
             })
         };
 
-        // Create pack layout with padding for each level
+        // Create pack layout with padding for each level (responsive)
         const pack = d3.pack()
-            .size([width - 40, height - 100])
+            .size([width - scaledSize(40), height - scaledSize(100)])
             .padding(d => {
-                if (d.depth === 0) return 40;  // Between domains
-                if (d.depth === 1) return 8;   // Between groups in domain
-                return 3;                       // Between concepts in group
+                if (d.depth === 0) return scaledSize(40);  // Between domains
+                if (d.depth === 1) return scaledSize(8);   // Between groups in domain
+                return scaledSize(3);                       // Between concepts in group
             });
 
         const root = d3.hierarchy(hierarchyData)
@@ -578,7 +611,7 @@
             .attr('y', 5)
             .attr('text-anchor', 'middle')
             .attr('fill', 'white')
-            .attr('font-size', '13px')
+            .attr('font-size', fontSizes.domainLabel)
             .attr('font-weight', 'bold')
             .style('pointer-events', 'none')
             .text(d => {
@@ -732,7 +765,7 @@
             .attr('y', 4)
             .attr('text-anchor', 'middle')
             .attr('fill', 'white')
-            .attr('font-size', '9px')
+            .attr('font-size', fontSizes.groupLabel)
             .attr('font-weight', '500')
             .style('pointer-events', 'none')
             .text(d => getGroupLabelText(d));
@@ -748,7 +781,7 @@
             .attr('y', d => offsetMap.get(d) || 0)
             .attr('dy', '0.35em')
             .attr('fill', isLightMode ? '#2c3e50' : '#e2e8f0')
-            .attr('font-size', '8px')
+            .attr('font-size', fontSizes.conceptLabel)
             .attr('font-weight', '500')
             .style('pointer-events', 'none')
             .text(d => d.data.name);
@@ -1168,11 +1201,11 @@
             });
         }
 
-        // Node size based on type
+        // Node size based on type (responsive)
         function getNodeRadius(d) {
-            if (d.type === 'domain') return 30;
-            if (d.type === 'group') return 16;
-            return 8;
+            if (d.type === 'domain') return scaledSize(30);
+            if (d.type === 'group') return scaledSize(16);
+            return scaledSize(8);
         }
 
         // Create force simulation with more spacing
@@ -1278,7 +1311,7 @@
             .attr('dy', d => d.type === 'domain' ? 5 : -getNodeRadius(d) - 5)
             .attr('text-anchor', 'middle')
             .attr('fill', '#fff')
-            .attr('font-size', d => d.type === 'domain' ? '11px' : d.type === 'group' ? '9px' : '8px')
+            .attr('font-size', d => d.type === 'domain' ? fontSizes.graphDomain : d.type === 'group' ? fontSizes.graphGroup : fontSizes.graphConcept)
             .attr('font-weight', d => d.type === 'domain' ? 'bold' : '500')
             .text(d => getLabelText(d));
 
@@ -1554,7 +1587,7 @@
                 .attr('dy', '0.35em')
                 .attr('text-anchor', 'middle')
                 .attr('fill', d => d.data.type === 'domain' ? '#fff' : (isLightMode ? '#333' : '#e2e8f0'))
-                .attr('font-size', '10px')
+                .attr('font-size', fontSizes.treeExpand)
                 .attr('font-weight', 'bold')
                 .attr('pointer-events', 'none')
                 .text(d => d._children ? '+' : (d.children ? '−' : ''));
@@ -1570,10 +1603,10 @@
                 })
                 .attr('text-anchor', 'start')
                 .attr('font-size', d => {
-                    if (!d.data.type) return '13px';
-                    if (d.data.type === 'domain') return '12px';
-                    if (d.data.type === 'group') return '10px';
-                    return '9px';
+                    if (!d.data.type) return fontSizes.treeRoot;
+                    if (d.data.type === 'domain') return fontSizes.treeDomain;
+                    if (d.data.type === 'group') return fontSizes.treeGroup;
+                    return fontSizes.treeConcept;
                 })
                 .attr('font-weight', d => {
                     if (!d.data.type || d.data.type === 'domain') return '600';
