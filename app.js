@@ -42,6 +42,18 @@
         'baustellenmanagement': '#d35400'
     };
 
+    // Stroke width tokens for consistent line widths
+    const stroke = {
+        domain: 2,
+        domainHover: 3,
+        group: 1.5,
+        groupHover: 2,
+        concept: 1,
+        conceptHover: 1.5,
+        label: 1,
+        leaderLine: 1.5
+    };
+
     function getColor(priority) {
         const p = priority.toLowerCase();
         return colors[p] || colors.default;
@@ -124,7 +136,7 @@
     let searchVisible = false;
     let currentSearchTerm = '';
     let currentPriorityFilter = 'all';
-    let currentDomainFilter = 'all';
+    let selectedDomains = new Set(); // Empty = all domains selected
     let filteredData = null;
 
     // Toggle search filter visibility (for mobile)
@@ -173,15 +185,37 @@
             });
         });
 
-        // Domain filter chip listeners (delegated)
+        // Domain filter chip listeners (delegated) - multi-select
         document.getElementById('domainFilters').addEventListener('click', (e) => {
             const chip = e.target.closest('.filter-chip');
             if (!chip) return;
 
-            const domainChips = document.querySelectorAll('#domainFilters .filter-chip');
-            domainChips.forEach(c => c.classList.remove('active'));
-            chip.classList.add('active');
-            currentDomainFilter = chip.dataset.domain;
+            const domainId = chip.dataset.domain;
+            const alleChip = document.querySelector('#domainFilters .filter-chip[data-domain="all"]');
+            const domainChips = document.querySelectorAll('#domainFilters .filter-chip:not([data-domain="all"])');
+
+            if (domainId === 'all') {
+                // "Alle" resets selection - clear all and show everything
+                selectedDomains.clear();
+                domainChips.forEach(c => c.classList.remove('active'));
+                alleChip.classList.add('active');
+            } else {
+                // Toggle individual domain
+                if (selectedDomains.has(domainId)) {
+                    selectedDomains.delete(domainId);
+                    chip.classList.remove('active');
+                } else {
+                    selectedDomains.add(domainId);
+                    chip.classList.add('active');
+                }
+
+                // Update "Alle" chip state
+                if (selectedDomains.size === 0) {
+                    alleChip.classList.add('active');
+                } else {
+                    alleChip.classList.remove('active');
+                }
+            }
             applyFilters();
         });
 
@@ -231,8 +265,8 @@
         // Create filtered data structure
         filteredData = {
             domains: domainData.domains.map(domain => {
-                // Check domain filter
-                if (currentDomainFilter !== 'all' && domain.id !== currentDomainFilter) {
+                // Check domain filter (empty Set = all domains)
+                if (selectedDomains.size > 0 && !selectedDomains.has(domain.id)) {
                     return { ...domain, groups: [] };
                 }
 
@@ -306,6 +340,7 @@
     function rerenderCurrentView() {
         const chartEl = document.getElementById('chart');
         const graphEl = document.getElementById('graphView');
+        const treeEl = document.getElementById('treeView');
         const tableEl = document.getElementById('tableView');
 
         if (chartEl.style.display !== 'none') {
@@ -314,6 +349,9 @@
             // Clear and re-render graph
             graphSvg.selectAll('*').remove();
             renderGraph();
+        } else if (treeEl.style.display !== 'none') {
+            // Re-render tree
+            renderTree();
         } else if (tableEl.style.display !== 'none') {
             // Clear and re-render table
             document.getElementById('tableBody').innerHTML = '';
@@ -495,7 +533,7 @@
             .attr('r', d => d.r)
             .attr('fill', d => getDomainColor(d.data.id, 0.12))
             .attr('stroke', d => getDomainColor(d.data.id))
-            .attr('stroke-width', 3)
+            .attr('stroke-width', stroke.domain)
             .style('cursor', 'pointer')
             .on('click', (event, d) => {
                 event.stopPropagation();
@@ -555,7 +593,7 @@
             .attr('x2', 0)
             .attr('y2', d => -d.r - 4)  // Bottom of label (18 offset - 14 half height)
             .attr('stroke', d => getDomainColor(d.data.id))
-            .attr('stroke-width', 2)
+            .attr('stroke-width', stroke.leaderLine)
             .attr('stroke-dasharray', '4,3')
             .attr('opacity', 0.7);
 
@@ -574,7 +612,7 @@
             .attr('r', d => d.r)
             .attr('fill', d => d.data.placeholder ? 'rgba(100,100,100,0.1)' : getDomainColor(d.data.domainId, 0.2))
             .attr('stroke', d => d.data.placeholder ? 'transparent' : getDomainColor(d.data.domainId, 0.4))
-            .attr('stroke-width', 1.5)
+            .attr('stroke-width', stroke.group)
             .attr('stroke-dasharray', '4,2');
 
         // Helper to get group label text with count
@@ -603,7 +641,7 @@
             .attr('r', d => d.r)
             .attr('fill', d => d.data.placeholder ? 'rgba(150,150,150,0.3)' : getColor(d.data.priority))
             .attr('stroke', d => d.data.placeholder ? 'transparent' : '#555')
-            .attr('stroke-width', 1)
+            .attr('stroke-width', stroke.concept)
             .attr('opacity', d => d.data.placeholder ? 0.5 : 0.9);
 
         // ── Concept labels: resolve overlaps with bidirectional offsets ──
@@ -633,7 +671,7 @@
 
         // Step 3: Iteratively resolve overlaps (max 5 passes)
         // Key insight: offset by label height, not circle radius
-        var halfLabelHeight = 1; // nudge amount per collision
+        var halfLabelHeight = 0.7; // nudge amount per collision
 
         for (var iter = 0; iter < 5; iter++) {
             var anyOverlap = false;
@@ -687,7 +725,7 @@
             .attr('rx', 9)
             .attr('fill', 'rgba(0, 0, 0, 0.6)')
             .attr('stroke', d => getDomainColor(d.data.domainId, 0.6))
-            .attr('stroke-width', 1);
+            .attr('stroke-width', stroke.label);
 
         // Group label text
         groupLabels.append('text')
@@ -720,14 +758,14 @@
             .on('mouseenter', function(event, d) {
                 d3.select(this).select('circle')
                     .attr('opacity', 1)
-                    .attr('stroke-width', 2);
+                    .attr('stroke-width', stroke.conceptHover);
                 showTooltip(event, d.data.name, d.data.groupName + ' · ' + d.data.domainName);
             })
             .on('mousemove', (event) => moveTooltip(event))
             .on('mouseleave', function() {
                 d3.select(this).select('circle')
                     .attr('opacity', 0.9)
-                    .attr('stroke-width', 1);
+                    .attr('stroke-width', stroke.concept);
                 hideTooltip();
             })
             .on('click', (event, d) => {
@@ -738,31 +776,31 @@
                 event.preventDefault();
                 d3.select(this).select('circle')
                     .attr('opacity', 1)
-                    .attr('stroke-width', 2);
+                    .attr('stroke-width', stroke.conceptHover);
             }, { passive: false })
             .on('touchend', function(event, d) {
                 event.preventDefault();
                 d3.select(this).select('circle')
                     .attr('opacity', 0.9)
-                    .attr('stroke-width', 1);
+                    .attr('stroke-width', stroke.concept);
                 showConceptPopup(d.data.concept, d.data.domainName);
             }, { passive: false });
 
         // Domain interactions - with touch support
         domainGroups
             .on('mouseenter', function() {
-                d3.select(this).select('circle').attr('stroke-width', 4);
+                d3.select(this).select('circle').attr('stroke-width', stroke.domainHover);
             })
             .on('mouseleave', function() {
-                d3.select(this).select('circle').attr('stroke-width', 3);
+                d3.select(this).select('circle').attr('stroke-width', stroke.domain);
             })
             .on('touchstart', function(event) {
                 event.preventDefault();
-                d3.select(this).select('circle').attr('stroke-width', 4);
+                d3.select(this).select('circle').attr('stroke-width', stroke.domainHover);
             }, { passive: false })
             .on('touchend', function(event, d) {
                 event.preventDefault();
-                d3.select(this).select('circle').attr('stroke-width', 3);
+                d3.select(this).select('circle').attr('stroke-width', stroke.domain);
                 showDomainPopup(d.data.domain);
             }, { passive: false });
 
@@ -770,21 +808,21 @@
         groupGroups.filter(d => !d.data.placeholder)
             .style('cursor', 'pointer')
             .on('mouseenter', function(event, d) {
-                d3.select(this).select('circle').attr('stroke-width', 2.5);
+                d3.select(this).select('circle').attr('stroke-width', stroke.groupHover);
                 showTooltip(event, d.data.name, d.data.domainName);
             })
             .on('mousemove', (event) => moveTooltip(event))
             .on('mouseleave', function() {
-                d3.select(this).select('circle').attr('stroke-width', 1.5);
+                d3.select(this).select('circle').attr('stroke-width', stroke.group);
                 hideTooltip();
             })
             .on('touchstart', function(event) {
                 event.preventDefault();
-                d3.select(this).select('circle').attr('stroke-width', 2.5);
+                d3.select(this).select('circle').attr('stroke-width', stroke.groupHover);
             }, { passive: false })
             .on('touchend', function(event, d) {
                 event.preventDefault();
-                d3.select(this).select('circle').attr('stroke-width', 1.5);
+                d3.select(this).select('circle').attr('stroke-width', stroke.group);
                 // For groups, show tooltip briefly then hide
                 const touch = event.changedTouches[0];
                 showTooltip({ clientX: touch.clientX, clientY: touch.clientY }, d.data.name, d.data.domainName);
@@ -961,6 +999,7 @@
     window.setView = function(view) {
         const chartEl = document.getElementById('chart');
         const graphEl = document.getElementById('graphView');
+        const treeEl = document.getElementById('treeView');
         const tableEl = document.getElementById('tableView');
         const legendEl = document.getElementById('legend');
         const legendToggle = document.getElementById('legendToggle');
@@ -973,6 +1012,7 @@
 
         chartEl.style.display = 'none';
         graphEl.style.display = 'none';
+        treeEl.style.display = 'none';
         tableEl.style.display = 'none';
 
         if (view === 'chart') {
@@ -992,6 +1032,15 @@
             zoomEl.style.display = 'flex';
             buttons[1].classList.add('active');
             renderGraph();
+        } else if (view === 'tree') {
+            treeEl.style.display = 'block';
+            legendEl.style.display = 'block';
+            legendToggle.style.display = isMobile ? 'block' : 'none';
+            searchFilterEl.style.display = 'block';
+            searchToggle.style.display = isMobile ? 'block' : 'none';
+            zoomEl.style.display = 'flex';
+            buttons[2].classList.add('active');
+            renderTree();
         } else {
             tableEl.style.display = 'block';
             legendEl.style.display = 'none';
@@ -999,7 +1048,7 @@
             searchFilterEl.style.display = 'none';
             searchToggle.style.display = 'none';
             zoomEl.style.display = 'none';
-            buttons[2].classList.add('active');
+            buttons[3].classList.add('active');
             renderTable();
         }
 
@@ -1164,9 +1213,9 @@
                 return getDomainColor(d.domainId, 0.4);
             })
             .attr('stroke-width', d => {
-                if (d.type === 'domain-domain') return 2;
-                if (d.type === 'domain-group') return 1.5;
-                return 1;
+                if (d.type === 'domain-domain') return stroke.domain;
+                if (d.type === 'domain-group') return stroke.group;
+                return stroke.concept;
             })
             .attr('stroke-dasharray', d => d.type === 'domain-domain' ? '8,4' : null);
 
@@ -1196,7 +1245,7 @@
                 if (d.type === 'group') return getDomainColor(d.domainId);
                 return '#555';
             })
-            .attr('stroke-width', d => d.type === 'domain' ? 3 : d.type === 'group' ? 2 : 1);
+            .attr('stroke-width', d => d.type === 'domain' ? stroke.domain : d.type === 'group' ? stroke.group : stroke.concept);
 
         // Helper to get label text - show full name
         function getLabelText(d) {
@@ -1238,7 +1287,7 @@
             const r = getNodeRadius(d);
             d3.select(this).select('circle')
                 .attr('r', r * 1.2)
-                .attr('stroke-width', d.type === 'domain' ? 4 : 3);
+                .attr('stroke-width', d.type === 'domain' ? stroke.domainHover : d.type === 'group' ? stroke.groupHover : stroke.conceptHover);
 
             if (d.type === 'domain') {
                 showTooltip(event, d.domain.name, d.domain.priority + ' · ' + (d.domain.standards || []).slice(0, 3).join(', '));
@@ -1252,7 +1301,7 @@
         .on('mouseleave', function(event, d) {
             d3.select(this).select('circle')
                 .attr('r', getNodeRadius(d))
-                .attr('stroke-width', d.type === 'domain' ? 3 : d.type === 'group' ? 2 : 1);
+                .attr('stroke-width', d.type === 'domain' ? stroke.domain : d.type === 'group' ? stroke.group : stroke.concept);
             hideTooltip();
         })
         .on('click', (event, d) => {
@@ -1309,6 +1358,277 @@
         }
     }
 
+    // Tree view state
+    let treeSvg = null;
+    let treeZoom = null;
+    let treeRoot = null;
+
+    function renderTree() {
+        treeSvg = d3.select('#treeView');
+
+        // Clear any existing content
+        treeSvg.selectAll('*').remove();
+
+        treeSvg
+            .attr('width', width)
+            .attr('height', height);
+
+        // Setup zoom for tree
+        treeZoom = d3.zoom()
+            .scaleExtent([0.2, 4])
+            .on('zoom', (event) => {
+                treeSvg.select('.tree-container').attr('transform', event.transform);
+            });
+
+        treeSvg.call(treeZoom);
+
+        const container = treeSvg.append('g')
+            .attr('class', 'tree-container');
+
+        // Build hierarchical data: root > domains > groups > concepts
+        const renderData = getRenderData();
+        const hierarchyData = {
+            name: 'Domänenmodell',
+            children: renderData.domains.map(domain => ({
+                name: domain.shortName || domain.name,
+                fullName: domain.name,
+                id: domain.id,
+                type: 'domain',
+                domain: domain,
+                children: (domain.groups || []).filter(g => g.concepts && g.concepts.length > 0).map(group => ({
+                    name: group.name,
+                    type: 'group',
+                    domainId: domain.id,
+                    domainName: domain.name,
+                    children: group.concepts.map(concept => ({
+                        name: concept.name,
+                        type: 'concept',
+                        concept: concept,
+                        domainId: domain.id,
+                        domainName: domain.name,
+                        groupName: group.name,
+                        priority: concept.priority
+                    }))
+                }))
+            }))
+        };
+
+        // Create the hierarchy
+        treeRoot = d3.hierarchy(hierarchyData);
+
+        // All nodes expanded by default (no collapsing)
+
+        // Tree layout parameters
+        const nodeWidth = 220;
+        const nodeHeight = 28;
+
+        // Diagonal link generator
+        const diagonal = d3.linkHorizontal()
+            .x(d => d.y)
+            .y(d => d.x);
+
+        // Function to update the tree
+        function update(source) {
+            const duration = 300;
+
+            // Compute the new tree layout
+            const treeLayout = d3.tree()
+                .nodeSize([nodeHeight, nodeWidth]);
+
+            treeLayout(treeRoot);
+
+            // Get all nodes and links
+            const nodes = treeRoot.descendants();
+            const links = treeRoot.links();
+
+            // Normalize for fixed-depth and center vertically
+            nodes.forEach(d => {
+                d.y = d.depth * nodeWidth;
+            });
+
+            // Center the tree both vertically and horizontally
+            const minX = d3.min(nodes, d => d.x);
+            const maxX = d3.max(nodes, d => d.x);
+            const maxY = d3.max(nodes, d => d.y);
+            const treeWidth = maxY + 150; // tree width plus some padding for labels
+            const offsetY = height / 2 - (minX + maxX) / 2;
+            const offsetX = Math.max(100, (width - treeWidth) / 2);
+
+            // Update links
+            const link = container.selectAll('.tree-link')
+                .data(links, d => d.target.data.name + d.target.depth);
+
+            // Enter links
+            const linkEnter = link.enter()
+                .insert('path', 'g')
+                .attr('class', 'tree-link')
+                .attr('d', d => {
+                    const o = { x: source.x0 !== undefined ? source.x0 + offsetY : source.x + offsetY, y: source.y0 !== undefined ? source.y0 + offsetX : source.y + offsetX };
+                    return diagonal({ source: o, target: o });
+                });
+
+            // Merge and transition links
+            link.merge(linkEnter)
+                .transition()
+                .duration(duration)
+                .attr('d', d => diagonal({
+                    source: { x: d.source.x + offsetY, y: d.source.y + offsetX },
+                    target: { x: d.target.x + offsetY, y: d.target.y + offsetX }
+                }));
+
+            // Exit links
+            link.exit()
+                .transition()
+                .duration(duration)
+                .attr('d', d => {
+                    const o = { x: source.x + offsetY, y: source.y + offsetX };
+                    return diagonal({ source: o, target: o });
+                })
+                .remove();
+
+            // Update nodes
+            const node = container.selectAll('.tree-node')
+                .data(nodes, d => d.data.name + d.depth);
+
+            // Enter nodes
+            const nodeEnter = node.enter()
+                .append('g')
+                .attr('class', d => {
+                    let cls = 'tree-node';
+                    if (d.data.type) cls += ' tree-node-' + d.data.type;
+                    if (d._children) cls += ' collapsed';
+                    return cls;
+                })
+                .attr('transform', d => `translate(${source.y0 !== undefined ? source.y0 + offsetX : source.y + offsetX}, ${source.x0 !== undefined ? source.x0 + offsetY : source.x + offsetY})`)
+                .on('click', (event, d) => {
+                    event.stopPropagation();
+                    if (d.data.type === 'concept') {
+                        showConceptPopup(d.data.concept, d.data.domainName);
+                    } else if (d.data.type === 'domain') {
+                        showDomainPopup(d.data.domain);
+                    } else {
+                        // Toggle children
+                        if (d.children) {
+                            d._children = d.children;
+                            d.children = null;
+                        } else {
+                            d.children = d._children;
+                            d._children = null;
+                        }
+                        update(d);
+                    }
+                });
+
+            // Node circles
+            nodeEnter.append('circle')
+                .attr('r', d => {
+                    if (!d.data.type) return 8; // root
+                    if (d.data.type === 'domain') return 10;
+                    if (d.data.type === 'group') return 7;
+                    return 6;
+                })
+                .attr('fill', d => {
+                    if (!d.data.type) return '#64748b'; // root
+                    if (d.data.type === 'domain') return getDomainColor(d.data.id);
+                    if (d.data.type === 'group') return getDomainColor(d.data.domainId, 0.6);
+                    return getColor(d.data.priority);
+                })
+                .attr('stroke', d => {
+                    if (!d.data.type) return '#475569';
+                    if (d.data.type === 'domain') return '#fff';
+                    if (d.data.type === 'group') return getDomainColor(d.data.domainId);
+                    return '#555';
+                })
+                .attr('stroke-width', d => {
+                    if (d.data.type === 'domain') return stroke.domain;
+                    if (d.data.type === 'group') return stroke.group;
+                    return stroke.concept;
+                });
+
+            // Expand/collapse indicator
+            nodeEnter.filter(d => d.data.type !== 'concept')
+                .append('text')
+                .attr('class', 'expand-indicator')
+                .attr('x', 0)
+                .attr('y', 0)
+                .attr('dy', '0.35em')
+                .attr('text-anchor', 'middle')
+                .attr('fill', d => d.data.type === 'domain' ? '#fff' : '#333')
+                .attr('font-size', '10px')
+                .attr('font-weight', 'bold')
+                .attr('pointer-events', 'none')
+                .text(d => d._children ? '+' : (d.children ? '−' : ''));
+
+            // Node labels
+            nodeEnter.append('text')
+                .attr('dy', '0.35em')
+                .attr('x', d => {
+                    if (!d.data.type) return 14;
+                    if (d.data.type === 'domain') return 16;
+                    if (d.data.type === 'group') return 12;
+                    return 10;
+                })
+                .attr('text-anchor', 'start')
+                .attr('font-size', d => {
+                    if (!d.data.type) return '13px';
+                    if (d.data.type === 'domain') return '12px';
+                    if (d.data.type === 'group') return '10px';
+                    return '9px';
+                })
+                .attr('font-weight', d => {
+                    if (!d.data.type || d.data.type === 'domain') return '600';
+                    return '500';
+                })
+                .text(d => {
+                    const name = d.data.name;
+                    const maxLen = d.data.type === 'concept' ? 30 : 25;
+                    return name.length > maxLen ? name.substring(0, maxLen - 2) + '..' : name;
+                });
+
+            // Merge and transition nodes
+            const nodeUpdate = node.merge(nodeEnter);
+
+            nodeUpdate
+                .transition()
+                .duration(duration)
+                .attr('transform', d => `translate(${d.y + offsetX}, ${d.x + offsetY})`)
+                .attr('class', d => {
+                    let cls = 'tree-node';
+                    if (d.data.type) cls += ' tree-node-' + d.data.type;
+                    if (d._children) cls += ' collapsed';
+                    return cls;
+                });
+
+            // Update expand indicators
+            nodeUpdate.select('.expand-indicator')
+                .text(d => d._children ? '+' : (d.children ? '−' : ''));
+
+            // Exit nodes
+            const nodeExit = node.exit()
+                .transition()
+                .duration(duration)
+                .attr('transform', d => `translate(${source.y + offsetX}, ${source.x + offsetY})`)
+                .remove();
+
+            nodeExit.select('circle').attr('r', 0);
+            nodeExit.select('text').style('fill-opacity', 0);
+
+            // Store positions for transition
+            nodes.forEach(d => {
+                d.x0 = d.x;
+                d.y0 = d.y;
+            });
+        }
+
+        // Initial render
+        treeRoot.x0 = height / 2;
+        treeRoot.y0 = 0;
+        update(treeRoot);
+
+        // Reset zoom to identity (tree is already centered via offsetX/offsetY)
+        treeSvg.call(treeZoom.transform, d3.zoomIdentity);
+    }
+
     function renderTable() {
         const tbody = document.getElementById('tableBody');
         // Don't skip re-render when filtering
@@ -1357,8 +1677,11 @@
     // Zoom controls
     window.zoomIn = function() {
         const chartVisible = document.getElementById('chart').style.display !== 'none';
+        const treeVisible = document.getElementById('treeView').style.display !== 'none';
         if (chartVisible) {
             svg.transition().duration(300).call(zoom.scaleBy, 1.4);
+        } else if (treeVisible && treeSvg && treeZoom) {
+            treeSvg.transition().duration(300).call(treeZoom.scaleBy, 1.4);
         } else if (graphSvg && graphZoom) {
             graphSvg.transition().duration(300).call(graphZoom.scaleBy, 1.4);
         }
@@ -1366,8 +1689,11 @@
 
     window.zoomOut = function() {
         const chartVisible = document.getElementById('chart').style.display !== 'none';
+        const treeVisible = document.getElementById('treeView').style.display !== 'none';
         if (chartVisible) {
             svg.transition().duration(300).call(zoom.scaleBy, 0.7);
+        } else if (treeVisible && treeSvg && treeZoom) {
+            treeSvg.transition().duration(300).call(treeZoom.scaleBy, 0.7);
         } else if (graphSvg && graphZoom) {
             graphSvg.transition().duration(300).call(graphZoom.scaleBy, 0.7);
         }
@@ -1375,8 +1701,11 @@
 
     window.zoomReset = function() {
         const chartVisible = document.getElementById('chart').style.display !== 'none';
+        const treeVisible = document.getElementById('treeView').style.display !== 'none';
         if (chartVisible) {
             svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity);
+        } else if (treeVisible && treeSvg && treeZoom) {
+            treeSvg.transition().duration(300).call(treeZoom.transform, d3.zoomIdentity.translate(50, 0));
         } else if (graphSvg && graphZoom) {
             graphSvg.transition().duration(300).call(graphZoom.transform, d3.zoomIdentity);
         }

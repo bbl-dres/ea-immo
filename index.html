@@ -104,7 +104,7 @@
         }
 
 
-        #chart, #graphView {
+        #chart, #graphView, #treeView {
             position: fixed;
             top: 0;
             left: 0;
@@ -148,6 +148,60 @@
             fill-opacity: 0.06;
             stroke-width: 2;
             stroke-dasharray: 8,4;
+        }
+
+        /* ===========================================
+           TREE VIEW STYLES
+           =========================================== */
+        .tree-link {
+            fill: none;
+            stroke: #94a3b8;
+            stroke-width: 1.5;
+            stroke-opacity: 0.5;
+        }
+
+        .tree-node {
+            cursor: pointer;
+        }
+
+        .tree-node circle {
+            stroke-width: 1.5;
+            transition: var(--transition-fast);
+        }
+
+        .tree-node:hover circle {
+            filter: brightness(1.1);
+            stroke-width: 2;
+        }
+
+        .tree-node text {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-size: 11px;
+            fill: var(--text-primary);
+        }
+
+        .tree-node.collapsed circle {
+            stroke-dasharray: 3, 2;
+        }
+
+        .tree-node-domain circle {
+            stroke-width: 2;
+        }
+
+        .tree-node-group circle {
+            stroke-width: 1.5;
+        }
+
+        .tree-node-concept circle {
+            stroke-width: 1;
+        }
+
+        body.light-mode .tree-link {
+            stroke: #64748b;
+        }
+
+        body.light-mode .tree-node text {
+            fill: #1e293b;
         }
 
         /* ===========================================
@@ -1502,6 +1556,7 @@
         <div class="view-toggle">
             <button class="toggle-btn active" onclick="setView('chart')">Bubble Chart</button>
             <button class="toggle-btn" onclick="setView('graph')">Graph</button>
+            <button class="toggle-btn" onclick="setView('tree')">Baum</button>
             <button class="toggle-btn" onclick="setView('table')">Tabelle</button>
         </div>
         <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Theme wechseln">
@@ -1513,6 +1568,8 @@
     <svg id="chart"></svg>
 
     <svg id="graphView" style="display: none;"></svg>
+
+    <svg id="treeView" style="display: none;"></svg>
 
     <div id="tableView" class="table-container" style="display: none;">
         <table id="conceptTable">
