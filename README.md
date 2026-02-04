@@ -30,7 +30,7 @@ Die Priorisierung der Domänen folgt der [MoSCoW-Methode](https://de.wikipedia.o
 | [Finanzen](docs/Finanzen.md) | Buchhalterische und wirtschaftliche Perspektive | Soll | – | Zu definieren |
 | Controlling, Analytics und Reporting | Berichtswesen und Analysen | Soll | – | Zu definieren |
 | [Portfoliomanagement](docs/Portfoliomanagement.md) | Strategische Sicht auf das Immobilienportfolio | Kann | – | Zu definieren |
-| Objektmanagement | Technisches Gebäudemanagement ([GFB6](docs/Objektmanagement%20-%20GFB6%20Garantiemanagement.md), [GFW9](docs/Objektmanagement%20-%20GFW9%20Instandhaltung.md), [GFW12](docs/Objektmanagement%20-%20GFW12%20Reinigung.md)) | Kann | – | Entwurf |
+| Objektmanagement | Technisches Gebäudemanagement ([Garantiemanagement](docs/Objektmanagement%20-%20GFB6%20Garantiemanagement.md), [Instandhaltung](docs/Objektmanagement%20-%20GFW9%20Instandhaltung.md), [Reinigung](docs/Objektmanagement%20-%20GFW12%20Reinigung.md)) | Kann | – | Entwurf |
 | Baustellenmanagement | Bauausführung und Bauüberwachung | Kann | – | Zu definieren |
 | [Metadaten](docs/Metadaten.md) | Metadaten-Definitionen | – | – | Zu definieren |
 
@@ -64,6 +64,20 @@ Das konzeptionelle Datenmodell bildet die Grundlage für ein einheitliches Verst
 - **TOGAF** (The Open Group Architecture Framework) – Enterprise Architecture Standard
 - **[BK DTI Vorgaben](https://www.bk.admin.ch/bk/de/home/digitale-transformation-ikt-lenkung/vorgaben.html)** – IKT-Vorgaben des Bereichs DTI der Bundeskanzlei
 - **[eCH-0122](https://www.ech.ch/de/ech/ech-0122/2.0.0)** – Architektur E-Government Schweiz
+
+## Repository-Struktur
+
+```
+ea-immo/
+├── assets/       Bilder und Medien für README und Dokumentation
+├── data/         JSON-Daten für die interaktive Visualisierung
+├── docs/         Domänen-Dokumentationen (Markdown)
+├── pdf/          PDF-Exporte der Dokumentation
+├── scripts/      Python-Scripts für Datenverarbeitung
+├── app.js        D3.js Visualisierungslogik
+├── index.html    Interaktive Web-Applikation
+└── README.md     Projektdokumentation
+```
 
 ## Migration
 
