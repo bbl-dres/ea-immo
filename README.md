@@ -20,6 +20,8 @@ Dieses Repository definiert zentrale Geschäftsobjekte (Gebäude, Räume, Mietve
 
 Die Priorisierung der Domänen folgt der [MoSCoW-Methode](https://de.wikipedia.org/wiki/MoSCoW-Priorisierung) (Must / Should / Could / Won't).
 
+> **Hinweis:** Diese Visualisierung enthält Mockup- und Test-/Arbeitsdaten.
+
 | Domäne | Beschreibung | Priorität | Konzepte | Status |
 |--------|--------------|-----------|----------|--------|
 | [Bauliche Struktur](docs/Architektonische%20Sicht.md) | Physische Strukturen (Grundstücke, Gebäude, Räume, Anlagen) | Muss | 48 | Definiert |
@@ -84,3 +86,5 @@ ea-immo/
 ## Migration
 
 Confluence-Export zu Markdown: siehe [scripts/README.md](scripts/README.md)
+
+> **Hinweis:** Diese Visualisierung enthält Mockup- und Test-/Arbeitsdaten.
