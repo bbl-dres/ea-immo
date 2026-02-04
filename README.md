@@ -1,4 +1,4 @@
-# EA-IMMO - Fachliche Sicht Immobilien BBL
+# EA-IMMO - Konzeptuelles Datenmodell (Fachliche Sicht) Immobilien BBL
 
 Einheitliches Datenmodell und Geschäftsobjekte für das Immobilienmanagement des BBL (Bundesamt für Bauten und Logistik).
 
